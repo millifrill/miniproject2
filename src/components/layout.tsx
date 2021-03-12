@@ -1,7 +1,8 @@
-import React, { Component, CSSProperties } from 'react';
-import Header from 
-
-interface Props {}
+import React, { Component, CSSProperties,  } from 'react';
+import Footer from './Footer'
+interface Props {
+    
+}
 
 interface State {}
 
