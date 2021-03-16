@@ -1,11 +1,21 @@
 import React from 'react';
+import { Component } from 'react';
 
 
+interface Props {
+    
+}
 
-export default function DetailedView() {
-    return(
-        <div>
-            
-        </div>
-    )
+interface State {}
+
+
+export default class DetailedView extends Component<Props, State> {
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        );
+    }
 }
