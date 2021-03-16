@@ -1,6 +1,6 @@
 import React, { Component, CSSProperties,  } from 'react';
 import Footer from './Footer'
-import SearchAppBar from './header'
+import Header from './header'
 
 interface Props {
     
@@ -13,7 +13,7 @@ export default class Layout extends Component<Props, State> {
     render() {
         return (
             <div>
-                <SearchAppBar/>
+                <Header/>
                 <Footer/>
             </div>
         );
