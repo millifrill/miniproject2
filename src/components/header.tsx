@@ -7,6 +7,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from '@material-ui/core/Badge';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -89,6 +91,12 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          {/* <IconButton aria-label="cart">
+          <ShoppingCartIcon />
+          </IconButton> */}
+          <Badge color="error" badgeContent={0} showZero>
+        <ShoppingCartIcon />
+      </Badge>
           <IconButton
             edge="end"
             className={classes.menuButton}

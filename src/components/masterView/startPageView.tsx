@@ -1,12 +1,22 @@
-import { CSSProperties } from 'react';
+import { Component, CSSProperties } from 'react';
 
-export default function StartPageView() {
-    return(
-        <div style= {starta}><h1>sadadad</h1></div>
-    )
-}
-const starta: CSSProperties ={
-  
-    minHeight:'100vh',
+interface Props {
     
+}
+
+interface State {}
+
+const viewHeigt: CSSProperties ={
+    minHeight:'100vh',
   }
+
+export default class StartPageView extends Component<Props, State> {
+
+    render() {
+        return (
+            <div style= {viewHeigt}>
+
+            </div>
+        );
+    }
+}
