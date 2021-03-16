@@ -1,8 +1,6 @@
 import React, { CSSProperties } from 'react';
 
 
-
-
 function Footer() {
   return(
     <div >

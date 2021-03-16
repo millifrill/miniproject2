@@ -1,6 +1,7 @@
 import React, { Component, CSSProperties,  } from 'react';
-import Footer from './Footer'
+import Footer from './footer'
 import Header from './header'
+import StartPageView from './masterView/startPageView'
 
 interface Props {
     
@@ -14,6 +15,7 @@ export default class Layout extends Component<Props, State> {
         return (
             <div>
                 <Header/>
+                <StartPageView/>
                 <Footer/>
             </div>
         );
