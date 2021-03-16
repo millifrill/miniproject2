@@ -1,5 +1,5 @@
-import React, { Component, CSSProperties } from 'react';
-import Header from 
+import React, { Component } from 'react';
+import Header from './header';
 
 interface Props {}
 
@@ -10,17 +10,8 @@ export default class Layout extends Component<Props, State> {
     render() {
         return (
             <div>
-                <header/>
+                <Header/>
             </div>
         );
     }
-}
-
-const columnFlex: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-};
-
-const background: CSSProperties = {
-    background: '#1f1f1f'
 }
