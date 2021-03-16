@@ -1,5 +1,7 @@
 import React, { Component, CSSProperties,  } from 'react';
 import Footer from './Footer'
+import SearchAppBar from './header'
+import app from './app'
 interface Props {
     
 }
@@ -11,17 +13,8 @@ export default class Layout extends Component<Props, State> {
     render() {
         return (
             <div>
-                <header/>
+                <SearchAppBar/>
             </div>
         );
     }
-}
-
-const columnFlex: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-};
-
-const background: CSSProperties = {
-    background: '#1f1f1f'
 }
