@@ -5,3 +5,4 @@ export default function infoText() {
         <div></div>
     )
 }
+// byt name till produktContainer. läg till saker här
