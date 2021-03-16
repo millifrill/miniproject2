@@ -1,13 +1,26 @@
-import React from 'react';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
+import React, { CSSProperties } from 'react';
+
+
 
 
 function Footer() {
   return(
-      <div>
-          <h1>hej på dig</h1>
+    <div >
+      <div style= {footer}>
+      <h1>hej på dig</h1>
+      </div>
       </div>
   )
 }
 
 export default Footer;
+
+const footer: CSSProperties ={
+  
+  display: 'flex',
+  flexDirection: 'column',
+  background: 'lightgray',
+  marginTop: 'auto'
+  
+  
+}
