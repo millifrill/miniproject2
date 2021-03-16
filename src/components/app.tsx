@@ -1,11 +1,15 @@
 import React from 'react';
 import Layout from './layout';
 
+
 function App() {
    return(
-      <Layout />
+       <div>
+           <Layout />
+       </div>
    );
 }
 
 export default App;
+
 
