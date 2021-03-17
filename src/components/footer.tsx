@@ -15,7 +15,7 @@ export default Footer;
 const footer: CSSProperties = {
    display: 'flex',
    justifyContent: 'center',
-   alignContent: 'center',
+   alignItems: 'center',
    flexDirection: 'column',
    background: 'lightgray',
    marginTop: 'auto',

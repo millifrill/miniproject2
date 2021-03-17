@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties,  } from 'react';
+import React, { Component } from 'react';
 import Footer from './footer'
 import Header from './header'
 import StartPageView from './masterView/startPageView'
