@@ -4,35 +4,115 @@ export interface Product {
     title: string;
     image: string;
     description: string;
+    color: string;
     price: number;
 }
 
+// FÖRSLAG PÅ PRODUKT TEXT
+// Blommar rikligt och är en vacker och lättplacerad dahlia.
+// Mycket hållbar och mycket lämplig snittblomma.
+// En fantastiskt ståtlig dahlia. 
+// En graciös skönhet.
+// Utmärkt som snittblomma!
+// Stora och välfyllda blommor.
+// Läckert rufsig dahlia och ljuvligt tvåfärgad.
+// Ljuvliga små bollar.
+// Lågväxande dekorativa dahlior, som är på gränsen till boll, är ovanligt. 
+// Denna är utmärkt för krukor och lådor.
+// Mörkt bladverk.
+// Blommor med en något djupare och mörkare ton på undersidan av kronbladen gör att den får lite av en tvåfärgseffekt. 
+// En snöstorm är lika rent vit som denna dahlia, bortsett från den rena vitheten är det inte mycket som för tankarna till vintern - tvärtom. Utmärkt till snitt.
+// xxx är en bolldahlia med en perfekt form och riklig blomning. Som snittblomma står den sig länge.
+// xxx en av de större dahliorna.
+// xxx är en dekorativ dvärgdahlia. Lågväxande och lämplig för kruka.
+
+
 export const products: Product[] = [{ 
     id: 0,
-    category: 'pompom',
-    title: 'string',
-    image: 'string',
-    description: 'string',
+    category: 'boll',
+    title: 'beata',
+    image: '',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'orange',
     price: 35,
 }, {
     id: 1,
-    category: 'blå',
+    category: 'boll',
     title: 'string',
     image: 'string',
-    description: 'string',
-    price: 25,
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia.',
+    color: 'string',
+    price: 35,
 }, {
     id: 2,
-    category: 'blå',
+    category: 'boll',
     title: 'string',
     image: 'string',
-    description: 'string',
-    price: 25,
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
 }, {
     id: 3,
-    category: 'blå',
+    category: 'boll',
     title: 'string',
     image: 'string',
-    description: 'string',
-    price: 25,
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 4,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 5,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 6,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 7,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 8,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 9,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    color: 'string',
+    price: 35,
+}, {
+    id: 10,
+    category: 'boll',
+    title: 'string',
+    image: 'string',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia.',
+    color: 'string',
+    price: 35,
 }]
