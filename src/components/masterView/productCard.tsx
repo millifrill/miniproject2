@@ -45,10 +45,10 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
       </CardActionArea>
       <CardActions>
         <Button onClick={() => handleAddToCart(product)} size="small" color="primary">
-          Add to cart
+          Köp
         </Button>
         <Button size="small" color="primary">
-          Read More
+          Mer info
         </Button>
       </CardActions>
     </Card>
