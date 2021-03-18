@@ -48,7 +48,7 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
           Add to cart
         </Button>
         <Button size="small" color="primary">
-          Learn More
+          Read More
         </Button>
       </CardActions>
     </Card>
