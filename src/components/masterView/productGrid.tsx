@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { products } from '../mockedProducts';
+import ProductCard from './productCard';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,7 +40,14 @@ export default function ProductGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} wrap="wrap">
+        {products.map(p => (
+          <Grid item xs={4}>
+            <ProductCard product={p} handleAddToCart={() => {}}/>
+          </Grid>
+        ))}
+        
+        
         <Grid container item xs={12} spacing={3}>
           <FormRow />
         </Grid>

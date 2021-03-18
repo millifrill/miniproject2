@@ -7,13 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-// Types 
-import { CartItemType } from '../app';
+import { Product } from '../mockedProducts';
 
 type Props = {
-    item: CartItemType;
-    handleAddToCart: (clickedItem: CartItemType) => void;
+    product: Product;
+    handleAddToCart: (product: Product) => void;
 }
 
 const useStyles = makeStyles({
@@ -24,10 +22,11 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
-const classes = useStyles();
 
-const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
-   
+const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
+  const classes = useStyles();
+  
+  return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -37,15 +36,15 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {item.title}
+            {product.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {item.description}
+            {product.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={() => handleAddToCart(item)} size="small" color="primary">
+        <Button onClick={() => handleAddToCart(product)} size="small" color="primary">
           Add to cart
         </Button>
         <Button size="small" color="primary">
@@ -54,8 +53,9 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
       </CardActions>
     </Card>
   );
+}
 
-export default Item;
+export default ProductCard;
 
 
 
