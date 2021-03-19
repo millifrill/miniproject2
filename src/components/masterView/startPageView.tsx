@@ -24,12 +24,7 @@ export default class StartPageView extends Component<Props, State> {
    render() {
       return (
          <div style={viewHeigt}>
-            <img
-               src={karusell} // https://live.staticflickr.com/3709/9539174347_6f760cfa7e_b.jpg
-               alt="dahlia"
-               width="300"
-               height="400"
-            />;
+            <img src={karusell} alt="dahlia" width="auto" height="400" />
             <ProductGrid />
          </div>
       );

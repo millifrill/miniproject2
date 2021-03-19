@@ -6,7 +6,6 @@ import Header from './header'
 import StartPageView from './masterView/startPageView'
 
 interface Props {
-//   image: string;  
 }
 
 interface State {}
