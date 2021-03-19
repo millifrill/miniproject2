@@ -20,7 +20,7 @@ export default class StartPageView extends Component<Props, State> {
       return (
          <div style={viewHeigt}>
             <img
-               src="https://live.staticflickr.com/3709/9539174347_6f760cfa7e_b.jpg"
+               src="karusell.jpg" // https://live.staticflickr.com/3709/9539174347_6f760cfa7e_b.jpg
                alt="dahlia"
                width="300"
                height="400"

@@ -43,7 +43,7 @@ export default function ProductGrid() {
       <Grid container spacing={1} wrap="wrap">
         {products.map(p => (
           <Grid item xs={4}>
-            <ProductCard product={p} handleAddToCart={() => {}}/>
+            <ProductCard products={p} handleAddToCart={() => {}}/>
           </Grid>
         ))}
         

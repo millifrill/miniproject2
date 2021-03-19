@@ -1,3 +1,5 @@
+import beata from '/assets/images/beata.jpg'
+
 export interface Product {
     id: number;
     category: string;
@@ -26,27 +28,26 @@ export interface Product {
 // xxx en av de större dahliorna.
 // xxx är en dekorativ dvärgdahlia. Lågväxande och lämplig för kruka.
 
-
 export const products: Product[] = [{ 
     id: 0,
     category: 'boll',
-    title: 'beata',
-    image: '',
+    title: 'Beata',
+    image: '/assets/images/boll/beata.jpg',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'orange',
     price: 35,
 }, {
     id: 1,
     category: 'boll',
-    title: 'string',
-    image: 'string',
-    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia.',
+    title: 'Bonita',
+    image: '/assets/images/boll/bonita.jpg',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Utmärkt som snittblomma!',
     color: 'string',
     price: 35,
 }, {
     id: 2,
     category: 'boll',
-    title: 'string',
+    title: 'Casy Marilyn',
     image: 'string',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'string',
@@ -54,7 +55,7 @@ export const products: Product[] = [{
 }, {
     id: 3,
     category: 'boll',
-    title: 'string',
+    title: 'Gipzy Night',
     image: 'string',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'string',
@@ -62,23 +63,23 @@ export const products: Product[] = [{
 }, {
     id: 4,
     category: 'boll',
-    title: 'string',
+    title: 'Isabella',
     image: 'string',
-    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Utmärkt som snittblomma! ',
     color: 'string',
     price: 35,
 }, {
     id: 5,
     category: 'boll',
-    title: 'string',
+    title: 'Jolinda',
     image: 'string',
-    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Utmärkt som snittblomma! ',
     color: 'string',
     price: 35,
 }, {
     id: 6,
     category: 'boll',
-    title: 'string',
+    title: 'Jowey Hillson',
     image: 'string',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'string',
@@ -86,7 +87,7 @@ export const products: Product[] = [{
 }, {
     id: 7,
     category: 'boll',
-    title: 'string',
+    title: 'Low Sunset',
     image: 'string',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'string',
@@ -94,15 +95,15 @@ export const products: Product[] = [{
 }, {
     id: 8,
     category: 'boll',
-    title: 'string',
+    title: 'Master George',
     image: 'string',
-    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Utmärkt som snittblomma! ',
     color: 'string',
     price: 35,
 }, {
     id: 9,
     category: 'boll',
-    title: 'string',
+    title: 'Mirabelle',
     image: 'string',
     description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. ',
     color: 'string',
@@ -110,9 +111,9 @@ export const products: Product[] = [{
 }, {
     id: 10,
     category: 'boll',
-    title: 'string',
+    title: 'Seft Silvertop',
     image: 'string',
-    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia.',
+    description: 'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma.',
     color: 'string',
     price: 35,
 }]
