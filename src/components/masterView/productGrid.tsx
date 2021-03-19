@@ -6,58 +6,58 @@ import { products } from '../mockedProducts';
 import ProductCard from './productCard';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      marginBlockStart: '2rem',
-    },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  }),
+   createStyles({
+      root: {
+         flexGrow: 1,
+         maxWidth: '60rem',
+         marginBlockStart: '2rem',
+      },
+      paper: {
+         padding: theme.spacing(1),
+         textAlign: 'center',
+         color: theme.palette.text.secondary,
+      },
+   }),
 );
 
 export default function ProductGrid() {
-  const classes = useStyles();
+   const classes = useStyles();
 
-  function FormRow() {
-    return (
-      <React.Fragment>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid>
-      </React.Fragment>
-    );
-  }
+   function FormRow() {
+      return (
+         <React.Fragment>
+            <Grid item xs={4}>
+               <Paper className={classes.paper}></Paper>
+            </Grid>
+            <Grid item xs={4}>
+               <Paper className={classes.paper}></Paper>
+            </Grid>
+            <Grid item xs={4}>
+               <Paper className={classes.paper}></Paper>
+            </Grid>
+         </React.Fragment>
+      );
+   }
 
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={1} wrap="wrap">
-        {products.map(p => (
-          <Grid item xs={4}>
-            <ProductCard product={p} handleAddToCart={() => {}}/>
-          </Grid>
-        ))}
-        
-        
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
-        </Grid>
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
-        </Grid>
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
-        </Grid>
-      </Grid>
-    </div>
-  );
+   return (
+      <div className={classes.root}>
+         <Grid container spacing={1} wrap="wrap">
+            {products.map((p) => (
+               <Grid item xs={4}>
+                  <ProductCard products={p} handleAddToCart={() => {}} handleReadMore={() => {}} />
+               </Grid>
+            ))}
+
+            <Grid container item xs={12} spacing={3}>
+               <FormRow />
+            </Grid>
+            <Grid container item xs={12} spacing={3}>
+               <FormRow />
+            </Grid>
+            <Grid container item xs={12} spacing={3}>
+               <FormRow />
+            </Grid>
+         </Grid>
+      </div>
+   );
 }
