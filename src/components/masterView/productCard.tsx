@@ -1,4 +1,3 @@
-// import Button from 'material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -8,22 +7,35 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Product } from '../mockedProducts';
-import beata from '../../src/assets/images/boll/beata.jpg'
-
 
 type Props = {
    products: Product;
    handleAddToCart: (products: Product) => void;
+   handleReadMore: () => void;
 };
 
 const useStyles = makeStyles({
    root: {
       maxWidth: 345,
    },
-   media: {
-      height: 140,
+   img: {
+      height: 300,
+      width: 300,
+      margin: '1rem',
+      textAlign: 'center',
+   },
+   title: {
+      textAlign: 'left',
+      margin: '0.3rem',
+   },
+   text: {
+      textAlign: 'left',
+      margin: '0.3rem',
+      marginTop: '0.5rem',
    },
 });
+
+const handleReadMore = () => {};
 
 const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
    const classes = useStyles();
@@ -31,21 +43,38 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
    return (
       <Card className={classes.root}>
          <CardActionArea>
-            <CardMedia
-              //  className={classes.media}
-              //  image="/static/images/cards/contemplative-reptile.jpg"
-              //  title="Contemplative Reptile"
+            <CardMedia />
+            <img
+               className={classes.img}
+               src={products.image}
+               alt="Dahlia blomma"
+               height="300"
+               width="300"
             />
-            <img src={products.image} alt="Dahlia blomma"/>
             <CardContent>
-               <Typography gutterBottom variant="h5" component="h2">
+               <Typography
+                  className={classes.title}
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+               >
                   {products.title}
                </Typography>
-               <Typography variant="body2" color="textSecondary" component="p">
+               <Typography
+                  className={classes.text}
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+               >
                   {products.description}
                </Typography>
-               <Typography variant="body2" color="textSecondary" component="p">
-                  {products.price}
+               <Typography
+                  className={classes.text}
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+               >
+                  {products.price}kr
                </Typography>
             </CardContent>
          </CardActionArea>
@@ -57,7 +86,9 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
             >
                Köp
             </Button>
-            <Button size="small" color="primary">
+            <Button onClick={handleReadMore}
+            size="small" 
+            color="primary">
                Mer info
             </Button>
          </CardActions>
@@ -66,3 +97,5 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
 };
 
 export default ProductCard;
+
+
