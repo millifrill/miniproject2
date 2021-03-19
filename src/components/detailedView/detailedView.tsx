@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Product } from '../mockedProducts';
+import ProductContainer from './productContainer'
 
 interface Props {
    products: Product;
@@ -9,11 +10,12 @@ interface Props {
 interface State {}
 
 export default class DetailedView extends Component<Props, State> {
-   render() {
-      return (
-         <div>
-            {/* <ProductContainer /> */}
-         </div>
-      );
-   }
+
+    render() {
+        return (
+            <div>
+                <ProductContainer />
+            </div>
+        );
+    }
 }

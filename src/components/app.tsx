@@ -1,5 +1,8 @@
 import Layout from './layout';
 import { Product } from './mockedProducts';
+import beata from './src/assets/images/boll/beata.jpg'
+import { BrowserRouter } from 'react-router-dom'
+
 
 // Types
 export interface CartItemType extends Product {
@@ -18,10 +21,10 @@ const handleAddToCart = (clickedItem: CartItemType) => null;
 // const handleRemoveFromCart = () => null;
 
 function App() {
-   return (
-      <div>
-         <Layout />
-      </div>
+   return(
+       <BrowserRouter>
+           <Layout />
+       </BrowserRouter>
    );
 }
 

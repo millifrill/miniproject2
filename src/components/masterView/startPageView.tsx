@@ -1,5 +1,8 @@
 import { Component, CSSProperties } from 'react';
 import ProductGrid from './productGrid';
+import ProductCard from './productCard';
+import { Product } from '../mockedProducts';
+// import dahliaCollage from '/assets/dahliaCollage.jpg';
 import karusell from '../../assets/images/karusell/karusell.jpg';
 
 interface Props {
