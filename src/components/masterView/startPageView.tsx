@@ -1,8 +1,13 @@
 import { Component, CSSProperties } from 'react';
 import ProductGrid from './productGrid';
+import ProductCard from './productCard';
+import { Product } from '../mockedProducts';
 // import dahliaCollage from '/assets/dahliaCollage.jpg';
+import karusell from 'karusell.jpg';
 
-interface Props {}
+interface Props {
+   // image: string;
+}
 
 interface State {}
 
@@ -20,11 +25,11 @@ export default class StartPageView extends Component<Props, State> {
       return (
          <div style={viewHeigt}>
             <img
-               src="karusell.jpg" // https://live.staticflickr.com/3709/9539174347_6f760cfa7e_b.jpg
+               src="{props.image}" // https://live.staticflickr.com/3709/9539174347_6f760cfa7e_b.jpg
                alt="dahlia"
                width="300"
                height="400"
-            ></img>
+            />;
             <ProductGrid />
          </div>
       );

@@ -4,7 +4,7 @@ import Header from './header'
 import StartPageView from './masterView/startPageView'
 
 interface Props {
-    
+//   image: string;  
 }
 
 interface State {}
@@ -15,7 +15,7 @@ export default class Layout extends Component<Props, State> {
         return (
             <div>
                 <Header/>
-                <StartPageView/>
+                <StartPageView />
                 <Footer/>
             </div>
         );

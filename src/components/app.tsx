@@ -9,6 +9,10 @@ export interface CartItemType extends Product {
    quantity: number;
 };
 
+// interface Props {
+//     image: string;
+//  }
+
 // const getTotalItems = () => null;
 
 // const handleAddToCart = (clickedItem: CartItemType) => null;
