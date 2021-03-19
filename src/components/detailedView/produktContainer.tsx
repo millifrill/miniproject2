@@ -27,11 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title:{
       font: '2rem',
-      height: '6rem',
+      height: '4rem',
     },
-    price:{
-      height: '5rem',
-    },
+  
     img: {
       margin: 'auto',
       display: 'block',
@@ -70,7 +68,7 @@ const ProductContainer: React.FC = () => {
                 <Typography className={classes.title} gutterBottom variant="h3" component="h5">
                   {product.title}
                 </Typography>
-                <Typography className={classes.price} variant="h6" gutterBottom component="h4">
+                <Typography variant="h6" gutterBottom component="h4">
                  {product.description}
                 </Typography>
                 <Typography  variant="h6" color="textSecondary" component="p">
