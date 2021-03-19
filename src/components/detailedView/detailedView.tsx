@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { Product } from '../mockedProducts';
-import ProduktContainer from './produktContainer'
+import ProductContainer from './produktContainer'
 
 interface Props {
     products: Product;
@@ -16,7 +16,7 @@ export default class DetailedView extends Component<Props, State> {
     render() {
         return (
             <div>
-                <ProduktContainer />
+                <ProductContainer />
             </div>
         );
     }
