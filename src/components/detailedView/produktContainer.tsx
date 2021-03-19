@@ -5,15 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
-import { Product } from '../mockedProducts';
-
-type Props = {
-  products: Product;
-  handleAddToCart: (products: Product) => void;
-}
-
-// const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
-//   const classes = useStyles();
+import { Product, products } from '../mockedProducts';
+import { useRouteMatch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,13 +17,20 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       margin: 'auto',
-      maxWidth: '50rem',
+      maxWidth: '60rem',
       height: 'auto',
       width: 'auto',
     },
     image: {
       width: '20rem',
       height: '20rem',
+    },
+    title:{
+      font: '2rem',
+      height: '6rem',
+    },
+    price:{
+      height: '5rem',
     },
     img: {
       margin: 'auto',
@@ -41,8 +41,19 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
  
-const ProduktContainer: React.FC<Props> = ({ products, handleAddToCart }) => {
- const classes = useStyles();
+const ProductContainer: React.FC = () => {
+  const classes = useStyles();
+  const match = useRouteMatch<{ id: string }>();
+
+  const product = products.find(p => String(p.id) === match.params.id)
+
+  const handleAddToCart = () => {
+    // todo....
+  }
+
+  if (!product) {
+    return <p>"Produkt du letar efter finns inte... 404"</p>
+  }
 
   return (
     <div className={classes.root}>
@@ -56,19 +67,19 @@ const ProduktContainer: React.FC<Props> = ({ products, handleAddToCart }) => {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  {products.title}
+                <Typography className={classes.title} gutterBottom variant="h3" component="h5">
+                  {product.title}
                 </Typography>
-                <Typography variant="body2" gutterBottom>
-                 {products.description}
+                <Typography className={classes.price} variant="h6" gutterBottom component="h4">
+                 {product.description}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {products.price}
+                <Typography  variant="h6" color="textSecondary" component="p">
+                  {product.price} kr
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                <Button onClick={() => handleAddToCart(products)} variant="contained" color="primary">
+                <Button onClick={handleAddToCart} variant="contained" color="primary">
                  läg till kundvägen</Button> 
                 </Typography>
               </Grid>
@@ -79,4 +90,4 @@ const ProduktContainer: React.FC<Props> = ({ products, handleAddToCart }) => {
     </div>
   );
 }
-export default ProduktContainer;
+export default ProductContainer;

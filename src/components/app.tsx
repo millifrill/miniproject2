@@ -2,6 +2,7 @@
 import Layout from './layout';
 import { Product } from './mockedProducts';
 import beata from './src/assets/images/boll/beata.jpg'
+import { BrowserRouter } from 'react-router-dom'
 
 
 // Types
@@ -21,9 +22,9 @@ export interface CartItemType extends Product {
 
 function App() {
    return(
-       <div>
+       <BrowserRouter>
            <Layout />
-       </div>
+       </BrowserRouter>
    );
 }
 
