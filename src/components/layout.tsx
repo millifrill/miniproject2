@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ProductContainer from './detailedView/produktContainer';
+import ProductContainer from './detailedView/productContainer';
 import Footer from './footer'
 import Header from './header'
 import StartPageView from './masterView/startPageView'

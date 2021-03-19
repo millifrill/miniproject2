@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Product } from '../mockedProducts';
-import ProductContainer from './produktContainer'
+import ProductContainer from './productContainer'
 
 interface Props {
    products: Product;
