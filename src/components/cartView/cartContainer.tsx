@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 'auto',
     },
     image: {
-      width: '20rem',
-      height: '20rem',
+      width: '5rem',
+      height: '5rem',
     },
     title:{
       font: '2rem',
