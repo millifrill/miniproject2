@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
-import { Product, products } from '../mockedProducts';
+import { products } from '../mockedProducts';
 import { useRouteMatch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -78,7 +78,7 @@ const ProductContainer: React.FC = () => {
               <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
                 <Button onClick={handleAddToCart} variant="contained" color="primary">
-                 läg till kundvägen</Button> 
+                 Köp</Button> 
                 </Typography>
               </Grid>
             </Grid>
