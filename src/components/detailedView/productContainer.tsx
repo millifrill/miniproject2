@@ -7,6 +7,8 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
 import { products } from '../mockedProducts';
 import { useRouteMatch } from 'react-router-dom';
+import { MenuItem } from '@material-ui/core';
+import { Select } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,6 +47,12 @@ const ProductContainer: React.FC = () => {
 
   const product = products.find(p => String(p.id) === match.params.id)
 
+  const [quantity, setQuantity] = React.useState('');
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setQuantity(event.target.value as string);
+ };
+
   const handleAddToCart = () => {
     // todo....
   }
@@ -76,7 +84,31 @@ const ProductContainer: React.FC = () => {
                 </Typography>
               </Grid>
               <Grid item>
+                
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                <Select
+                     labelId="demo-simple-select-outlined-label"
+                     id="demo-simple-select-outlined"
+                     label="Antal" 
+                     value={quantity}
+                      onChange={handleChange}>
+                       
+                     <MenuItem value="">
+                        <em>None</em>
+                     </MenuItem>
+                     <MenuItem value={10}>0</MenuItem>
+                     <MenuItem value={20}>1</MenuItem>
+                     <MenuItem value={30}>2</MenuItem>
+                     <MenuItem value={30}>3</MenuItem>
+                     <MenuItem value={30}>4</MenuItem>
+                     <MenuItem value={30}>5</MenuItem>
+                     <MenuItem value={30}>6</MenuItem>
+                     <MenuItem value={30}>7</MenuItem>
+                     <MenuItem value={30}>8</MenuItem>
+                     <MenuItem value={30}>9</MenuItem>
+                     <MenuItem value={30}>10</MenuItem>
+                     <MenuItem value={30}>11</MenuItem>
+                  </Select>
                 <Button onClick={handleAddToCart} variant="contained" color="primary">
                  Köp</Button> 
                 </Typography>
