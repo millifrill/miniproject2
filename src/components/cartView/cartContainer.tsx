@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       height: '100vh',
     },
-    paper: {
+    papers: {
       padding: theme.spacing(2),
       margin: 'auto',
       maxWidth: '60rem',
@@ -38,6 +38,14 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: theme.spacing(1),
         minWidth: 80,
      },
+     paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: 'auto',
+      maxWidth: '60rem',
+      
+    },
   }),
 );
 
@@ -50,8 +58,13 @@ export default function Cart() {
      setQuantity(event.target.value as string);
   };
   return (
+
+
     <div className={classes.root}>
-      <Paper className={classes.paper}>
+         <Grid  className={classes.papers} item xs={12}>
+          <Paper className={classes.paper}>Produckt| Pris | Antal | </Paper>
+        </Grid>
+      <Paper className={classes.papers}>
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
