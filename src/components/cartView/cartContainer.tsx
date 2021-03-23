@@ -38,6 +38,12 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: theme.spacing(1),
         minWidth: 80,
      },
+     textstyle:{
+      justifyContent: 'space-between',
+      display: 'flex',
+      textAlign: 'center',
+      
+    },
      paper: {
       padding: theme.spacing(2),
       textAlign: 'center',
@@ -45,6 +51,15 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 'auto',
       maxWidth: '60rem',
       
+    },
+    paperstyle: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: 'auto',
+      height:'auto',
+     
+
     },
   }),
 );
@@ -61,8 +76,8 @@ export default function Cart() {
 
 
     <div className={classes.root}>
-         <Grid  className={classes.papers} item xs={12}>
-          <Paper className={classes.paper}>Produckt| Pris | Antal | </Paper>
+         <Grid  className={classes.paper} item xs={12}>
+          <Paper className={classes.paper}><div className={classes.textstyle}>Produckt| Pris | Antal |</div> </Paper>
         </Grid>
       <Paper className={classes.papers}>
         <Grid container spacing={2}>
