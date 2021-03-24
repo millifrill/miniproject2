@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { Product } from '../mockedProducts';
+// import { Product } from '../mockedProducts';
 import ProductContainer from './productContainer';
 
 interface Props {
