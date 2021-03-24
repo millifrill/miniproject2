@@ -1,21 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { products } from '../mockedProducts';
 import ProductCard from './productCard';
+
+interface Props {
+   id: string
+}
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
       root: {
          flexGrow: 1,
-         maxWidth: '60rem',
+         flexBasis: 0,
+         maxWidth: '70rem',
          marginBlockStart: '2rem',
       },
-      paper: {
-         padding: theme.spacing(1),
-         textAlign: 'center',
-         color: theme.palette.text.secondary,
+      gridItem: {
+         width: '20rem',
       },
    }),
 );
@@ -23,40 +25,18 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function ProductGrid() {
    const classes = useStyles();
 
-   function FormRow() {
-      return (
-         <React.Fragment>
-            <Grid item xs={4}>
-               <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={4}>
-               <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={4}>
-               <Paper className={classes.paper}></Paper>
-            </Grid>
-         </React.Fragment>
-      );
-   }
-
    return (
       <div className={classes.root}>
-         <Grid container spacing={1} wrap="wrap">
-            {products.map((p) => (
-               <Grid item xs={4}>
-                  <ProductCard products={p} handleAddToCart={() => {}} handleReadMore={() => {}} />
+         <Grid container spacing={2} wrap="wrap">
+            {products.map((product) => (
+               <Grid item className={classes.gridItem} sm={12} md={6} lg={4}>
+                  <ProductCard
+                     product={product}
+                     handleAddToCart={() => {}}
+                     handleReadMore={() => {}}
+                  />
                </Grid>
             ))}
-
-            <Grid container item xs={12} spacing={3}>
-               <FormRow />
-            </Grid>
-            <Grid container item xs={12} spacing={3}>
-               <FormRow />
-            </Grid>
-            <Grid container item xs={12} spacing={3}>
-               <FormRow />
-            </Grid>
          </Grid>
       </div>
    );
