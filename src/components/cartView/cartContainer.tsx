@@ -1,143 +1,64 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import { Button, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      height: '100vh',
-    },
-    papers: {
-      padding: theme.spacing(2),
-      margin: 'auto',
-      maxWidth: '60rem',
-      height: 'auto',
-      width: 'auto',
-    },
-    image: {
-      width: '5rem',
-      height: '5rem',
-    },
-    title:{
-      font: '2rem',
-      height: '4rem',
-    },
-  
-    img: {
-      margin: 'auto',
-      display: 'block',
-      maxWidth: '100%',
-      maxHeight: '100%',
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 80,
-     },
-     textstyle:{
-      justifyContent: 'space-between',
-      display: 'flex',
-      textAlign: 'center',
-      
-    },
-     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      width: 'auto',
-      maxWidth: '60rem',
-      
-    },
-    paperstyle: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      width: 'auto',
-      height:'auto',
-     
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+    
+  },
+  mainstyle:{
+    height: '100vh',
+  },
+});
 
-    },
-  }),
-);
+function createData(name: string, Products: number, Pris: number, Antal: number, protein: number) {
+  return { name, Products,  Pris, Antal, protein };
+}
 
-export default function Cart() {
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+
+];
+
+export default function BasicTable() {
   const classes = useStyles();
 
-  const [quantity, setQuantity] = React.useState('');
-
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-     setQuantity(event.target.value as string);
-  };
   return (
-
-
-    <div className={classes.root}>
-         <Grid  className={classes.paper} item xs={12}>
-          <Paper className={classes.paper}><div className={classes.textstyle}>Produckt| Pris | Antal |</div> </Paper>
-        </Grid>
-      <Paper className={classes.papers}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-            <img className={classes.img} src="https://live.staticflickr.com/3727/9541317886_bbaf9957ed_b.jpg" alt="Dahlias"></img>
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  Produt Name
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  
-                </Typography>
-         
-              </Grid>
-              <Grid item>
-              <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">
-                     1
-                  </InputLabel>
-                  <Select
-                     labelId="demo-simple-select-outlined-label"
-                     id="demo-simple-select-outlined"
-                     value={quantity}
-                     onChange={handleChange}
-                     label="Antal"
-                  >
-                     <MenuItem value="">
-                        <em>None</em>
-                     </MenuItem>
-                     <MenuItem value={10}>0</MenuItem>
-                     <MenuItem value={20}>1</MenuItem>
-                     <MenuItem value={30}>2</MenuItem>
-                     <MenuItem value={30}>3</MenuItem>
-                     <MenuItem value={30}>4</MenuItem>
-                     <MenuItem value={30}>5</MenuItem>
-                     <MenuItem value={30}>6</MenuItem>
-                     <MenuItem value={30}>7</MenuItem>
-                     <MenuItem value={30}>8</MenuItem>
-                     <MenuItem value={30}>9</MenuItem>
-                     <MenuItem value={30}>10</MenuItem>
-                     <MenuItem value={30}>11</MenuItem>
-                  </Select>
-               </FormControl>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                <Button  variant="contained" color="primary">
-                 Remove</Button> 
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">35.00 kr</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
-    </div>
+    <Grid className={classes.mainstyle}>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>kanse har proudkt name här??</TableCell>
+            <TableCell align="right">Products</TableCell>
+            <TableCell align="right">Pris&nbsp;</TableCell>
+            <TableCell align="right">Antal&nbsp;</TableCell>
+            <TableCell align="right">Delsumma&nbsp;</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.Products}</TableCell>
+              <TableCell align="right">{row.Pris}</TableCell>
+              <TableCell align="right">{row.Antal}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Grid>
   );
 }
