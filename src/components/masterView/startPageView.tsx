@@ -1,8 +1,7 @@
 import { Component, CSSProperties } from 'react';
 import ProductGrid from './productGrid';
 
-interface Props {
-}
+interface Props {}
 
 interface State {}
 
