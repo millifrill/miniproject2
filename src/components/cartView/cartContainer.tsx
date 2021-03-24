@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Grid } from '@material-ui/core';
+import { Grid, MenuItem, Select } from '@material-ui/core';
 import { Product, products } from '../mockedProducts';
 
 type Props = {
@@ -31,23 +31,17 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(id: string, image: string, title: string, price: string, quantity: string, subTotal: string, Remove: string) {
-  return { id, image, title, price, quantity, subTotal, Remove };
-}
-
-const rows = [
-  createData("id", "image", "title", "price", "quantity", "subTotal", 'Remove'),
-];
-
-
-
 const CartTable: React.FC<Props> = () => {
+
+  const [quantity, setQuantity] = React.useState('');
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setQuantity(event.target.value as string);
+ };
+ 
   const classes = useStyles();
 
-  const [quantity] = React.useState('');
-
   const [subTotal] = React.useState('');
-
 
   return (
     <Grid className={classes.mainstyle}>
@@ -75,7 +69,29 @@ const CartTable: React.FC<Props> = () => {
               </TableCell>
               <TableCell>{product.title}</TableCell>
               <TableCell>{product.price}</TableCell>
-              <TableCell>{quantity}</TableCell>
+              <TableCell>
+              <Select
+                     labelId="demo-simple-select-outlined-label"
+                     id="demo-simple-select-outlined"
+                     label="Antal" 
+                     value={quantity}
+                      onChange={handleChange}>
+                     <MenuItem value="">
+                     </MenuItem>
+                     <MenuItem value={0}>0</MenuItem>
+                     <MenuItem value={1}>1</MenuItem>
+                     <MenuItem value={2}>2</MenuItem>
+                     <MenuItem value={3}>3</MenuItem>
+                     <MenuItem value={4}>4</MenuItem>
+                     <MenuItem value={5}>5</MenuItem>
+                     <MenuItem value={6}>6</MenuItem>
+                     <MenuItem value={7}>7</MenuItem>
+                     <MenuItem value={8}>8</MenuItem>
+                     <MenuItem value={9}>9</MenuItem>
+                     <MenuItem value={10}>10</MenuItem>
+                     <MenuItem value={11}>11</MenuItem>
+                  </Select>
+                {quantity}</TableCell>
               <TableCell>{subTotal}</TableCell>
             </TableRow>
           ))}
@@ -87,3 +103,7 @@ const CartTable: React.FC<Props> = () => {
 }
 
 export default CartTable;
+
+function setQuantity(arg0: string) {
+  throw new Error('Function not implemented.');
+}
