@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import * as React from 'react';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,28 +8,46 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Grid } from '@material-ui/core';
+import { Product, products } from '../mockedProducts';
+
+type Props = {
+  products: Product;
+};
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
     
   },
+  productCell: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   mainstyle:{
-    height: '100vh',
+    minHeight: '100vh',
+  },
+  img:{
+    height:'5rem',
   },
 });
 
-function createData(name: string, Products: number, Pris: number, Antal: number, protein: number) {
-  return { name, Products,  Pris, Antal, protein };
+function createData(id: string, image: string, title: string, price: string, quantity: string, subTotal: string, Remove: string) {
+  return { id, image, title, price, quantity, subTotal, Remove };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-
+  createData("id", "image", "title", "price", "quantity", "subTotal", 'Remove'),
 ];
 
-export default function BasicTable() {
+
+
+const CartTable: React.FC<Props> = () => {
   const classes = useStyles();
+
+  const [quantity] = React.useState('');
+
+  const [subTotal] = React.useState('');
+
 
   return (
     <Grid className={classes.mainstyle}>
@@ -37,23 +55,28 @@ export default function BasicTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>kanse har proudkt name här??</TableCell>
-            <TableCell align="right">Products</TableCell>
-            <TableCell align="right">Pris&nbsp;</TableCell>
-            <TableCell align="right">Antal&nbsp;</TableCell>
-            <TableCell align="right">Delsumma&nbsp;</TableCell>
+            <TableCell>Produkt</TableCell>
+            <TableCell></TableCell>
+            <TableCell>Pris</TableCell>
+            <TableCell>Antal</TableCell>
+            <TableCell>Delsumma</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
+          {products.map((product) => ( ///ändra product till vad läger till i kundvagen
+            <TableRow key={product.title}>
+              <TableCell>
+                <img
+                  className={classes.img}
+                  src={product.image}
+                  alt="Dahlia blomma"
+                  height="50"
+                />
               </TableCell>
-              <TableCell align="right">{row.Products}</TableCell>
-              <TableCell align="right">{row.Pris}</TableCell>
-              <TableCell align="right">{row.Antal}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell>{product.title}</TableCell>
+              <TableCell>{product.price}</TableCell>
+              <TableCell>{quantity}</TableCell>
+              <TableCell>{subTotal}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -62,3 +85,5 @@ export default function BasicTable() {
     </Grid>
   );
 }
+
+export default CartTable;
