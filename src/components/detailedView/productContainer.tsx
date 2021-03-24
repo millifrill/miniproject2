@@ -9,6 +9,7 @@ import { products } from '../mockedProducts';
 import { useRouteMatch } from 'react-router-dom';
 import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
+import { Product } from '../mockedProducts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,7 +68,13 @@ const ProductContainer: React.FC = () => {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
-            <img className={classes.img} src="https://live.staticflickr.com/3727/9541317886_bbaf9957ed_b.jpg" alt="Dahlias"></img>
+            <img
+               className={classes.img}
+               src={product.image}
+               alt="Dahlia blomma"
+               height="300"
+               width="300"
+            />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
