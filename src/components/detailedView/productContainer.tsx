@@ -9,6 +9,7 @@ import { products } from '../mockedProducts';
 import { useRouteMatch } from 'react-router-dom';
 import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
+import { Product } from '../mockedProducts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,7 +68,13 @@ const ProductContainer: React.FC = () => {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
-            <img className={classes.img} src="https://live.staticflickr.com/3727/9541317886_bbaf9957ed_b.jpg" alt="Dahlias"></img>
+            <img
+               className={classes.img}
+               src={product.image}
+               alt="Dahlia blomma"
+               height="300"
+               width="300"
+            />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
@@ -96,18 +103,18 @@ const ProductContainer: React.FC = () => {
                      <MenuItem value="">
                         <em>None</em>
                      </MenuItem>
-                     <MenuItem value={10}>0</MenuItem>
-                     <MenuItem value={20}>1</MenuItem>
-                     <MenuItem value={30}>2</MenuItem>
-                     <MenuItem value={30}>3</MenuItem>
-                     <MenuItem value={30}>4</MenuItem>
-                     <MenuItem value={30}>5</MenuItem>
-                     <MenuItem value={30}>6</MenuItem>
-                     <MenuItem value={30}>7</MenuItem>
-                     <MenuItem value={30}>8</MenuItem>
-                     <MenuItem value={30}>9</MenuItem>
-                     <MenuItem value={30}>10</MenuItem>
-                     <MenuItem value={30}>11</MenuItem>
+                     <MenuItem value={0}>0</MenuItem>
+                     <MenuItem value={1}>1</MenuItem>
+                     <MenuItem value={2}>2</MenuItem>
+                     <MenuItem value={3}>3</MenuItem>
+                     <MenuItem value={4}>4</MenuItem>
+                     <MenuItem value={5}>5</MenuItem>
+                     <MenuItem value={6}>6</MenuItem>
+                     <MenuItem value={7}>7</MenuItem>
+                     <MenuItem value={8}>8</MenuItem>
+                     <MenuItem value={9}>9</MenuItem>
+                     <MenuItem value={10}>10</MenuItem>
+                     <MenuItem value={11}>11</MenuItem>
                   </Select>
                 <Button onClick={handleAddToCart} variant="contained" color="primary">
                  Köp</Button> 
