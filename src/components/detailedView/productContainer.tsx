@@ -50,7 +50,7 @@ const ProductContainer: React.FC = () => {
   }
 
   if (!product) {
-    return <p>"Produkt du letar efter finns inte... 404"</p>
+    return <p>"Produkten du letar efter finns inte... 404"</p>
   }
 
   return (
