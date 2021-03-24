@@ -8,10 +8,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Grid } from '@material-ui/core';
-import { Product, products } from '../mockedProducts';
+import { products } from '../mockedProducts';
 
-type Props = {
-  products: Product;
+interface Props {
+  // products: Product;
 };
 
 const useStyles = makeStyles({
@@ -41,7 +41,7 @@ const rows = [
 
 
 
-const CartTable: React.FC<Props> = () => {
+const CartView: React.FC<Props> = () => {
   const classes = useStyles();
 
   const [quantity] = React.useState('');
@@ -55,8 +55,8 @@ const CartTable: React.FC<Props> = () => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Produkt</TableCell>
             <TableCell></TableCell>
+            <TableCell>Produkt</TableCell>
             <TableCell>Pris</TableCell>
             <TableCell>Antal</TableCell>
             <TableCell>Delsumma</TableCell>
@@ -86,4 +86,4 @@ const CartTable: React.FC<Props> = () => {
   );
 }
 
-export default CartTable;
+export default CartView;

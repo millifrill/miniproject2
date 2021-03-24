@@ -12,7 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Product } from '../mockedProducts';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 type Props = {
    product: Product;
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
    const classes = useStyles();
-   const history = useHistory()
+   const history = useHistory();
 
    const [quantity, setQuantity] = React.useState('');
 
@@ -78,7 +78,7 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
    };
 
    const gotoProductView = () => {
-      history.push('/produkt/' + product.id)
+      history.push('/produkt/' + product.id);
    };
 
    return (
@@ -145,7 +145,7 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
                      <MenuItem value={7}>7</MenuItem>
                      <MenuItem value={8}>8</MenuItem>
                      <MenuItem value={9}>9</MenuItem>
-                     <MenuItem value={10}>10+</MenuItem>
+                     <MenuItem value={10}>10</MenuItem>
                   </Select>
                </FormControl>
 
