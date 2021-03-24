@@ -1,4 +1,4 @@
-// import React from 'react';
+import { Link } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,6 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
+import { CSSProperties } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
@@ -86,7 +87,9 @@ export default function Header() {
          <AppBar position="static">
             <Toolbar>
                <Typography className={classes.title} variant="h6" noWrap>
+               <Link to ="/" style={noDecoration}>
                   DAHLIABANKEN
+                  </Link>
                </Typography>
                <div className={classes.search}>
                   <div className={classes.searchIcon}>
@@ -123,4 +126,9 @@ export default function Header() {
          </AppBar>
       </div>
    );
+}
+
+const noDecoration: CSSProperties = {
+   textDecoration: 'none',
+   color: 'white',
 }

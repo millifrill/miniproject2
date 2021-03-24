@@ -12,27 +12,37 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Product } from '../mockedProducts';
+import { Link, useHistory } from 'react-router-dom';
 
 type Props = {
-   products: Product;
-   handleAddToCart: (products: Product) => void;
+   product: Product;
+   handleAddToCart: (product: Product) => void;
    handleReadMore: () => void;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
       formControl: {
-         margin: theme.spacing(1),
-         minWidth: 80,
+         margin: theme.spacing(0),
+         minWidth: '4,9rem',
+         paddingRight: '0.3rem',
       },
       root: {
-         maxWidth: 360,
+         width: '22rem',
+         minHeight: '36.5rem',
+      },
+      cardImg: {
+         margin: 'auto',
       },
       img: {
-         height: 300,
-         width: 300,
-         margin: '1rem',
-         textAlign: 'center',
+         height: '18.75rem',
+         width: '18.75rem',
+         margin: '1.5rem',
+         text: 'center',
+         alignSelf: 'center',
+      },
+      cardContent: {
+         height: '8rem',
       },
       title: {
          textAlign: 'left',
@@ -43,13 +53,23 @@ const useStyles = makeStyles((theme: Theme) =>
          margin: '0.3rem',
          marginTop: '0.5rem',
       },
+      cardActionsGroup: {
+         display: 'flex',
+         // alignSelf: 'flex-end',
+         // alignItems: 'flex-end',
+         // alignContent: 'flex-end',
+         justifyContent: 'space-between',
+         padding: '1.5rem',
+      },
+      button: {
+         height: '3rem',
+      },
    }),
 );
 
-const handleReadMore = () => {};
-
-const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
+const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
    const classes = useStyles();
+   const history = useHistory()
 
    const [quantity, setQuantity] = React.useState('');
 
@@ -57,25 +77,29 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
       setQuantity(event.target.value as string);
    };
 
+   const gotoProductView = () => {
+      history.push('/produkt/' + product.id)
+   };
+
    return (
       <Card className={classes.root}>
-         <CardActionArea>
-            <CardMedia />
+         <CardActionArea onClick={gotoProductView}>
+            <CardMedia className={classes.cardImg} />
             <img
                className={classes.img}
-               src={products.image}
+               src={product.image}
                alt="Dahlia blomma"
                height="300"
                width="300"
             />
-            <CardContent>
+            <CardContent className={classes.cardContent}>
                <Typography
                   className={classes.title}
                   gutterBottom
                   variant="h5"
                   component="h2"
                >
-                  {products.title}
+                  {product.title}
                </Typography>
                <Typography
                   className={classes.text}
@@ -83,7 +107,7 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
                   color="textSecondary"
                   component="p"
                >
-                  {products.description}
+                  {product.description}
                </Typography>
                <Typography
                   className={classes.text}
@@ -91,11 +115,11 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
                   color="textSecondary"
                   component="p"
                >
-                  {products.price}kr
+                  {product.price} kr
                </Typography>
             </CardContent>
          </CardActionArea>
-         <CardActions>
+         <CardActions className={classes.cardActionsGroup}>
             <div>
                <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel id="demo-simple-select-outlined-label">
@@ -111,37 +135,41 @@ const ProductCard: React.FC<Props> = ({ products, handleAddToCart }) => {
                      <MenuItem value="">
                         <em>None</em>
                      </MenuItem>
-                     <MenuItem value={10}>0</MenuItem>
-                     <MenuItem value={20}>1</MenuItem>
-                     <MenuItem value={30}>2</MenuItem>
-                     <MenuItem value={30}>3</MenuItem>
-                     <MenuItem value={30}>4</MenuItem>
-                     <MenuItem value={30}>5</MenuItem>
-                     <MenuItem value={30}>6</MenuItem>
-                     <MenuItem value={30}>7</MenuItem>
-                     <MenuItem value={30}>8</MenuItem>
-                     <MenuItem value={30}>9</MenuItem>
-                     <MenuItem value={30}>10</MenuItem>
-                     <MenuItem value={30}>11</MenuItem>
+                     <MenuItem value={0}>0</MenuItem>
+                     <MenuItem value={1}>1</MenuItem>
+                     <MenuItem value={2}>2</MenuItem>
+                     <MenuItem value={3}>3</MenuItem>
+                     <MenuItem value={4}>4</MenuItem>
+                     <MenuItem value={5}>5</MenuItem>
+                     <MenuItem value={6}>6</MenuItem>
+                     <MenuItem value={7}>7</MenuItem>
+                     <MenuItem value={8}>8</MenuItem>
+                     <MenuItem value={9}>9</MenuItem>
+                     <MenuItem value={10}>10+</MenuItem>
                   </Select>
                </FormControl>
+
+               <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                  onClick={() => handleAddToCart(product)}
+                  size="large"
+               >
+                  Köp
+               </Button>
             </div>
-            <Button
-               variant="contained"
-               color="primary"
-               onClick={() => handleAddToCart(products)}
-               size="large"
-            >
-               Köp
-            </Button>
-            <Button
-               variant="contained"
-               color="primary"
-               onClick={handleReadMore}
-               size="large"
-            >
-               Mer info
-            </Button>
+            <div>
+               <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                  onClick={gotoProductView}
+                  size="large"
+               >
+                  Mer info
+               </Button>
+            </div>
          </CardActions>
       </Card>
    );
