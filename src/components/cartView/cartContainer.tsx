@@ -49,8 +49,8 @@ const CartTable: React.FC<Props> = () => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Produkt</TableCell>
             <TableCell></TableCell>
+            <TableCell>Produkt</TableCell>
             <TableCell>Pris</TableCell>
             <TableCell>Antal</TableCell>
             <TableCell>Delsumma</TableCell>
