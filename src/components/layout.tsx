@@ -4,7 +4,7 @@ import Footer from './footer';
 import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
-import Cart from './cartView/cartContainer';
+import CartView from './cartView/cartView';
 
 interface Props {}
 
@@ -13,12 +13,12 @@ interface State {}
 export default class Layout extends Component<Props, State> {
    render() {
       return (
-        <div style={container}>
+         <div style={container}>
             <Header />
             <Switch>
                <Route exact path="/" component={StartPageView} />
                <Route path="/produkt/:id" component={DetailedView} />
-              <Route path= "/cart" component={Cart} />
+               <Route path="/cartView" component={CartView} />
                <p>404 sidan finns inte...</p>
             </Switch>
             <Footer />
@@ -28,7 +28,7 @@ export default class Layout extends Component<Props, State> {
 }
 
 const container: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
-}
+   display: 'flex',
+   flexDirection: 'column',
+   flex: 1,
+};

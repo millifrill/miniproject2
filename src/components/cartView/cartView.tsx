@@ -10,8 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import { Grid, MenuItem, Select } from '@material-ui/core';
 import { Product, products } from '../mockedProducts';
 
-type Props = {
-  products: Product;
+interface Props {
+  // products: Product;
 };
 
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CartTable: React.FC<Props> = () => {
+ const CartVeiw: React.FC<Props> = () => {
 
   const [quantity, setQuantity] = React.useState('');
 
@@ -89,7 +89,6 @@ const CartTable: React.FC<Props> = () => {
                      <MenuItem value={8}>8</MenuItem>
                      <MenuItem value={9}>9</MenuItem>
                      <MenuItem value={10}>10</MenuItem>
-                     <MenuItem value={11}>11</MenuItem>
                   </Select>
                 {quantity}</TableCell>
               <TableCell>{subTotal}</TableCell>
@@ -102,7 +101,7 @@ const CartTable: React.FC<Props> = () => {
   );
 }
 
-export default CartTable;
+export default CartVeiw;
 
 function setQuantity(arg0: string) {
   throw new Error('Function not implemented.');
