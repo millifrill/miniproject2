@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,18 +7,24 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Grid, MenuItem, Select } from '@material-ui/core';
+import { FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { Product, products } from '../mockedProducts';
 
 interface Props {
   // products: Product;
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) =>
+createStyles({
   table: {
     minWidth: 650,
     
   },
+  formControl: {
+    margin: theme.spacing(0),
+    minWidth: '4,9rem',
+    paddingRight: '0.3rem',
+ },
   productCell: {
     display: 'flex',
     alignItems: 'center'
@@ -29,7 +35,8 @@ const useStyles = makeStyles({
   img:{
     height:'5rem',
   },
-});
+}),
+);
 
  const CartVeiw: React.FC<Props> = () => {
 
@@ -70,13 +77,19 @@ const useStyles = makeStyles({
               <TableCell>{product.title}</TableCell>
               <TableCell>{product.price}</TableCell>
               <TableCell>
-              <Select
+              <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">
+                     1
+                  </InputLabel>
+                  <Select
                      labelId="demo-simple-select-outlined-label"
                      id="demo-simple-select-outlined"
-                     label="Antal" 
                      value={quantity}
-                      onChange={handleChange}>
+                     onChange={handleChange}
+                     label="Antal"
+                  >
                      <MenuItem value="">
+                        <em>None</em>
                      </MenuItem>
                      <MenuItem value={0}>0</MenuItem>
                      <MenuItem value={1}>1</MenuItem>
@@ -90,6 +103,7 @@ const useStyles = makeStyles({
                      <MenuItem value={9}>9</MenuItem>
                      <MenuItem value={10}>10</MenuItem>
                   </Select>
+               </FormControl>
                 {quantity}</TableCell>
               <TableCell>{subTotal}</TableCell>
             </TableRow>
