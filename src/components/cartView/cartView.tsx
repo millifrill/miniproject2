@@ -116,7 +116,3 @@ createStyles({
 }
 
 export default CartVeiw;
-
-function setQuantity(arg0: string) {
-  throw new Error('Function not implemented.');
-}
