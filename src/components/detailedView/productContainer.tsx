@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -21,18 +22,13 @@ type Props = {
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
-      formControl: {
-         margin: theme.spacing(0),
-         minWidth: '4,9rem',
-         paddingRight: '0.3rem',
-      },
       root: {
-         width: '22rem',
-         minHeight: '36.5rem',
+         width: '45rem',
+         minHeight: '24rem',
+         display: 'flex',
+         flexDirection: 'row',
       },
-      cardImg: {
-         margin: 'auto',
-      },
+      cardImg: {},
       img: {
          height: '18.75rem',
          width: '18.75rem',
@@ -41,7 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
          alignSelf: 'center',
       },
       cardContent: {
-         height: '8rem',
+         alignself: 'flex-end',
+         justifyContent: 'flex-start',
       },
       title: {
          textAlign: 'left',
@@ -52,10 +49,23 @@ const useStyles = makeStyles((theme: Theme) =>
          margin: '0.3rem',
          marginTop: '0.5rem',
       },
+      cardActionArea: {
+         display: 'flex',
+         flexDirection: 'column',
+      },
       cardActionsGroup: {
          display: 'flex',
-         justifyContent: 'space-between',
+         flexDirection: 'column',
+         alignSelf: 'left',
          padding: '1.5rem',
+      },
+      formControl: {
+         margin: theme.spacing(0),
+         minWidth: '4,9rem',
+         paddingRight: '0.3rem',
+		 alignSelf: 'flex-end',
+		 justifyContent: 'flex-start',
+
       },
       button: {
          height: '3rem',
@@ -85,7 +95,6 @@ const useStyles = makeStyles((theme: Theme) =>
 //       setQuantity(event.target.value as string);
 //    };
 
-
 const ProductContainer: React.FC = () => {
    const classes = useStyles();
    const match = useRouteMatch<{ id: string }>();
@@ -108,7 +117,7 @@ const ProductContainer: React.FC = () => {
 
    return (
       <Card className={classes.root}>
-         <CardActionArea>
+         <CardActionArea className={classes.cardActionArea}>
             <CardMedia className={classes.cardImg} />
             <img
                className={classes.img}
@@ -117,6 +126,8 @@ const ProductContainer: React.FC = () => {
                height="300"
                width="300"
             />
+         </CardActionArea>
+         <CardActions className={classes.cardActionsGroup}>
             <CardContent className={classes.cardContent}>
                <Typography
                   className={classes.title}
@@ -143,9 +154,7 @@ const ProductContainer: React.FC = () => {
                   {product.price} kr
                </Typography>
             </CardContent>
-         </CardActionArea>
-         <CardActions className={classes.cardActionsGroup}>
-            <div>
+            <CardContent>
                <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel id="demo-simple-select-outlined-label">
                      1
@@ -182,18 +191,13 @@ const ProductContainer: React.FC = () => {
                >
                   Köp
                </Button>
-            </div>
+            </CardContent>
          </CardActions>
       </Card>
    );
 };
 
 export default ProductContainer;
-
-
-
-
-
 
 // import React from 'react';
 // import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
