@@ -8,10 +8,10 @@ export interface CartItemType extends Product {
    quantity: number;
 }
 
-interface Props {
-   products: Product;
-   handleAddToCart: (products: Product) => void;
-}
+//interface Props {
+  // products: Product;
+ //  handleAddToCart: (products: Product) => void;
+//}
 
 // const getTotalItems = () => null;
 

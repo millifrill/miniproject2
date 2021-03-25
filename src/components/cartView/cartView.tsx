@@ -7,36 +7,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
-import { Product, products } from '../mockedProducts';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
+import {  products } from '../mockedProducts';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 interface Props {
   // products: Product;
 };
-
-const useStyles = makeStyles((theme: Theme) =>
-createStyles({
-  table: {
-    minWidth: 650,
-    
-  },
-  formControl: {
-    margin: theme.spacing(0),
-    minWidth: '4,9rem',
-    paddingRight: '0.3rem',
- },
-  productCell: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  mainstyle:{
-    minHeight: '100vh',
-  },
-  img:{
-    height:'5rem',
-  },
-}),
-);
 
  const CartVeiw: React.FC<Props> = () => {
 
@@ -61,6 +38,7 @@ createStyles({
             <TableCell>Pris</TableCell>
             <TableCell>Antal</TableCell>
             <TableCell>Delsumma</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -106,13 +84,59 @@ createStyles({
                </FormControl>
                 {quantity}</TableCell>
               <TableCell>{subTotal}</TableCell>
+              <TableCell>
+                  <Grid item xs={8}>
+                      <DeleteForeverIcon />
+                </Grid> 
+            </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+
     </TableContainer>
+    <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+               >
+                  Köp
+               </Button>
     </Grid>
   );
 }
 
 export default CartVeiw;
+
+const useStyles = makeStyles((theme: Theme) =>
+createStyles({
+  table: {
+    paddingRight: '30rem',
+    alignItems: 'center',
+  },
+  formControl: {
+    margin: theme.spacing(0),
+    minWidth: '1rem',
+    paddingRight: '0.3rem',
+    alignItems: 'center',
+    
+ },
+  productCell: {
+    padding: '20rem',
+    alignItems: 'center'
+  },
+  mainstyle:{
+   maxWidth: '100rem',
+   paddingTop: '2rem',
+   margin: 'auto'
+  },
+  img:{
+    height:'5rem',
+  },
+  button: {
+    height: '3rem',
+ },
+}),
+);
+
