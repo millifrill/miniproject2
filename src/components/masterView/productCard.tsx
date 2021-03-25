@@ -55,9 +55,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       cardActionsGroup: {
          display: 'flex',
-         // alignSelf: 'flex-end',
-         // alignItems: 'flex-end',
-         // alignContent: 'flex-end',
          justifyContent: 'space-between',
          padding: '1.5rem',
       },
