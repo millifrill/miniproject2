@@ -18,7 +18,7 @@ export default class Layout extends Component<Props, State> {
             <Switch>
                <Route exact path="/" component={StartPageView} />
                <Route path="/produkt/:id" component={DetailedView} />
-               <Route path="/cartView" component={CartView} />
+               <Route path="/cart" component={CartView} />
                <p>404 sidan finns inte...</p>
             </Switch>
             <Footer />
