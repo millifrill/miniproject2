@@ -1,21 +1,18 @@
 import { Component } from 'react';
-import { Product } from '../mockedProducts';
+// import { Product } from '../mockedProducts';
 import ProductContainer from './productContainer'
 
 interface Props {
-   products: Product;
-   handleAddToCart: (products: Product) => void;
+//    products: Product;
+//    handleAddToCart: (products: Product) => void;
 }
 
 interface State {}
 
-export default class DetailedView extends Component<Props, State> {
-
-    render() {
+export default function DetailedView() {
         return (
             <div>
                 <ProductContainer />
             </div>
         );
-    }
 }
