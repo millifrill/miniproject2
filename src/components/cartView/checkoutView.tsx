@@ -1,6 +1,7 @@
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 // import { Product } from '../mockedProducts';
-import CartView from './cartView';
+// import CartView from './cartView';
+import AddressForm from './custumerInfoView';
 
 // interface Props {
 //      products: Product;
@@ -20,7 +21,7 @@ const rootStyle: CSSProperties = {
 export default function checkoutView() {
       return (
          <div style={rootStyle}>
-            <CartView />
+            <AddressForm />
          </div>
       );
 }
