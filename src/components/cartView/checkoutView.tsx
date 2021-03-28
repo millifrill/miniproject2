@@ -1,13 +1,13 @@
 import React, { CSSProperties } from 'react';
 // import { Product } from '../mockedProducts';
-import CartView from './cartView';
+// import CartView from './cartView';
 import AddressForm from './custumerInfoView';
 
-interface Props {
-    // products: Product;
-    // handleAddToCart: (products: Product) => void;
-}
-interface State {}
+// interface Props {
+//      products: Product;
+//     handleAddToCart: (products: Product) => void;
+// }
+// interface State {}
 
 const rootStyle: CSSProperties = {
    minHeight: '100vh',
