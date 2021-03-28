@@ -5,7 +5,7 @@ import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
 import CartView from './cartView/cartView';
-import OrderView from './cartView/orderView';
+import ShippingVeiw from './cartView/shippingView';
 interface Props {}
 
 interface State {}
@@ -19,7 +19,7 @@ export default class Layout extends Component<Props, State> {
                <Route exact path="/" component={StartPageView} />
                <Route path="/produkt/:id" component={DetailedView} />
                <Route path="/cart" component={CartView} />
-               <Route path="/OrderView" component={OrderView}/>
+               <Route path="/shippingView" component={ShippingVeiw}/>
                <p>404 sidan finns inte...</p>
             </Switch>
             <Footer />

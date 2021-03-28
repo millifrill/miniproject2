@@ -122,10 +122,6 @@ createStyles({
     alignItems: 'center',
     
  },
-  productCell: {
-    padding: '20rem',
-    alignItems: 'center'
-  },
   mainstyle:{
    maxWidth: '100rem',
    paddingTop: '2rem',
@@ -136,6 +132,7 @@ createStyles({
   },
   button: {
     height: '3rem',
+    marginTop: '1rem',
  },
 }),
 );
