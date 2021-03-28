@@ -43,7 +43,7 @@ interface Props {
                   size="small"
                 />
                 <span>Brev - Postnord</span>
-                <div className={classes.leftMargin}>komer på påsten</div>
+                <div className={classes.leftMargin}>Skickas till din brevlåda/dörr</div>
               </TableCell>
               <TableCell className={classes.paddingLeft}>0 kr</TableCell> 
             </TableRow>
@@ -59,7 +59,7 @@ interface Props {
                   size="small"
                 />
                 <span>Ombud express - Postnord</span>
-                <div className={classes.leftMargin}>Order lagt innan kl. 22.00 skickas söndag-torsdag kväll. Preliminär leverans imorgon.</div>
+                <div className={classes.leftMargin}>Order lagt innan kl. 22.00 skickas med bud söndag-torsdag kväll. Preliminär leverans imorgon.</div>
               </TableCell>
               <TableCell className={classes.paddingLeft}>49 kr</TableCell> 
             </TableRow>
@@ -75,7 +75,7 @@ interface Props {
                   size="small"
                 />
                 <span>Earlybird</span>
-                <div className={classes.leftMargin}>Hemleverans</div>
+                <div className={classes.leftMargin}>Levereras innan 07:00 till din brevlåda, större försändelser lämnas vid dörren eller brevlådan</div>
               </TableCell>
               <TableCell className={classes.paddingLeft}>0 kr</TableCell> 
             </TableRow>
@@ -90,8 +90,8 @@ interface Props {
                   inputProps={{ "aria-label": "E" }}
                   size="small"
                 />
-                <span>Dhl express </span>
-                <div className={classes.leftMargin}>Hemleverans</div>
+                <span>DHL express </span>
+                <div className={classes.leftMargin}>Skickas med bud</div>
               </TableCell>
               <TableCell className={classes.paddingLeft}>48 kr</TableCell> 
             </TableRow>
