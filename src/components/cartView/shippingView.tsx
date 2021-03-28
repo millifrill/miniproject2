@@ -43,7 +43,7 @@ interface Props {
                   size="small"
                 />
                 <span>Brev - Postnord</span>
-                <div className={classes.leftMargin}>Hemleverans</div>
+                <div className={classes.leftMargin}>komer på påsten</div>
               </TableCell>
               <TableCell className={classes.paddingLeft}>0 kr</TableCell> 
             </TableRow>
