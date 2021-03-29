@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CartView from './cartView';
-import AddressForm from './adressForm';
+import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
 
 
@@ -22,7 +22,7 @@ export default function checkoutView() {
          <div style={rootStyle}>
             <Switch>
                <Route path="/checkout/cart" component={CartView} />
-               <Route path="/checkout/adress" component={AddressForm} />
+               <Route path="/checkout/address" component={AddressForm} />
                <Route path="/checkout/pay" component={PaymentForm} />
                <p>404 sidan finns inte...</p>
             </Switch>
