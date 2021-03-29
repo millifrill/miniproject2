@@ -10,11 +10,12 @@ import {
    Theme,
    makeStyles,
 } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { CSSProperties } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import { lightBlue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
@@ -62,6 +63,12 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       inputRoot: {
          color: 'inherit',
+      },
+      button: {
+         height: '2.5rem',
+         marginLeft: '2rem',
+         background: "lightBlue",
+
       },
       inputInput: {
          padding: theme.spacing(1, 1, 1, 0),
@@ -114,14 +121,9 @@ export default function Header() {
                      <ShoppingCartIcon />
                   </Badge>
                </IconButton>
-               <IconButton
-                  edge="end"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="open drawer"
-               >
-                  <MenuIcon />
-               </IconButton>
+               <Button className={classes.button} variant="contained" >
+        Till kassan 
+      </Button>
             </Toolbar>
          </AppBar>
       </div>
