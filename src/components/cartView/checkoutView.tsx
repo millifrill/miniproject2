@@ -1,13 +1,12 @@
 import React, { CSSProperties } from 'react';
-// import { Product } from '../mockedProducts';
-// import CartView from './cartView';
-import AddressForm from './custumerInfoView';
+import { Route, Switch } from 'react-router-dom';
+import CartView from './cartView';
+import AddressForm from './adressForm';
+import PaymentForm from './paymentForm';
 
-// interface Props {
-//      products: Product;
-//     handleAddToCart: (products: Product) => void;
-// }
-// interface State {}
+
+interface Props {}
+interface State {}
 
 const rootStyle: CSSProperties = {
    minHeight: '100vh',
@@ -21,7 +20,12 @@ const rootStyle: CSSProperties = {
 export default function checkoutView() {
       return (
          <div style={rootStyle}>
-            <AddressForm />
+            <Switch>
+               <Route path="/checkout/cart" component={CartView} />
+               <Route path="/checkout/adress" component={AddressForm} />
+               <Route path="/checkout/pay" component={PaymentForm} />
+               <p>404 sidan finns inte...</p>
+            </Switch>
          </div>
       );
 }

@@ -5,14 +5,16 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { FilledInput } from '@material-ui/core';
 
 export default function PaymentForm() {
    const classes = useStyles();
 
    return (
+      <form action="" method="get">
       <div className={classes.root}>
          <React.Fragment>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h4" gutterBottom>
                Betalningsmetod
             </Typography>
             <Grid container spacing={3}>
@@ -57,7 +59,7 @@ export default function PaymentForm() {
                   <FormControlLabel
                      control={
                         <Checkbox
-                           color="secondary"
+                           color="primary"
                            name="saveCard"
                            value="yes"
                         />
@@ -66,7 +68,8 @@ export default function PaymentForm() {
                   />
                </Grid>
             </Grid>
-            <Button
+            {/* <input type="submit" value="Nästa"> */}
+            <Button type="submit"
                className={classes.button}
                variant="contained"
                color="primary"
@@ -74,8 +77,10 @@ export default function PaymentForm() {
             >
                Nästa
             </Button>
+            {/* </input> */}
          </React.Fragment>
       </div>
+      </form>
    );
 }
 

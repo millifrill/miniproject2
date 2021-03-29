@@ -4,10 +4,11 @@ import Footer from './footer';
 import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
-import CartView from './cartView/cartView';
+import checkoutView from './cartView/checkoutView';
 import ShippingVeiw from './cartView/shippingView';
 import AddressForm from './cartView/custumerInfoView';
 import PaymentForm from './cartView/paymentView';
+
 
 interface Props {}
 
@@ -21,6 +22,7 @@ export default class Layout extends Component<Props, State> {
             <Switch>
                <Route exact path="/" component={StartPageView} />
                <Route path="/produkt/:id" component={DetailedView} />
+               <Route path="/checkout" component={checkoutView} />
                <Route path="/cart" component={CartView} />
                <Route path="/shippingView" component={ShippingVeiw}/>
                <Route path="/adress" component={AddressForm} />
@@ -36,5 +38,5 @@ export default class Layout extends Component<Props, State> {
 const container: CSSProperties = {
    display: 'flex',
    flexDirection: 'column',
-   flex: 1,
+   flexGrow: 1,
 };
