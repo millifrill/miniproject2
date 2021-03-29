@@ -214,6 +214,9 @@ const useStyles = makeStyles((theme: Theme) =>
       feildstyle: {
          width: '50rem',
       },
+      feildstley:{
+         width: '50rem',
+      },
       heading: {
          fontSize: theme.typography.pxToRem(15),
          fontWeight: theme.typography.fontWeightRegular,
