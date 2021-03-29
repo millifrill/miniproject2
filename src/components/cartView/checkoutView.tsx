@@ -21,9 +21,9 @@ export default function checkoutView() {
       return (
          <div style={rootStyle}>
             <Switch>
-               <Route path="/cart" component={CartView} />
-               <Route path="/adress" component={AddressForm} />
-               <Route path="/pay" component={PaymentForm} />
+               <Route path="/checkout/cart" component={CartView} />
+               <Route path="/checkout/adress" component={AddressForm} />
+               <Route path="/checkout/pay" component={PaymentForm} />
                <p>404 sidan finns inte...</p>
             </Switch>
          </div>

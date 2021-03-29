@@ -4,9 +4,10 @@ import Footer from './footer';
 import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
-import CartView from './cartView/cartView';
-import AddressForm from './cartView/custumerInfoView';
-import PaymentForm from './cartView/paymentView';
+import checkoutView from './cartView/checkoutView';
+// import CartView from './cartView/cartView';
+// import AddressForm from './cartView/adressForm';
+// import PaymentForm from './cartView/paymentForm';
 
 interface Props {}
 
@@ -20,9 +21,9 @@ export default class Layout extends Component<Props, State> {
             <Switch>
                <Route exact path="/" component={StartPageView} />
                <Route path="/produkt/:id" component={DetailedView} />
-               <Route path="/cart" component={CartView} />
-               <Route path="/adress" component={AddressForm} />
-               <Route path="/pay" component={PaymentForm} />
+               <Route path="/checkout" component={checkoutView} />
+               {/* <Route path="/adress" component={AddressForm} />
+               <Route path="/pay" component={PaymentForm} /> */}
                <p>404 sidan finns inte...</p>
             </Switch>
             <Footer />
@@ -34,5 +35,5 @@ export default class Layout extends Component<Props, State> {
 const container: CSSProperties = {
    display: 'flex',
    flexDirection: 'column',
-   flex: 1,
+   flexGrow: 1,
 };

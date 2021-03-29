@@ -22,6 +22,7 @@ export default function AddressForm() {
                      id="firstName"
                      name="firstName"
                      label="Förnamn"
+                     // type="text"
                      fullWidth
                      autoComplete="given-name"
                   />
@@ -95,7 +96,7 @@ export default function AddressForm() {
                      name="phoneNumber"
                      label="Telefon nummer"
                      fullWidth
-                     autoComplete="phone-number"
+                     autoComplete="tel"
                   />
                </Grid>
                <Grid item xs={12} sm={6}>
@@ -105,14 +106,14 @@ export default function AddressForm() {
                      name="mail"
                      label="Mail"
                      fullWidth
-                     autoComplete="mail"
+                     autoComplete="email"
                   />
                </Grid>
                <Grid item xs={12}>
                   <FormControlLabel
                      control={
                         <Checkbox
-                           color="secondary"
+                           color="primary"
                            name="saveAddress"
                            value="yes"
                         />

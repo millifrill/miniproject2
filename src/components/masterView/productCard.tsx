@@ -20,50 +20,6 @@ type Props = {
    handleReadMore: () => void;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-   createStyles({
-      formControl: {
-         margin: theme.spacing(0),
-         minWidth: '4,9rem',
-         paddingRight: '0.3rem',
-      },
-      root: {
-         width: '22rem',
-         minHeight: '36.5rem',
-      },
-      cardImg: {
-         margin: 'auto',
-      },
-      img: {
-         height: '18.75rem',
-         width: '18.75rem',
-         margin: '1.5rem',
-         text: 'center',
-         alignSelf: 'center',
-      },
-      cardContent: {
-         height: '8rem',
-      },
-      title: {
-         textAlign: 'left',
-         margin: '0.3rem',
-      },
-      text: {
-         textAlign: 'left',
-         margin: '0.3rem',
-         marginTop: '0.5rem',
-      },
-      cardActionsGroup: {
-         display: 'flex',
-         justifyContent: 'space-between',
-         padding: '1.5rem',
-      },
-      button: {
-         height: '3rem',
-      },
-   }),
-);
-
 const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
    const classes = useStyles();
    const history = useHistory();
@@ -86,8 +42,6 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
                className={classes.img}
                src={product.image}
                alt="Dahlia blomma"
-               height="300"
-               width="300"
             />
             <CardContent className={classes.cardContent}>
                <Typography
@@ -119,12 +73,12 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
          <CardActions className={classes.cardActionsGroup}>
             <div>
                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">
-                     1
+                  <InputLabel id="select-outlined-label">
+                     {/* Antal */}
                   </InputLabel>
                   <Select
-                     labelId="demo-simple-select-outlined-label"
-                     id="demo-simple-select-outlined"
+                     labelId="select-outlined-label"
+                     id="select-outlined"
                      value={quantity}
                      onChange={handleChange}
                      label="Antal"
@@ -173,3 +127,48 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
 };
 
 export default ProductCard;
+
+const useStyles = makeStyles((theme: Theme) =>
+   createStyles({
+      formControl: {
+         margin: theme.spacing(0),
+         width: '3.5rem',
+         paddingRight: '0.3rem',
+      },
+      root: {
+         width: '17rem',
+         minHeight: '31rem',
+      },
+      cardImg: {
+         margin: 'auto',
+      },
+      img: {
+         height: '15rem',
+         width: '15rem',
+         margin: '1rem',
+         text: 'center',
+         alignSelf: 'center',
+      },
+      cardContent: {
+         height: '9rem',
+         padding: '0rem 1rem 0rem 1rem',
+      },
+      title: {
+         textAlign: 'left',
+         margin: '0.2rem',
+      },
+      text: {
+         textAlign: 'left',
+         margin: '0.2rem',
+         marginTop: '0.5rem',
+      },
+      cardActionsGroup: {
+         display: 'flex',
+         justifyContent: 'space-between',
+         padding: '1rem',
+      },
+      button: {
+         height: '3rem',
+      },
+   }),
+);
