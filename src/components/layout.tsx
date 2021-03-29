@@ -5,9 +5,10 @@ import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
 import checkoutView from './cartView/checkoutView';
+import CartView from './cartView/cartView';
 import ShippingVeiw from './cartView/shippingView';
-import AddressForm from './cartView/custumerInfoView';
-import PaymentForm from './cartView/paymentView';
+import AddressForm from './cartView/addressForm';
+import PaymentForm from './cartView/paymentForm';
 
 
 interface Props {}
@@ -25,7 +26,7 @@ export default class Layout extends Component<Props, State> {
                <Route path="/checkout" component={checkoutView} />
                <Route path="/cart" component={CartView} />
                <Route path="/shippingView" component={ShippingVeiw}/>
-               <Route path="/adress" component={AddressForm} />
+               <Route path="/address" component={AddressForm} />
                <Route path="/pay" component={PaymentForm} />
                <p>404 sidan finns inte...</p>
             </Switch>
