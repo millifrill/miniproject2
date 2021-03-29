@@ -153,7 +153,7 @@ export default function PaymentForm() {
                   <Typography>
                      <Grid container spacing={6}>
                         <Grid
-                           className={classes.feildstley}
+                           className={classes.fieldstyle}
                            item
                            xs={12}
                            md={6}
@@ -183,7 +183,7 @@ export default function PaymentForm() {
                <AccordionDetails>
                   <Typography>
                      <Grid container spacing={3}>
-                        <Grid className={classes.feildstley} item xs={12} md={6}>
+                        <Grid className={classes.fieldstyle} item xs={12} md={6}>
                            <TextField
                               required
                               id="Personnummer"
@@ -211,7 +211,7 @@ const useStyles = makeStyles((theme: Theme) =>
          margin: 'auto',
          marginBlockStart: '5rem',
       },
-      feildstyle: {
+      fieldstyle: {
          width: '50rem',
       },
       heading: {
