@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { FilledInput } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -16,61 +15,61 @@ export default function PaymentForm() {
 
    return (
       <form action="" method="get">
-      <div className={classes.root}>
-         <React.Fragment>
-            <Grid container spacing={3}>
-               <Grid item xs={12} md={6}>
-                  <TextField
-                     required
-                     id="cardName"
-                     label="För- och efternamn"
-                     fullWidth
-                     autoComplete="cc-name"
-                  />
+         <div className={classes.root}>
+            <React.Fragment>
+               <Grid container spacing={3}>
+                  <Grid item xs={12} md={6}>
+                     <TextField
+                        required
+                        id="cardName"
+                        label="För- och efternamn"
+                        fullWidth
+                        autoComplete="cc-name"
+                     />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                     <TextField
+                        required
+                        id="cardNumber"
+                        label="Kortnummer"
+                        fullWidth
+                        autoComplete="cc-number"
+                     />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                     <TextField
+                        required
+                        id="expDate"
+                        label="Utgångsdatum"
+                        fullWidth
+                        autoComplete="cc-exp"
+                     />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                     <TextField
+                        required
+                        id="cvv"
+                        label="CVV"
+                        helperText="Sista tre siffrorna på baksidan av kortet"
+                        fullWidth
+                        autoComplete="cc-csc"
+                     />
+                  </Grid>
+                  <Grid item xs={12}>
+                     <FormControlLabel
+                        control={
+                           <Checkbox
+                              color="primary"
+                              name="saveCard"
+                              value="yes"
+                           />
+                        }
+                        label="Kom ihåg mina kortuppgifter till nästa gång"
+                     />
+                  </Grid>
                </Grid>
-               <Grid item xs={12} md={6}>
-                  <TextField
-                     required
-                     id="cardNumber"
-                     label="Kortnummer"
-                     fullWidth
-                     autoComplete="cc-number"
-                  />
-               </Grid>
-               <Grid item xs={12} md={6}>
-                  <TextField
-                     required
-                     id="expDate"
-                     label="Utgångsdatum"
-                     fullWidth
-                     autoComplete="cc-exp"
-                  />
-               </Grid>
-               <Grid item xs={12} md={6}>
-                  <TextField
-                     required
-                     id="cvv"
-                     label="CVV"
-                     helperText="Sista tre siffrorna på baksidan av kortet"
-                     fullWidth
-                     autoComplete="cc-csc"
-                  />
-               </Grid>
-               <Grid item xs={12}>
-                  <FormControlLabel
-                     control={
-                        <Checkbox
-                           color="primary"
-                           name="saveCard"
-                           value="yes"
-                        />
-                     }
-                     label="Kom ihåg mina kortuppgifter till nästa gång"
-                  />
-               </Grid>
-            </Grid>
-         </React.Fragment>
-      </div>
+            </React.Fragment>
+         </div>
          <div className={classes.root}>
             <Typography variant="h4" gutterBottom>
                Betalningsmetod
@@ -176,14 +175,17 @@ export default function PaymentForm() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                >
-                  <Typography className={classes.heading}>
-                  Faktura
-                  </Typography>
+                  <Typography className={classes.heading}>Faktura</Typography>
                </AccordionSummary>
                <AccordionDetails>
                   <Typography>
                      <Grid container spacing={3}>
-                        <Grid className={classes.fieldstyle} item xs={12} md={6}>
+                        <Grid
+                           className={classes.fieldstyle}
+                           item
+                           xs={12}
+                           md={6}
+                        >
                            <TextField
                               required
                               id="Personnummer"
@@ -214,7 +216,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fieldstyle: {
          width: '50rem',
       },
-      feildstley:{
+      feildstley: {
          width: '50rem',
       },
       heading: {

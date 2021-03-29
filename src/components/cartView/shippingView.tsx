@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {
-   Button,
    FormControl,
    Grid,
    InputLabel,
@@ -49,12 +48,10 @@ const ShippingView: React.FC<Props> = () => {
                               size="small"
                            />
                            <span>Brev - Postnord</span>
-                           <div className={classes.leftMargin}>
-                              3 vardagar
-                           </div>
+                           <div className={classes.leftMargin}>3 vardagar</div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
@@ -105,7 +102,7 @@ const ShippingView: React.FC<Props> = () => {
                            </div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
@@ -156,7 +153,7 @@ const ShippingView: React.FC<Props> = () => {
                            </div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
@@ -201,12 +198,10 @@ const ShippingView: React.FC<Props> = () => {
                               size="small"
                            />
                            <span>DHL express </span>
-                           <div className={classes.leftMargin}>
-                              2 vardagar
-                           </div>
+                           <div className={classes.leftMargin}>2 vardagar</div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >

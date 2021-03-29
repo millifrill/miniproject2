@@ -22,7 +22,6 @@ export default function AddressForm() {
                      id="firstName"
                      name="firstName"
                      label="Förnamn"
-                     // type="text"
                      fullWidth
                      autoComplete="given-name"
                   />

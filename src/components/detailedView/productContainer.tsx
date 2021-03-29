@@ -26,12 +26,16 @@ const ProductContainer: React.FC = () => {
       setQuantity(event.target.value as string);
    };
 
-   const handleAddToCart = () => {
-      // todo....
-   };
+   // const handleAddToCart = () => {
+   //    // 
+   // };
 
    if (!product) {
-      return <p className={classes.p}>"Produkten du letar efter finns inte... 404"</p>;
+      return (
+         <p className={classes.p}>
+            "Produkten du letar efter finns inte... 404"
+         </p>
+      );
    }
 
    return (
@@ -49,68 +53,71 @@ const ProductContainer: React.FC = () => {
          <CardActions className={classes.cardActionsGroup}>
             <CardContent className={classes.cardContent}>
                <div className={classes.cardContent}>
-               <Typography
-                  className={classes.title}
-                  gutterBottom
-                  variant="h5"
-                  component="h2"
-               >
-                  {product.title}
-               </Typography>
-               <Typography
-                  className={classes.text}
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-               >
-                  {product.description}
-               </Typography>
-               <Typography
-                  className={classes.text}
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-               >
-                  {product.price} kr
-               </Typography>
-            </div>
-            <div>
-               <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">
-                     {/* Antal */}
-                  </InputLabel>
-                  <Select
-                     labelId="demo-simple-select-outlined-label"
-                     id="demo-simple-select-outlined"
-                     value={quantity}
-                     onChange={handleChange}
-                     label="Antal"
+                  <Typography
+                     className={classes.title}
+                     gutterBottom
+                     variant="h5"
+                     component="h2"
                   >
-                     <MenuItem value="">
-                        <em>None</em>
-                     </MenuItem>
-                     <MenuItem value={0}>0</MenuItem>
-                     <MenuItem value={1}>1</MenuItem>
-                     <MenuItem value={2}>2</MenuItem>
-                     <MenuItem value={3}>3</MenuItem>
-                     <MenuItem value={4}>4</MenuItem>
-                     <MenuItem value={5}>5</MenuItem>
-                     <MenuItem value={6}>6</MenuItem>
-                     <MenuItem value={7}>7</MenuItem>
-                     <MenuItem value={8}>8</MenuItem>
-                     <MenuItem value={9}>9</MenuItem>
-                     <MenuItem value={10}>10</MenuItem>
-                  </Select>
-               </FormControl>
-               <Button
-                  className={classes.button}
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleAddToCart()}
-                  size="large"
-               >
-                  Köp
-               </Button>
+                     {product.title}
+                  </Typography>
+                  <Typography
+                     className={classes.text}
+                     variant="body2"
+                     color="textSecondary"
+                     component="p"
+                  >
+                     {product.description}
+                  </Typography>
+                  <Typography
+                     className={classes.text}
+                     variant="body2"
+                     color="textSecondary"
+                     component="p"
+                  >
+                     {product.price} kr
+                  </Typography>
+               </div>
+               <div>
+                  <FormControl
+                     variant="outlined"
+                     className={classes.formControl}
+                  >
+                     <InputLabel id="demo-simple-select-outlined-label">
+                        {/* Antal */}
+                     </InputLabel>
+                     <Select
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={quantity}
+                        onChange={handleChange}
+                        label="Antal"
+                     >
+                        <MenuItem value="">
+                           <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={0}>0</MenuItem>
+                        <MenuItem value={1}>1</MenuItem>
+                        <MenuItem value={2}>2</MenuItem>
+                        <MenuItem value={3}>3</MenuItem>
+                        <MenuItem value={4}>4</MenuItem>
+                        <MenuItem value={5}>5</MenuItem>
+                        <MenuItem value={6}>6</MenuItem>
+                        <MenuItem value={7}>7</MenuItem>
+                        <MenuItem value={8}>8</MenuItem>
+                        <MenuItem value={9}>9</MenuItem>
+                        <MenuItem value={10}>10</MenuItem>
+                     </Select>
+                  </FormControl>
+                  <Button
+                     className={classes.button}
+                     variant="contained"
+                     color="primary"
+                     onClick={() => addProductToCart()}
+                     size="large"
+                  >
+                     Köp
+                  </Button>
                </div>
             </CardContent>
          </CardActions>
@@ -119,7 +126,6 @@ const ProductContainer: React.FC = () => {
 };
 
 export default ProductContainer;
-
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
@@ -138,7 +144,7 @@ const useStyles = makeStyles((theme: Theme) =>
          alignSelf: 'center',
       },
       cardContent: {
-        height: '15.7rem',
+         height: '15.7rem',
       },
       title: {
          textAlign: 'left',
@@ -150,7 +156,7 @@ const useStyles = makeStyles((theme: Theme) =>
          marginTop: '0.5rem',
       },
       p: {
-         margin:'auto',
+         margin: 'auto',
       },
       cardActionArea: {
          display: 'flex',
@@ -172,3 +178,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
    }),
 );
+function addProductToCart(): void {
+   throw new Error('Function not implemented.');
+}
+
