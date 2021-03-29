@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Button, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -123,14 +123,6 @@ export default function AddressForm() {
                </Grid>
             </Grid>
          </React.Fragment>
-         <Button
-            className={classes.button}
-            variant="contained"
-            color="primary"
-            size="large"
-         >
-            Nästa
-         </Button>
       </div>
    );
 }
@@ -143,12 +135,7 @@ const useStyles = makeStyles((theme: Theme) =>
          flexBasis: 0,
          maxWidth: '50rem',
          margin: 'auto',
-         marginBlockStart: '5rem',
-      },
-      button: {
-         height: '3rem',
-         marginTop: '1rem',
-        //  justifyContent: 'flex-end',
+         marginBlockStart: '1rem',
       },
    }),
 );

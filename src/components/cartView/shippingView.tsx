@@ -32,9 +32,7 @@ const ShippingView: React.FC<Props> = () => {
    };
 
    return (
-      <div className={classes.h1Styles}>
-         <h1>Fraktsätt</h1>
-
+      <div>
          <Grid className={classes.mainstyle}>
             <TableContainer component={Paper}>
                <Table className={classes.table} aria-label="simple table">
@@ -267,14 +265,6 @@ const ShippingView: React.FC<Props> = () => {
                   </TableBody>
                </Table>
             </TableContainer>
-            <Button
-               className={classes.button}
-               variant="contained"
-               color="primary"
-               size="large"
-            >
-               Nästa
-            </Button>
          </Grid>
       </div>
    );
@@ -291,10 +281,6 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft: {
          paddingLeft: '5rem',
       },
-      h1Styles: {
-         marginTop: '4rem',
-         margin: 'auto',
-      },
       mainstyle: {
          maxWidth: '50rem',
          marginTop: '2rem',
@@ -303,10 +289,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       leftMargin: {
          marginLeft: '2.18rem',
-      },
-      button: {
-         height: '3rem',
-         marginTop: '1rem',
       },
       formControl: {
          margin: theme.spacing(1),

@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import CartView from './cartView';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
-
+import Checkout from './checkout';
+import Review from './review';
 
 interface Props {}
 interface State {}
@@ -18,14 +19,16 @@ const rootStyle: CSSProperties = {
 };
 
 export default function checkoutView() {
-      return (
-         <div style={rootStyle}>
-            <Switch>
-               <Route path="/checkout/cart" component={CartView} />
-               <Route path="/checkout/address" component={AddressForm} />
-               <Route path="/checkout/pay" component={PaymentForm} />
-               <p>404 sidan finns inte...</p>
-            </Switch>
-         </div>
-      );
+   return (
+      <div style={rootStyle}>
+         <Switch>
+            <Route path="/checkout/checkout" component={Checkout} />
+            <Route path="/checkout/kungvagn" component={CartView} />
+            <Route path="/checkout/adress" component={AddressForm} />
+            <Route path="/checkout/betala" component={PaymentForm} />
+            <Route path="/checkout/orderoversikt" component={Review} />
+            <p>404 sidan finns inte...</p>
+         </Switch>
+      </div>
+   );
 }

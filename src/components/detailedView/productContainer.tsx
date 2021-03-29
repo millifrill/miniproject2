@@ -31,7 +31,7 @@ const ProductContainer: React.FC = () => {
    };
 
    if (!product) {
-      return <p>"Produkten du letar efter finns inte... 404"</p>;
+      return <p className={classes.p}>"Produkten du letar efter finns inte... 404"</p>;
    }
 
    return (
@@ -148,6 +148,9 @@ const useStyles = makeStyles((theme: Theme) =>
          textAlign: 'left',
          margin: '0.3rem',
          marginTop: '0.5rem',
+      },
+      p: {
+         margin:'auto',
       },
       cardActionArea: {
          display: 'flex',
