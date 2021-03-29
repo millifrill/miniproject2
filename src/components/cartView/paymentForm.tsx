@@ -12,7 +12,7 @@ export default function PaymentForm() {
    return (
       <div className={classes.root}>
          <React.Fragment>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h4" gutterBottom>
                Betalningsmetod
             </Typography>
             <Grid container spacing={3}>
@@ -57,7 +57,7 @@ export default function PaymentForm() {
                   <FormControlLabel
                      control={
                         <Checkbox
-                           color="secondary"
+                           color="primary"
                            name="saveCard"
                            value="yes"
                         />
@@ -66,7 +66,8 @@ export default function PaymentForm() {
                   />
                </Grid>
             </Grid>
-            <Button
+            {/* <input type="submit" value="Nästa"> */}
+            <Button type="submit"
                className={classes.button}
                variant="contained"
                color="primary"
@@ -74,6 +75,7 @@ export default function PaymentForm() {
             >
                Nästa
             </Button>
+            {/* </input> */}
          </React.Fragment>
       </div>
    );

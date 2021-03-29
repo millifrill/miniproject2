@@ -1,12 +1,11 @@
 import React, { CSSProperties } from 'react';
-// import { Product } from '../mockedProducts';
+import { Route, Switch } from 'react-router-dom';
 import CartView from './cartView';
-import AddressForm from './custumerInfoView';
+import AddressForm from './adressForm';
+import PaymentForm from './paymentForm';
 
-interface Props {
-    // products: Product;
-    // handleAddToCart: (products: Product) => void;
-}
+
+interface Props {}
 interface State {}
 
 const rootStyle: CSSProperties = {
@@ -21,7 +20,12 @@ const rootStyle: CSSProperties = {
 export default function checkoutView() {
       return (
          <div style={rootStyle}>
-            <AddressForm />
+            <Switch>
+               <Route path="/cart" component={CartView} />
+               <Route path="/adress" component={AddressForm} />
+               <Route path="/pay" component={PaymentForm} />
+               <p>404 sidan finns inte...</p>
+            </Switch>
          </div>
       );
 }
