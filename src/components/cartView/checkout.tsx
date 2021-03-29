@@ -7,15 +7,15 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-// import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
 import Review from './review';
 import CartView from './cartView';
+import ShippingView from './shippingView';
 
-
-const steps = ['Kundvagn', 'Kunduppgifter', 'Fraktsätt', 'Orderöversikt'];
+const steps = ['Kundvagn', 'Kunduppgifter', 'Betalningsmetoder', 'Fraktsätt', 'Orderöversikt'];
 
 function getStepContent(step: number) {
    switch (step) {
@@ -26,6 +26,8 @@ function getStepContent(step: number) {
       case 2:
          return <PaymentForm />;
       case 3:
+         return <ShippingView />;
+      case 4:
          return <Review />;
       default:
          throw new Error('Unknown step');
@@ -68,7 +70,8 @@ export default function Checkout() {
                         <Typography variant="subtitle1">
                            Ditt order nummer är #2001539. Vi har skickat din
                            beställning via e-post bekräftelse och skickar en
-                           uppdatering när din beställning är färdig förlevereras.
+                           uppdatering när din beställning är färdig
+                           förlevereras.
                         </Typography>
                      </React.Fragment>
                   ) : (
@@ -111,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
    },
    paper: {
       marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
+      marginBottom: theme.spacing(1),
       padding: theme.spacing(2),
       [theme.breakpoints.up('sm')]: {
          marginTop: theme.spacing(6),

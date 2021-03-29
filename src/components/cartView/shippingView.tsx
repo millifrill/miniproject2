@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {
-   Button,
    FormControl,
    Grid,
    InputLabel,
@@ -49,26 +48,24 @@ const ShippingView: React.FC<Props> = () => {
                               size="small"
                            />
                            <span>Brev - Postnord</span>
-                           <div className={classes.leftMargin}>
-                              3 vardagar
-                           </div>
+                           <div className={classes.leftMargin}>3 vardagar</div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
                               <InputLabel id="demo-simple-select-outlined-label">
-                                 DeliveryDate
+                              Leveransdatum
                               </InputLabel>
                               <Select
                                  labelId="demo-simple-select-outlined-label"
                                  id="demo-simple-select-outlined"
                                  value={DeliveryDate}
                                  onChange={handleChanged}
-                                 label="DeliveryDate"
+                                 label="Leveransdatum"
                               >
-                                 <MenuItem value="">
+                                 <MenuItem value="1">
                                     <em>None</em>
                                  </MenuItem>
                                  <MenuItem value={10}>
@@ -105,21 +102,21 @@ const ShippingView: React.FC<Props> = () => {
                            </div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
                               <InputLabel id="demo-simple-select-outlined-label">
-                                 DeliveryDate
+                              Leveransdatum
                               </InputLabel>
                               <Select
                                  labelId="demo-simple-select-outlined-label"
                                  id="demo-simple-select-outlined"
                                  value={DeliveryDate}
                                  onChange={handleChanged}
-                                 label="DeliveryDate"
+                                 label="Leveransdatum"
                               >
-                                 <MenuItem value="">
+                                 <MenuItem value="2">
                                     <em>None</em>
                                  </MenuItem>
                                  <MenuItem value={10}>
@@ -156,31 +153,25 @@ const ShippingView: React.FC<Props> = () => {
                            </div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
                               <InputLabel id="demo-simple-select-outlined-label">
-                                 DeliveryDate
+                              Leveransdatum
                               </InputLabel>
                               <Select
                                  labelId="demo-simple-select-outlined-label"
                                  id="demo-simple-select-outlined"
                                  value={DeliveryDate}
                                  onChange={handleChanged}
-                                 label="DeliveryDate"
+                                 label="Leveransdatum"
                               >
                                  <MenuItem value="">
                                     <em>None</em>
                                  </MenuItem>
-                                 <MenuItem value={10}>
-                                    Onsdagen den 31 mars, kl 17 - 22
-                                 </MenuItem>
-                                 <MenuItem value={20}>
-                                    Torsdagen den 1 april, kl 17 - 22
-                                 </MenuItem>
-                                 <MenuItem value={30}>
-                                    Fredagen den 2 april, kl 17 - 22
+                                 <MenuItem value={3}>
+                                    Onsdagen den 31 mars, från kl 03.00
                                  </MenuItem>
                               </Select>
                            </FormControl>
@@ -201,26 +192,24 @@ const ShippingView: React.FC<Props> = () => {
                               size="small"
                            />
                            <span>DHL express </span>
-                           <div className={classes.leftMargin}>
-                              2 vardagar
-                           </div>
+                           <div className={classes.leftMargin}>2 vardagar</div>
                         </TableCell>
                         <TableCell className={classes.paddingLeft}>
-                        <FormControl
+                           <FormControl
                               variant="outlined"
                               className={classes.formControl}
                            >
                               <InputLabel id="demo-simple-select-outlined-label">
-                                 DeliveryDate
+                                 Leveransdatum
                               </InputLabel>
                               <Select
                                  labelId="demo-simple-select-outlined-label"
                                  id="demo-simple-select-outlined"
                                  value={DeliveryDate}
                                  onChange={handleChanged}
-                                 label="DeliveryDate"
+                                 label="Leveransdatum"
                               >
-                                 <MenuItem value="">
+                                 <MenuItem value="4">
                                     <em>None</em>
                                  </MenuItem>
                                  <MenuItem value={10}>
@@ -279,7 +268,7 @@ const useStyles = makeStyles((theme: Theme) =>
          alignItems: 'center',
       },
       paddingLeft: {
-         paddingLeft: '5rem',
+         paddingLeft: '1rem',
       },
       mainstyle: {
          maxWidth: '50rem',
@@ -292,7 +281,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       formControl: {
          margin: theme.spacing(1),
-         minWidth: 120,
+         minWidth: '19rem',
       },
       selectEmpty: {
          marginTop: theme.spacing(2),

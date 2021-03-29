@@ -1,21 +1,70 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import {
    createStyles,
    fade,
    Theme,
    makeStyles,
 } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { CSSProperties } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
-import { lightBlue } from '@material-ui/core/colors';
+import { CartContext } from '../contexts/cartContext';
+
+export default function Header() {
+   const classes = useStyles();
+
+   return (
+      // <CartContext.Consumer>
+         <div className={classes.root}>
+            <AppBar position="static">
+               <Toolbar>
+                  <Typography className={classes.title} variant="h6" noWrap>
+                     <Link to="/" style={noDecoration}>
+                        DAHLIABANKEN
+                     </Link>
+                  </Typography>
+                  {/* <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                     <SearchIcon />
+                  </div>
+                  <InputBase
+                     placeholder="Sök…"
+                     classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                     }}
+                     inputProps={{ 'aria-label': 'search' }}
+                  />
+               </div> */}
+                  <Button
+                     variant="contained"
+                     color="primary"
+                     className={classes.button}
+                     startIcon={
+                        <div>
+                           <Badge color="error" badgeContent={0} showZero>
+                              <ShoppingCartIcon />
+                           </Badge>
+                           <label className={classes.cartLabel}>Kundvagn</label>
+                        </div>
+                     }
+                  ></Button>
+                  <Button className={classes.button} variant="contained">
+                     Till kassan
+                  </Button>
+               </Toolbar>
+            </AppBar>
+         </div>
+      // </CartContext.Consumer>
+   );
+}
+
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
@@ -67,8 +116,13 @@ const useStyles = makeStyles((theme: Theme) =>
       button: {
          height: '2.5rem',
          marginLeft: '2rem',
-         background: "lightBlue",
-
+         background: 'lightBlue',
+         color: 'black',
+         backgroundColor: '#a7c5f1',
+         fontSize: '0.8rem',
+      },
+      cartLabel: {
+         marginLeft: '1rem',
       },
       inputInput: {
          padding: theme.spacing(1, 1, 1, 0),
@@ -86,51 +140,7 @@ const useStyles = makeStyles((theme: Theme) =>
    }),
 );
 
-export default function Header() {
-   const classes = useStyles();
-
-   return (
-      <div className={classes.root}>
-         <AppBar position="static">
-            <Toolbar>
-               <Typography className={classes.title} variant="h6" noWrap>
-               <Link to ="/" style={noDecoration}>
-                  DAHLIABANKEN
-                  </Link>
-               </Typography>
-               {/* <div className={classes.search}>
-                  <div className={classes.searchIcon}>
-                     <SearchIcon />
-                  </div>
-                  <InputBase
-                     placeholder="Sök…"
-                     classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                     }}
-                     inputProps={{ 'aria-label': 'search' }}
-                  />
-               </div> */}
-               <IconButton
-                  edge="end"
-                  className={classes.shoppingCartButton}
-                  color="inherit"
-                  aria-label="shopping cart"
-               >
-                  <Badge color="error" badgeContent={0} showZero>
-                     <ShoppingCartIcon />
-                  </Badge>
-               </IconButton>
-               <Button className={classes.button} variant="contained" >
-        Till kassan 
-      </Button>
-            </Toolbar>
-         </AppBar>
-      </div>
-   );
-}
-
 const noDecoration: CSSProperties = {
    textDecoration: 'none',
    color: 'white',
-}
+};
