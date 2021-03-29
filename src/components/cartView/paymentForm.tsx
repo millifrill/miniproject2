@@ -16,61 +16,6 @@ export default function PaymentForm() {
    return (
       <form action="" method="get">
          <div className={classes.root}>
-            <React.Fragment>
-               <Grid container spacing={3}>
-                  <Grid item xs={12} md={6}>
-                     <TextField
-                        required
-                        id="cardName"
-                        label="För- och efternamn"
-                        fullWidth
-                        autoComplete="cc-name"
-                     />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                     <TextField
-                        required
-                        id="cardNumber"
-                        label="Kortnummer"
-                        fullWidth
-                        autoComplete="cc-number"
-                     />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                     <TextField
-                        required
-                        id="expDate"
-                        label="Utgångsdatum"
-                        fullWidth
-                        autoComplete="cc-exp"
-                     />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                     <TextField
-                        required
-                        id="cvv"
-                        label="CVV"
-                        helperText="Sista tre siffrorna på baksidan av kortet"
-                        fullWidth
-                        autoComplete="cc-csc"
-                     />
-                  </Grid>
-                  <Grid item xs={12}>
-                     <FormControlLabel
-                        control={
-                           <Checkbox
-                              color="primary"
-                              name="saveCard"
-                              value="yes"
-                           />
-                        }
-                        label="Kom ihåg mina kortuppgifter till nästa gång"
-                     />
-                  </Grid>
-               </Grid>
-            </React.Fragment>
-         </div>
-         <div className={classes.root}>
             <Typography variant="h4" gutterBottom>
                Betalningsmetod
             </Typography>

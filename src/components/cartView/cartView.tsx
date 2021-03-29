@@ -51,7 +51,7 @@ const CartVeiw: React.FC<Props> = () => {
                   </TableHead>
                   <TableBody>
                      {products.map((
-                        product, ///ändra product till vad lägger till i kundvagen
+                        product, //
                      ) => (
                         <TableRow key={product.title}>
                            <TableCell>

@@ -30,13 +30,17 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
       setQuantity(event.target.value as string);
    };
 
-   const gotoProductView = () => {
+   const addProductToCart = () => {
+      history.push('/produkt/' + product.id);
+   };
+
+   const goToProductView = () => {
       history.push('/produkt/' + product.id);
    };
 
    return (
       <Card className={classes.root}>
-         <CardActionArea onClick={gotoProductView}>
+         <CardActionArea onClick={goToProductView}>
             <CardMedia className={classes.cardImg} />
             <img
                className={classes.img}
@@ -104,7 +108,7 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
                   className={classes.button}
                   variant="contained"
                   color="primary"
-                  onClick={() => handleAddToCart(product)}
+                  onClick={() => addProductToCart()}
                   size="large"
                >
                   Köp
@@ -115,7 +119,7 @@ const ProductCard: React.FC<Props> = ({ product, handleAddToCart }) => {
                   className={classes.button}
                   variant="contained"
                   color="primary"
-                  onClick={gotoProductView}
+                  onClick={goToProductView}
                   size="large"
                >
                   Mer info
@@ -169,6 +173,11 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       button: {
          height: '3rem',
+         fontSize: '0.7rem',
       },
    }),
 );
+function addProductToCart(product: Product): void {
+   throw new Error('Function not implemented.');
+}
+

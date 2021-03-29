@@ -117,6 +117,9 @@ const useStyles = makeStyles((theme: Theme) =>
          height: '2.5rem',
          marginLeft: '2rem',
          background: 'lightBlue',
+         color: 'black',
+         backgroundColor: '#a7c5f1',
+         fontSize: '0.8rem',
       },
       cartLabel: {
          marginLeft: '1rem',
