@@ -98,7 +98,7 @@ export default function Header() {
                   DAHLIABANKEN
                   </Link>
                </Typography>
-               <div className={classes.search}>
+               {/* <div className={classes.search}>
                   <div className={classes.searchIcon}>
                      <SearchIcon />
                   </div>
@@ -110,7 +110,7 @@ export default function Header() {
                      }}
                      inputProps={{ 'aria-label': 'search' }}
                   />
-               </div>
+               </div> */}
                <IconButton
                   edge="end"
                   className={classes.shoppingCartButton}

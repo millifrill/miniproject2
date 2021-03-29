@@ -47,7 +47,7 @@ export default function Checkout() {
    return (
       <React.Fragment>
          <CssBaseline />
-         <Container component="main" className={classes.main} maxWidth="sm">
+         <Container component="main" className={classes.main} maxWidth="md">
             <Paper className={classes.paper} variant="outlined">
                <Typography component="h1" variant="h4" align="center">
                   Kassa
@@ -91,7 +91,7 @@ export default function Checkout() {
                               className={classes.button}
                            >
                               {activeStep === steps.length - 1
-                                 ? 'Place order'
+                                 ? 'Bekräfta order'
                                  : 'Nästa'}
                            </Button>
                         </div>
