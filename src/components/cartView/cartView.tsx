@@ -14,6 +14,7 @@ import {
    InputLabel,
    MenuItem,
    Select,
+   Typography,
 } from '@material-ui/core';
 import { products } from '../mockedProducts';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
@@ -34,6 +35,10 @@ const CartVeiw: React.FC<Props> = () => {
    const [subTotal] = React.useState('');
 
    return (
+      <React.Fragment>
+            <Typography variant="h6" gutterBottom>
+               Kunduppgifter
+            </Typography>
       <Grid className={classes.mainstyle}>
          <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -106,15 +111,8 @@ const CartVeiw: React.FC<Props> = () => {
                </TableBody>
             </Table>
          </TableContainer>
-         <Button
-            className={classes.button}
-            variant="contained"
-            color="primary"
-            size="large"
-         >
-            Nästa
-         </Button>
       </Grid>
+      </React.Fragment>
    );
 };
 
@@ -135,15 +133,11 @@ createStyles({
  },
   mainstyle:{
    maxWidth: '100rem',
-   paddingTop: '2rem',
+   paddingTop: '1rem',
    margin: 'auto'
   },
   img:{
     height:'5rem',
   },
-  button: {
-    height: '3rem',
-    marginTop: '1rem',
- },
 }),
 );
