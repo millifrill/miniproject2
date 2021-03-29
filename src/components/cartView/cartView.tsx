@@ -121,31 +121,29 @@ const CartVeiw: React.FC<Props> = () => {
 export default CartVeiw;
 
 const useStyles = makeStyles((theme: Theme) =>
-   createStyles({
-      table: {
-         paddingRight: '30rem',
-         alignItems: 'center',
-      },
-      formControl: {
-         margin: theme.spacing(0),
-         minWidth: '1rem',
-         paddingRight: '0.3rem',
-         alignItems: 'center',
-      },
-      productCell: {
-         padding: '20rem',
-         alignItems: 'center',
-      },
-      mainstyle: {
-         maxWidth: '100rem',
-         paddingTop: '2rem',
-         margin: 'auto',
-      },
-      img: {
-         height: '5rem',
-      },
-      button: {
-         height: '3rem',
-      },
-   }),
+createStyles({
+  table: {
+    paddingRight: '30rem',
+    alignItems: 'center',
+  },
+  formControl: {
+    margin: theme.spacing(0),
+    minWidth: '1rem',
+    paddingRight: '0.3rem',
+    alignItems: 'center',
+    
+ },
+  mainstyle:{
+   maxWidth: '100rem',
+   paddingTop: '2rem',
+   margin: 'auto'
+  },
+  img:{
+    height:'5rem',
+  },
+  button: {
+    height: '3rem',
+    marginTop: '1rem',
+ },
+}),
 );
