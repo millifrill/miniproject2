@@ -31,4 +31,5 @@ const container: CSSProperties = {
    display: 'flex',
    flexDirection: 'column',
    flexGrow: 1,
+   backgroundColor: '#f6f5f4',
 };

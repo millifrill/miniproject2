@@ -138,5 +138,6 @@ const useStyles = makeStyles((theme) => ({
    button: {
       marginTop: theme.spacing(3),
       marginLeft: theme.spacing(1),
+      color: '#202e32',
    },
 }));

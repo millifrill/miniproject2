@@ -327,6 +327,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             height: '5.5rem',
+            backgroundColor: '#202e32',
         },
         title: {
             flexGrow: 1,
@@ -346,7 +347,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         noDecoration: {
             textDecoration: 'none',
-            color: 'black',
+            color: '#e4ece4',
         },
         heading: {
             fontSize: theme.typography.pxToRem(15),
@@ -418,7 +419,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginLeft: '2rem',
             background: 'lightBlue',
             color: 'black',
-            backgroundColor: '#a7c5f1',
+            backgroundColor: '#a1bac0',
             width: 'auto',
             textDecoration: 'none',
             display: 'none',
