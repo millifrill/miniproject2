@@ -141,7 +141,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       root: {
          width: '17rem',
-         minHeight: '31rem',
+         minHeight: '33rem',
       },
       cardImg: {
          margin: 'auto',
@@ -154,7 +154,7 @@ const useStyles = makeStyles((theme: Theme) =>
          alignSelf: 'center',
       },
       cardContent: {
-         height: '9rem',
+         height: '11rem',
          padding: '0rem 1rem 0rem 1rem',
       },
       title: {

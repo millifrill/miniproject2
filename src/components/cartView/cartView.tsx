@@ -39,7 +39,7 @@ const CartView: React.FC<Props> = () => {
          <Grid className={classes.mainstyle}>
             <TableContainer component={Paper}>
                <Table className={classes.table} aria-label="simple table">
-                  <TableHead>
+                  <TableHead className={classes.hide}>
                      <TableRow>
                         <TableCell></TableCell>
                         <TableCell>Produkt</TableCell>
@@ -63,7 +63,7 @@ const CartView: React.FC<Props> = () => {
                               />
                            </TableCell>
                            <TableCell>{product.title}</TableCell>
-                           <TableCell>{product.price}</TableCell>
+                           <TableCell>{product.price} kr</TableCell>
                            <TableCell>
                               <FormControl
                                  variant="outlined"
@@ -117,6 +117,12 @@ export default CartView;
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
+      hide: {
+         display: 'none',
+               [theme.breakpoints.up('md')]: {
+                   display: 'block',
+               },
+      },
       table: {
          paddingRight: '30rem',
          alignItems: 'center',
