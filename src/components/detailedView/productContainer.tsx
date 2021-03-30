@@ -15,7 +15,9 @@ import {
 } from '@material-ui/core';
 
 const ProductContainer: React.FC = () => {
+   
     const classes = useStyles();
+
     const match = useRouteMatch<{ id: string }>();
 
     const product = products.find((p) => String(p.id) === match.params.id);
@@ -57,7 +59,7 @@ const ProductContainer: React.FC = () => {
                                     {product.description}
                                 </Typography>
                                 <Typography variant="body2">
-                                    {product.price}
+                                    {product.price} kr
                                 </Typography>
                             </Grid>
                             <Grid item>
@@ -123,11 +125,11 @@ const useStyles = makeStyles((theme: Theme) =>
         paper: {
             padding: theme.spacing(2),
             margin: 'auto',
-            maxWidth: 500,
+            maxWidth: '30rem',
         },
         image: {
-            width: 280,
-            height: 280,
+            width: 300,
+            height: 300,
         },
         img: {
             margin: 'auto',

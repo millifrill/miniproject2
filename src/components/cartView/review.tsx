@@ -30,7 +30,7 @@ export default function Review() {
 
    return (
       <React.Fragment>
-         <Typography variant="h6" gutterBottom>
+         <Typography variant="h5" gutterBottom>
             Orderöversikt
          </Typography>
          <List disablePadding>

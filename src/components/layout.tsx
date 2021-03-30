@@ -1,6 +1,6 @@
 import { Component, CSSProperties } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Footer from './footer';
+import Copyright from './copyright';
 import Header from './header';
 import StartPageView from './masterView/startPageView';
 import DetailedView from './detailedView/detailedView';
@@ -21,7 +21,7 @@ export default class Layout extends Component<Props, State> {
                <Route path="/checkout" component={checkoutView} />
                <p>404 sidan finns inte...</p>
             </Switch>
-            <Footer />
+            <Copyright />
          </div>
       );
    }

@@ -10,12 +10,11 @@ export default function AddressForm() {
    const classes = useStyles();
 
    return (
-      <div className={classes.root}>
          <React.Fragment>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h5" gutterBottom>
                Kunduppgifter
             </Typography>
-            <Grid container spacing={3}>
+            <Grid className={classes.form} container spacing={3}>
                <Grid item xs={12} sm={6}>
                   <TextField
                      required
@@ -122,19 +121,13 @@ export default function AddressForm() {
                </Grid>
             </Grid>
          </React.Fragment>
-      </div>
    );
 }
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
-      root: {
-         minHeight: '100vh',
-         flexGrow: 1,
-         flexBasis: 0,
-         maxWidth: '50rem',
-         margin: 'auto',
-         marginBlockStart: '1rem',
+      form: {
+         marginBlockStart: '0.5rem',
       },
    }),
 );
