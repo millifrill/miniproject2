@@ -14,7 +14,11 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { CSSProperties } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
+import { CartContext } from '../contexts/cartContext';
+import { Grid } from '@material-ui/core';
+
 // import { CartContext } from '../contexts/cartContext';
+
 
 export default function Header() {
    const classes = useStyles();
@@ -42,6 +46,7 @@ export default function Header() {
                      inputProps={{ 'aria-label': 'search' }}
                   />
                </div> */}
+               <Grid   direction="row"> 
                   <Button
                      variant="contained"
                      color="primary"
@@ -51,14 +56,15 @@ export default function Header() {
                            <Badge color="error" badgeContent={0} showZero>
                               <ShoppingCartIcon />
                            </Badge>
-                           <label className={classes.cartLabel}>Kundvagn</label>
+                           <label className={classes.cartLabel}>kundvagen</label>
                         </div>
                      }
                   ></Button>
                   <Button className={classes.button} variant="contained">
-                     Till kassan
+                     <div className={classes.textsizes}> <Link to="/checkout/checkout">Till kassan</Link> </div>
+                     
                   </Button>
-               </Toolbar>
+              </Grid> </Toolbar>
             </AppBar>
          </div>
       // </CartContext.Consumer>
@@ -71,12 +77,19 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
          flexGrow: 1,
       },
+      
+      textsizes:{
+         fontSize: '1.7rem',
+         textDecoration: 'none',
+         width:'auto',
+      },
       menuButton: {
          marginRight: theme.spacing(2),
          marginStart: '2rem',
       },
       shoppingCartButton: {
          marginStart: '1rem',
+        
       },
       title: {
          flexGrow: 1,
@@ -109,20 +122,25 @@ const useStyles = makeStyles((theme: Theme) =>
          display: 'flex',
          alignItems: 'center',
          justifyContent: 'center',
+         width:'auto',
       },
       inputRoot: {
          color: 'inherit',
       },
       button: {
-         height: '2.5rem',
+         height: '2.7rem',
          marginLeft: '2rem',
          background: 'lightBlue',
          color: 'black',
          backgroundColor: '#a7c5f1',
-         fontSize: '0.8rem',
+         width:'auto',
+         textDecoration: 'none',
+         
       },
       cartLabel: {
          marginLeft: '1rem',
+         width: '2rem',
+         textDecoration: 'none',
       },
       inputInput: {
          padding: theme.spacing(1, 1, 1, 0),
