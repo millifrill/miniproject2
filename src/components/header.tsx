@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
+// import IconButton from '@material-ui/core/IconButton';
+// import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import {
    createStyles,
@@ -16,6 +16,9 @@ import { CSSProperties } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import { CartContext } from '../contexts/cartContext';
 import { Grid } from '@material-ui/core';
+
+// import { CartContext } from '../contexts/cartContext';
+
 
 export default function Header() {
    const classes = useStyles();

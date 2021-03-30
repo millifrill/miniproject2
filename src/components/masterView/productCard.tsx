@@ -177,7 +177,5 @@ const useStyles = makeStyles((theme: Theme) =>
       },
    }),
 );
-function addProductToCart(product: Product): void {
-   throw new Error('Function not implemented.');
-}
+
 
