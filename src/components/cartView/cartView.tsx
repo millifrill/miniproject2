@@ -20,7 +20,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 interface Props {}
 
-const CartVeiw: React.FC<Props> = () => {
+const CartView: React.FC<Props> = () => {
    const [quantity, setQuantity] = React.useState('');
 
    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -33,8 +33,8 @@ const CartVeiw: React.FC<Props> = () => {
 
    return (
       <React.Fragment>
-         <Typography variant="h6" gutterBottom>
-            Kunduppgifter
+         <Typography variant="h5" gutterBottom>
+            Kundvagn
          </Typography>
          <Grid className={classes.mainstyle}>
             <TableContainer component={Paper}>
@@ -113,7 +113,7 @@ const CartVeiw: React.FC<Props> = () => {
    );
 };
 
-export default CartVeiw;
+export default CartView;
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({

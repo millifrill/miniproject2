@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
          flexGrow: 1,
          flexBasis: 0,
          maxWidth: '70rem',
-         marginBlockStart: '2rem',
+         marginBlockStart: '3rem',
       },
       gridItem: {
          width: '18rem',

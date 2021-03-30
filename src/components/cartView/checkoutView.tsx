@@ -5,9 +5,7 @@ import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
 import Checkout from './checkout';
 import Review from './review';
-
-interface Props {}
-interface State {}
+import ShippingView from './shippingView';
 
 const rootStyle: CSSProperties = {
    minHeight: '100vh',
@@ -16,17 +14,19 @@ const rootStyle: CSSProperties = {
    alignItems: 'center',
    flexDirection: 'column',
    margin: '2rem',
+   marginBlockStart: '2rem',
 };
 
 export default function checkoutView() {
    return (
       <div style={rootStyle}>
          <Switch>
-            <Route path="/checkout/checkout" component={Checkout} />
-            <Route path="/checkout/kungvagn" component={CartView} />
+            <Route path="/checkout/kundvagn" component={CartView} />
             <Route path="/checkout/adress" component={AddressForm} />
             <Route path="/checkout/betala" component={PaymentForm} />
+            <Route path="/checkout/frakt" component={ShippingView} />
             <Route path="/checkout/orderoversikt" component={Review} />
+            <Route path="/checkout/checkout" component={Checkout} />
             <p>404 sidan finns inte...</p>
          </Switch>
       </div>
