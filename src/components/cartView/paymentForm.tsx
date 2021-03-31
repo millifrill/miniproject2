@@ -106,8 +106,7 @@ export default function PaymentForm() {
                                     <TextField
                                         required
                                         id="cardName"
-                                        label="Telefonnummer för Swishbetalning"
-                                        fullWidth
+                                        label="Telefonnummer"
                                         autoComplete="cc-telfone"
                                     />
                                 </Grid>
@@ -138,7 +137,6 @@ export default function PaymentForm() {
                                         required
                                         id="Personnummer"
                                         label="Personnummer"
-                                        fullWidth
                                         autoComplete="cc-Personnummer"
                                     />
                                 </Grid>
@@ -157,7 +155,7 @@ const useStyles = makeStyles((theme: Theme) =>
             minHeight: '100vh',
             flexGrow: 1,
             flexBasis: 0,
-            maxWidth: '50rem',
+            maxWidth: 'auto',
             margin: 'auto',
             marginBlockStart: '1rem',
         },
