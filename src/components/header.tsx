@@ -5,11 +5,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 // import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../contexts/cartContext';
+
 
 export default function Header() {
     //om produkt redan finns i varukorgen så öka antal
@@ -32,7 +33,6 @@ export default function Header() {
                     </Typography>
                     <Button
                         variant="contained"
-                        color="primary"
                         className={classes.button}
                         startIcon={
                             <div>
@@ -46,7 +46,7 @@ export default function Header() {
                                         badgeContent={cart.length}
                                         showZero
                                     >
-                                        <ShoppingCartIcon />
+                                        <ShoppingBasketIcon />
                                     </Badge>
                                     <label className={classes.cartLabel}>
                                         Varukorg
@@ -125,6 +125,9 @@ const useStyles = makeStyles((theme: Theme) =>
             background: 'lightBlue',
             color: 'black',
             backgroundColor: '#a1bac0',
+            '&:hover': {
+                backgroundColor: '#a1bac0',
+            },
             width: 'auto',
             textDecoration: 'none',
         },

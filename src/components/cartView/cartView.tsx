@@ -7,32 +7,27 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {
-    Button,
-    FormControl,
-    Grid,
-    InputLabel,
-    MenuItem,
-    Select,
-    Typography,
-} from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { useHistory } from 'react-router-dom';
 
 interface Props {}
 
 const CartView: React.FC<Props> = () => {
     const [quantity, setQuantity] = React.useState('');
-    const { cart } = useContext(CartContext)
-
+    const { cart } = useContext(CartContext);
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
         setQuantity(event.target.value as string);
     };
-
     const classes = useStyles();
-
     const [subTotal] = React.useState('');
+    const history = useHistory();
+    const goToStartPageView = () => {
+        history.push('/');
+    };
 
     return (
         <React.Fragment>
@@ -66,39 +61,15 @@ const CartView: React.FC<Props> = () => {
                                     <TableCell>{product.title}</TableCell>
                                     <TableCell>{product.price} kr</TableCell>
                                     <TableCell>
-                                        <FormControl
-                                            variant="outlined"
-                                            className={classes.formControl}
+                                        <ButtonGroup
+                                            className={classes.buttonGroup}
+                                            color="primary"
+                                            aria-label="outlined primary button group"
                                         >
-                                            <InputLabel id="demo-simple-select-outlined-label">
-                                                1
-                                            </InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-outlined-label"
-                                                id="demo-simple-select-outlined"
-                                                value={quantity}
-                                                onChange={handleChange}
-                                                label="Antal"
-                                            >
-                                                <MenuItem value="">
-                                                    <em>None</em>
-                                                </MenuItem>
-                                                <MenuItem value={0}>0</MenuItem>
-                                                <MenuItem value={1}>1</MenuItem>
-                                                <MenuItem value={2}>2</MenuItem>
-                                                <MenuItem value={3}>3</MenuItem>
-                                                <MenuItem value={4}>4</MenuItem>
-                                                <MenuItem value={5}>5</MenuItem>
-                                                <MenuItem value={6}>6</MenuItem>
-                                                <MenuItem value={7}>7</MenuItem>
-                                                <MenuItem value={8}>8</MenuItem>
-                                                <MenuItem value={9}>9</MenuItem>
-                                                <MenuItem value={10}>
-                                                    10
-                                                </MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                        {quantity}
+                                            <Button>-</Button>
+                                            <Button>1{quantity}</Button>
+                                            <Button>+</Button>
+                                        </ButtonGroup>
                                     </TableCell>
                                     <TableCell>{subTotal}</TableCell>
                                     <TableCell>
@@ -112,14 +83,12 @@ const CartView: React.FC<Props> = () => {
                     </Table>
                 </TableContainer>
                 <div className={classes.flexEnd}>
-                    <Button className={classes.button} variant="contained">
-                        <div>
-                            {' '}
-                            {/* <Link to="/"> */}
-                                Fortsätt handla
-                            {/* </Link> */}
-                            {/* <Link to="/checkout/checkout">Till kassan</Link>{' '} */}
-                        </div>
+                    <Button
+                        className={classes.button}
+                        variant="contained"
+                        onClick={goToStartPageView}
+                    >
+                        Fortsätt handla
                     </Button>
                 </div>
             </Grid>
@@ -141,11 +110,21 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingRight: '30rem',
             alignItems: 'center',
         },
+        buttonGroup: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            color: 'black',
+            '& > *': {},
+        },
         button: {
             marginTop: theme.spacing(3),
             marginLeft: theme.spacing(1),
-            backgroundColor: '#7f9fa7',
-            color: 'black',
+            backgroundColor: '#30464d',
+            '&:hover': {
+                backgroundColor: '#30464d',
+            },
+            color: 'white',
             height: '2.5rem',
             width: 'auto',
             textDecoration: 'none',
