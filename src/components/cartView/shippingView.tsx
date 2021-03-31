@@ -239,7 +239,6 @@ const ShippingView: React.FC<Props> = () => {
                                         inputProps={{ 'aria-label': 'E' }}
                                         size="small"
                                     />
-
                                     <span>Upphämtning i butik</span>
                                 </TableCell>
                                 <TableCell
