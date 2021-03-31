@@ -1,16 +1,16 @@
 # Miniprojekt 2 - Dahliabanken
 
-## Utveckling
+## Development
 
 # Installation
-Först behöver ni köra kommandot npm i för att installera nödvändiga moduler (typescript, metarial-ui)
+First you need to run the command npm in to install the necessary modules (typescript, metarial-ui)
 
-## Starta projektet
-Kör kommandot npm start för att starta projektet och se det live i din webbläsare!
+## Start the project
+Run the npm start command to start the project and see it live in your browser!
 
-# Dokumentationen 
-vi har används av Meatrial-ui för vårt projket [länk fins här](https://material-ui.com/)
+# The documentation
+we have used Material-ui for our project[link is here](https://material-ui.com/)
 
-# Skapare av e-handel sidan
+# Creator of the e-commerce site
 [Jacob](https://github.com/jv98)
 [Camilla](https://github.com/millifrill)
