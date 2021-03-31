@@ -1,32 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import { products } from '../mockedProducts';
-import { useRouteMatch } from 'react-router-dom';
+import { Product } from '../mockedProducts';
 import {
     Button,
-    FormControl,
     Grid,
-    InputLabel,
-    MenuItem,
-    Select,
 } from '@material-ui/core';
+import { CartContext } from '../../contexts/cartContext';
 
-const ProductContainer: React.FC = () => {
-   
+type Props = {
+    product: Product;
+};
+
+const ProductContainer: React.FC<Props> = ({ product }) => {
     const classes = useStyles();
-
-    const match = useRouteMatch<{ id: string }>();
-
-    const product = products.find((p) => String(p.id) === match.params.id);
-
-    const [quantity, setQuantity] = React.useState('');
-
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setQuantity(event.target.value as string);
-    };
+    const { addToCart } = useContext(CartContext);
+    // const [quantity, setQuantity] = React.useState('');
 
     if (!product) {
         return (
@@ -63,44 +54,14 @@ const ProductContainer: React.FC = () => {
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <FormControl
-                                    variant="outlined"
-                                    className={classes.formControl}
-                                >
-                                    <InputLabel id="demo-simple-select-outlined-label">
-                                        {/* Antal */}
-                                    </InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-outlined-label"
-                                        id="demo-simple-select-outlined"
-                                        value={quantity}
-                                        onChange={handleChange}
-                                        label="Antal"
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={0}>0</MenuItem>
-                                        <MenuItem value={1}>1</MenuItem>
-                                        <MenuItem value={2}>2</MenuItem>
-                                        <MenuItem value={3}>3</MenuItem>
-                                        <MenuItem value={4}>4</MenuItem>
-                                        <MenuItem value={5}>5</MenuItem>
-                                        <MenuItem value={6}>6</MenuItem>
-                                        <MenuItem value={7}>7</MenuItem>
-                                        <MenuItem value={8}>8</MenuItem>
-                                        <MenuItem value={9}>9</MenuItem>
-                                        <MenuItem value={10}>10</MenuItem>
-                                    </Select>
-                                </FormControl>
                                 <Button
                                     className={classes.button}
                                     variant="contained"
                                     color="primary"
-                                    onClick={() => addProductToCart()}
+                                    onClick={() => addToCart(product)}
                                     size="large"
                                 >
-                                    Köp
+                                    Lägg till i varukorg
                                 </Button>
                             </Grid>
                         </Grid>
@@ -110,10 +71,6 @@ const ProductContainer: React.FC = () => {
         </div>
     );
 };
-
-function addProductToCart(): void {
-    throw new Error('Function not implemented.');
-}
 
 export default ProductContainer;
 
@@ -140,13 +97,17 @@ const useStyles = makeStyles((theme: Theme) =>
         p: {
             margin: 'auto',
         },
-        formControl: {
-            margin: theme.spacing(0),
-            minWidth: '3.5rem',
-            paddingRight: '0.3rem',
-        },
         button: {
             height: '3rem',
+            width: '100%',
+            fontSize: '0.9rem',
+            backgroundColor: '#30464d',
+            '&:hover': {
+                backgroundColor: '#30464d',
+            },
+            [theme.breakpoints.down('md')]: {
+                fontSize: '0.7rem',
+            },
         },
     }),
 );
