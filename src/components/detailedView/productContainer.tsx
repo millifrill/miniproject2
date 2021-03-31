@@ -52,13 +52,13 @@ const ProductContainer: React.FC = () => {
                     <Grid item xs={12} sm container>
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs>
-                                <Typography gutterBottom variant="subtitle1">
+                                <Typography gutterBottom variant="h5">
                                     {product.title}
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
                                     {product.description}
                                 </Typography>
-                                <Typography variant="body2">
+                                <Typography variant="h6">
                                     {product.price} kr
                                 </Typography>
                             </Grid>

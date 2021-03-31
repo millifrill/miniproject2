@@ -50,6 +50,7 @@ export default function Checkout() {
          <CssBaseline />
          <Container component="main" className={classes.main} maxWidth="md">
             <Paper className={classes.paper} variant="outlined">
+               <div className={classes.hide}>
                <Typography component="h1" variant="h4" align="center">
                   Kassa
                </Typography>
@@ -60,6 +61,7 @@ export default function Checkout() {
                      </Step>
                   ))}
                </Stepper>
+               </div>
                <React.Fragment>
                   {activeStep === steps.length ? (
                      <React.Fragment>
@@ -101,7 +103,6 @@ export default function Checkout() {
                   )}
                </React.Fragment>
             </Paper>
-            {/* <Copyright /> */}
          </Container>
       </React.Fragment>
    );
@@ -121,6 +122,12 @@ const useStyles = makeStyles((theme) => ({
          padding: theme.spacing(3),
       },
    },
+   hide: {
+      display: 'none',
+            [theme.breakpoints.up('md')]: {
+                display: 'block',
+            },
+   },
    stepper: {
       padding: theme.spacing(3, 0, 5),
    },
@@ -131,5 +138,6 @@ const useStyles = makeStyles((theme) => ({
    button: {
       marginTop: theme.spacing(3),
       marginLeft: theme.spacing(1),
+      color: '#202e32',
    },
 }));

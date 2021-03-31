@@ -41,12 +41,12 @@ const CartView: React.FC<Props> = () => {
                <Table className={classes.table} aria-label="simple table">
                   <TableHead>
                      <TableRow>
-                        <TableCell></TableCell>
-                        <TableCell>Produkt</TableCell>
-                        <TableCell>Pris</TableCell>
-                        <TableCell>Antal</TableCell>
-                        <TableCell>Delsumma</TableCell>
-                        <TableCell></TableCell>
+                        <TableCell className={classes.hide}></TableCell>
+                        <TableCell className={classes.hide}>Produkt</TableCell>
+                        <TableCell className={classes.hide}>Pris</TableCell>
+                        <TableCell className={classes.hide}>Antal</TableCell>
+                        <TableCell className={classes.hide}>Delsumma</TableCell>
+                        <TableCell className={classes.hide}></TableCell>
                      </TableRow>
                   </TableHead>
                   <TableBody>
@@ -63,7 +63,7 @@ const CartView: React.FC<Props> = () => {
                               />
                            </TableCell>
                            <TableCell>{product.title}</TableCell>
-                           <TableCell>{product.price}</TableCell>
+                           <TableCell>{product.price} kr</TableCell>
                            <TableCell>
                               <FormControl
                                  variant="outlined"
@@ -117,6 +117,13 @@ export default CartView;
 
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
+      hide: {
+         display: 'none',
+               [theme.breakpoints.up('md')]: {
+                   display: 'block',
+                   
+               },
+      },
       table: {
          paddingRight: '30rem',
          alignItems: 'center',
