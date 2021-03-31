@@ -78,7 +78,7 @@ export default function Checkout() {
                   ) : (
                      <React.Fragment>
                         {getStepContent(activeStep)}
-                        <div className={classes.buttons}>
+                        <span className={classes.buttons}>
                            {activeStep !== 0 && (
                               <Button
                                  onClick={handleBack}
@@ -89,7 +89,6 @@ export default function Checkout() {
                            )}
                            <Button
                               variant="contained"
-                              color="primary"
                               size="large"
                               onClick={handleNext}
                               className={classes.button}
@@ -98,7 +97,7 @@ export default function Checkout() {
                                  ? 'Bekräfta order'
                                  : 'Nästa'}
                            </Button>
-                        </div>
+                        </span>
                      </React.Fragment>
                   )}
                </React.Fragment>
@@ -138,6 +137,7 @@ const useStyles = makeStyles((theme) => ({
    button: {
       marginTop: theme.spacing(3),
       marginLeft: theme.spacing(1),
-      color: '#202e32',
+      backgroundColor: '#7f9fa7',
+      color:'black',
    },
 }));

@@ -11,7 +11,6 @@ const rootStyle: CSSProperties = {
    minHeight: '100vh',
    display: 'flex',
    justifyContent: 'center',
-   alignItems: 'center',
    flexDirection: 'column',
    marginBlockStart: '2rem',
 };

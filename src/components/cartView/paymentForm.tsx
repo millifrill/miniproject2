@@ -154,12 +154,10 @@ export default function PaymentForm() {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            minHeight: '100vh',
             flexGrow: 1,
             flexBasis: 0,
             maxWidth: '50rem',
             margin: 'auto',
-            marginBlockStart: '1rem',
         },
         accordion: {
             marginBlockStart: '2rem',

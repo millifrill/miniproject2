@@ -1,11 +1,12 @@
 import { Component, createContext } from 'react';
+import { Product } from '../components/mockedProducts';
 
 interface State {
-   cart: string[];
+   cart: Product[];
 }
 
 interface ContextValue extends State {
-   addToCart: (product: string) => void;
+   addToCart: (product: Product) => void;
 }
 
 export const CartContext = createContext<ContextValue>({
@@ -18,7 +19,7 @@ class CartProvider extends Component<{}, State> {
       cart: [],
    };
 
-   addProductToCart = (product: string) => {
+   addProductToCart = (product: Product) => {
       const updatedCart = [...this.state.cart, product];
       this.setState({ cart: updatedCart });
    };
