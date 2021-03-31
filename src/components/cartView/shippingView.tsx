@@ -78,8 +78,7 @@ const ShippingView: React.FC<Props> = () => {
                                                 Onsdagen den 1 april, kl 17 - 22
                                             </MenuItem>
                                             <MenuItem value={20}>
-                                                Torsdagen den 2 april, kl 17 -
-                                                22
+                                                Torsdagen den 2 april, kl 17 - 22
                                             </MenuItem>
                                             <MenuItem value={30}>
                                                 Fredagen den 3 april, kl 17 - 22
@@ -127,15 +126,8 @@ const ShippingView: React.FC<Props> = () => {
                                             <MenuItem value="2">
                                                 <em>None</em>
                                             </MenuItem>
-                                            <MenuItem value={10}>
+                                            <MenuItem value={40}>
                                                 Onsdagen den 31 mars, kl 17 - 22
-                                            </MenuItem>
-                                            <MenuItem value={20}>
-                                                Torsdagen den 1 april, kl 17 -
-                                                22
-                                            </MenuItem>
-                                            <MenuItem value={30}>
-                                                Fredagen den 2 april, kl 17 - 22
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
@@ -225,15 +217,8 @@ const ShippingView: React.FC<Props> = () => {
                                             <MenuItem value="4">
                                                 <em>None</em>
                                             </MenuItem>
-                                            <MenuItem value={10}>
-                                                Onsdagen den 30 mars, kl 17 - 22
-                                            </MenuItem>
-                                            <MenuItem value={20}>
-                                                Torsdagen den 1 april, kl 17 -
-                                                22
-                                            </MenuItem>
-                                            <MenuItem value={30}>
-                                                Fredagen den 2 april, kl 17 - 22
+                                            <MenuItem value={70}>
+                                                Onsdagen den 30 mars
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
@@ -256,13 +241,12 @@ const ShippingView: React.FC<Props> = () => {
                                     />
 
                                     <span>Upphämtning i butik</span>
-                                    <div className={classes.leftMargin}>
-                                        Kan hämtas i butiken under öppetider
-                                    </div>
                                 </TableCell>
                                 <TableCell
                                     className={classes.paddingLeft}
-                                ></TableCell>
+                                ><div className={classes.leftMargin}>
+                                Kan hämtas i butiken under öppetider
+                            </div></TableCell>
                                 <TableCell className={classes.paddingLeft}>
                                     0 kr
                                 </TableCell>
