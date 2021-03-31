@@ -127,14 +127,14 @@ const ShippingView: React.FC<Props> = () => {
                                             <MenuItem value="2">
                                                 <em>None</em>
                                             </MenuItem>
-                                            <MenuItem value={10}>
+                                            <MenuItem value={40}>
                                                 Onsdagen den 31 mars, kl 17 - 22
                                             </MenuItem>
-                                            <MenuItem value={20}>
+                                            <MenuItem value={50}>
                                                 Torsdagen den 1 april, kl 17 -
                                                 22
                                             </MenuItem>
-                                            <MenuItem value={30}>
+                                            <MenuItem value={60}>
                                                 Fredagen den 2 april, kl 17 - 22
                                             </MenuItem>
                                         </Select>
@@ -225,15 +225,15 @@ const ShippingView: React.FC<Props> = () => {
                                             <MenuItem value="4">
                                                 <em>None</em>
                                             </MenuItem>
-                                            <MenuItem value={10}>
-                                                Onsdagen den 30 mars, kl 17 - 22
+                                            <MenuItem value={70}>
+                                                Onsdagen den 29 mars, kl 10 - 17
                                             </MenuItem>
-                                            <MenuItem value={20}>
-                                                Torsdagen den 1 april, kl 17 -
+                                            <MenuItem value={80}>
+                                                Torsdagen den 30 mars, kl 10 - 17
                                                 22
                                             </MenuItem>
-                                            <MenuItem value={30}>
-                                                Fredagen den 2 april, kl 17 - 22
+                                            <MenuItem value={90}>
+                                                Fredagen den 31 mars, kl 10 - 17
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
