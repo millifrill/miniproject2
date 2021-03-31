@@ -7,6 +7,10 @@ After a fresh `git clone`, to install all node dependencies, use
 ```shell
 npm install
 ```
+npm install -g typescript
+```
+npm install @material-ui/core
+```
 To start the development server, use
 ```shell
 npm start
