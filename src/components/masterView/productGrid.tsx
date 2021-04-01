@@ -8,7 +8,7 @@ export default function ProductGrid() {
 
    return (
       <div className={classes.root}>
-         <Grid container justify="center" className={classes.grid} spacing={2} wrap="wrap">
+         <Grid container justify="center" direction="row" className={classes.grid} spacing={2} wrap="wrap">
             {products.map((product) => (
                <Grid item justify="center" className={classes.gridItem} sm={12} md={6} lg={4}>
                   <ProductCard
@@ -25,22 +25,21 @@ export default function ProductGrid() {
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
       root: {
+         display: 'flex',
          flexGrow: 1,
          flexBasis: 0,
          maxWidth: '70rem',
          marginBlockStart: '3rem',
       },
       grid: {
-         justifyItems: 'space-between',
-
-         justifyContent: 'space-between',
          margin: 'auto',
       },
       gridItem: {
-         justifySelf: 'space-between',
-
+         display: 'flex',
          width: '18rem',
          margin: 'auto',
+         padding: '0',
+         marginTop: '0.5rem',
       },
    }),
 );

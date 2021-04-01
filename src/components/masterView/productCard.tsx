@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             width: '17rem',
             minHeight: '33rem',
+            
         },
         cardImg: {
             margin: 'auto',
