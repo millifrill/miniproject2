@@ -1,5 +1,5 @@
 import { Component, createContext } from 'react';
-import { Product, products } from '../components/mockedProducts';
+import { Product, } from '../components/mockedProducts';
 
 interface CartItem extends Product {
    quantity: number
@@ -13,12 +13,7 @@ interface State {
 interface ContextValue extends State {
    addToCart: (product: Product) => void;
 }
-export const getcartlength =(quantity: CartItem[])=>{
-   let length= 0
-   quantity.forEach((CartItem) =>{
-      length +=CartItem.quantity
-   })
-}
+
 
 export const CartContext = createContext<ContextValue>({
    cart: [],
