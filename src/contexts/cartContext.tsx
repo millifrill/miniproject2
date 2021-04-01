@@ -1,5 +1,5 @@
 import { Component, createContext } from 'react';
-import { Product, } from '../components/mockedProducts';
+import { Product, products, } from '../components/mockedProducts';
 
 interface CartItem extends Product {
    quantity: number
@@ -18,13 +18,18 @@ interface ContextValue extends State {
 export const CartContext = createContext<ContextValue>({
    cart: [],
    addToCart: () => {},
+   
 });
 
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
    };
+   remvoeTocart(product: Product) {
+      
 
+      //hitt en produckt quntiny -1 
+   }
    addProductToCart = (product: Product) => {
       let updatedCart = [...this.state.cart];
       

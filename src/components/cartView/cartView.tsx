@@ -18,7 +18,7 @@ interface Props {}
 
 const CartView: React.FC<Props> = () => {
     const [quantity] = React.useState('');
-    const { cart } = useContext(CartContext);
+    const { cart, addToCart } = useContext(CartContext);
     const classes = useStyles();
     const [subTotal] = React.useState('');
     const history = useHistory();
@@ -63,9 +63,9 @@ const CartView: React.FC<Props> = () => {
                                             color="primary"
                                             aria-label="outlined primary button group"
                                         >
-                                            <Button>-</Button>
+                                            <Button >-</Button>
                                             <Input className={classes.inputstlying} id={quantity} value={product.quantity} />
-                                            <Button>+</Button>
+                                            <Button onClick={()=>{addToCart(product)}} >+</Button>
                                         </ButtonGroup>
                                     </TableCell>
                                     <TableCell>{subTotal}</TableCell>
