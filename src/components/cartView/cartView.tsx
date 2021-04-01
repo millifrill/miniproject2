@@ -17,11 +17,8 @@ import { useHistory } from 'react-router-dom';
 interface Props {}
 
 const CartView: React.FC<Props> = () => {
-    const [quantity, setQuantity] = React.useState('');
+    const [quantity] = React.useState('');
     const { cart } = useContext(CartContext);
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setQuantity(event.target.value as string);
-    };
     const classes = useStyles();
     const [subTotal] = React.useState('');
     const history = useHistory();
