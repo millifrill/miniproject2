@@ -106,8 +106,9 @@ export default function PaymentForm() {
                                     <TextField
                                         required
                                         id="cardName"
-                                        label="Telefonnummer"
-                                        autoComplete="cc-telfone"
+                                        label="Telefonnummer för Swishbetalning"
+                                        fullWidth
+                                        autoComplete="tel"
                                     />
                                 </Grid>
                             </Grid>
