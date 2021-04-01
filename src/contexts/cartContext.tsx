@@ -1,5 +1,5 @@
 import { Component, createContext } from 'react';
-import { Product, products, } from '../components/mockedProducts';
+import { Product } from '../components/mockedProducts';
 
 interface CartItem extends Product {
    quantity: number
