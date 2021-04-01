@@ -36,14 +36,17 @@ class CartProvider extends Component<{}, State> {
       if (removeOne) {
          //säker vädert
          removeOne.quantity-- ;
-         
+         if(removeOne.quantity <= 0){
+            this.remvoeTocart(product)
+         }else{
+            this.setState({ cart: updatedCart });
+         }
       }
-      this.setState({ cart: updatedCart });
    };
    remvoeTocart= (product: Product) => {
       const removeitems: CartItem[]= this.state.cart.filter((item)=> item.id !== product.id);
       this.setState({cart: [...removeitems]});
-      //deltera hella produkten
+      //tar bort en hella produkten
 
    };
    addProductToCart = (product: Product) => {
