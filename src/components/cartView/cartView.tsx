@@ -20,12 +20,11 @@ const CartView: React.FC<Props> = () => {
     const [quantity] = React.useState('');
     const { cart, addToCart, remvoecart, removeitems } = useContext(CartContext);
     const classes = useStyles();
-    const [subTotal] = React.useState('');
     const history = useHistory();
     const goToStartPageView = () => {
         history.push('/');
     };
-
+   
     return (
         <React.Fragment>
             <Typography variant="h5" gutterBottom>
@@ -68,7 +67,7 @@ const CartView: React.FC<Props> = () => {
                                             <Button onClick={()=>{addToCart(product)}} >+</Button>
                                         </ButtonGroup>
                                     </TableCell>
-                                    <TableCell>{subTotal}</TableCell>
+                                    <TableCell >{product.subTotal} kr </TableCell>
                                     <TableCell>
                                         <Grid item xs={8}>
                                             <DeleteForeverIcon  onClick={()=>{remvoecart(product)}} />
@@ -78,6 +77,7 @@ const CartView: React.FC<Props> = () => {
                             ))}
                         </TableBody>
                     </Table>
+                   
                 </TableContainer>
                 <div className={classes.flexEnd}>
                     <Button
@@ -88,6 +88,8 @@ const CartView: React.FC<Props> = () => {
                         Fortsätt handla
                     </Button>
                 </div>
+               
+                
             </Grid>
         </React.Fragment>
     );

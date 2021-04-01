@@ -3,6 +3,7 @@ import { Product } from '../components/mockedProducts';
 
 interface CartItem extends Product {
    quantity: number
+   subTotal:number
    
 }
 
@@ -14,6 +15,7 @@ interface ContextValue extends State {
    addToCart: (product: Product) => void;
    remvoecart: (product: Product) => void;
    removeitems: (product: Product) => void;
+   delsumman: (product: Product) => void;
 }
 
 
@@ -22,12 +24,22 @@ export const CartContext = createContext<ContextValue>({
    addToCart: () => {},
    remvoecart: () =>{},
    removeitems: () =>{},
+   delsumman: () =>{},
 });
 
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
    };
+   delSumma = () => {
+     let total=0;
+    this.state.cart.forEach(element => {
+       total+=element.subTotal
+       
+    });
+    return total
+   };
+   
    removeOneitem= (product: Product) => {
       let updatedCart = [...this.state.cart];
       
@@ -35,7 +47,8 @@ class CartProvider extends Component<{}, State> {
       
       if (removeOne) {
          //säker vädert
-         removeOne.quantity-- ;
+         removeOne.quantity--
+         removeOne.subTotal-=removeOne.price 
          if(removeOne.quantity <= 0){
             this.remvoeTocart(product)
          }else{
@@ -57,8 +70,9 @@ class CartProvider extends Component<{}, State> {
       if (itemInCart) {
          //Höja upp quantity
          itemInCart.quantity++
+         itemInCart.subTotal+=itemInCart.price
       } else {
-         updatedCart =[...updatedCart, { ...product, quantity: 1}]
+         updatedCart =[...updatedCart, { ...product, quantity: 1, subTotal: product.price}]
          //Lägg till produkt med quantity 1
       }
 
@@ -74,6 +88,7 @@ class CartProvider extends Component<{}, State> {
                addToCart: this.addProductToCart,
                remvoecart: this.remvoeTocart,
                removeitems: this.removeOneitem,
+               delsumman: this.delSumma,
             }}
          >
             {this.props.children}
@@ -81,5 +96,4 @@ class CartProvider extends Component<{}, State> {
       );
    }
 }
-
 export default CartProvider;
