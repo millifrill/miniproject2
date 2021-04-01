@@ -1,12 +1,23 @@
 import { Component, createContext } from 'react';
-import { Product } from '../components/mockedProducts';
+import { Product, products } from '../components/mockedProducts';
+
+interface CartItem extends Product {
+   quantity: number
+   
+}
 
 interface State {
-   cart: Product[];
+   cart: CartItem[];
 }
 
 interface ContextValue extends State {
    addToCart: (product: Product) => void;
+}
+export const getcartlength =(quantity: CartItem[])=>{
+   let length= 0
+   quantity.forEach((CartItem) =>{
+      length +=CartItem.quantity
+   })
 }
 
 export const CartContext = createContext<ContextValue>({
@@ -20,7 +31,18 @@ class CartProvider extends Component<{}, State> {
    };
 
    addProductToCart = (product: Product) => {
-      const updatedCart = [...this.state.cart, product];
+      let updatedCart = [...this.state.cart];
+      
+      const itemInCart = updatedCart.find((item) => item.id === product.id);
+
+      if (itemInCart) {
+         //Höja upp quantity
+         itemInCart.quantity++
+      } else {
+         updatedCart =[...updatedCart, { ...product, quantity: 1}]
+         //Lägg till produkt med quantity 1
+      }
+
       this.setState({ cart: updatedCart });
    };
 
@@ -31,6 +53,7 @@ class CartProvider extends Component<{}, State> {
             value={{
                cart: this.state.cart,
                addToCart: this.addProductToCart,
+               
             }}
          >
             {this.props.children}
