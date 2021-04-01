@@ -16,7 +16,10 @@ export default function Header() {
     //om produkt redan finns i varukorgen så öka antal
     const { cart } = useContext(CartContext);
     const classes = useStyles();
-
+    let carlentg = 0;
+    cart.forEach((CartItem)=>{
+        carlentg= carlentg +CartItem.quantity
+    })
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.appBar}>
@@ -43,8 +46,9 @@ export default function Header() {
                                 >
                                     <Badge
                                         color="error"
-                                        badgeContent={cart.length}
+                                        badgeContent={carlentg}
                                         showZero
+                                      
                                     >
                                         <ShoppingBasketIcon />
                                     </Badge>

@@ -1,7 +1,6 @@
 import { Component, CSSProperties } from 'react';
-import { Product } from '../mockedProducts';
 import InfoTable from './infoTable';
-import ProductContainer from './productContainer';
+
 
 interface Props {}
 interface State {}

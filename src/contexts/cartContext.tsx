@@ -3,6 +3,7 @@ import { Product } from '../components/mockedProducts';
 
 interface CartItem extends Product {
    quantity: number
+   subTotal:number
    
 }
 
@@ -12,18 +13,58 @@ interface State {
 
 interface ContextValue extends State {
    addToCart: (product: Product) => void;
+   remvoecart: (product: Product) => void;
+   removeitems: (product: Product) => void;
+   delsumman: (product: Product) => void;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 361855f7ea6721b57062794de89ffcf4e0549d31
 
 export const CartContext = createContext<ContextValue>({
    cart: [],
    addToCart: () => {},
+   remvoecart: () =>{},
+   removeitems: () =>{},
+   delsumman: () =>{},
 });
 
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
    };
+   delSumma = () => {
+     let total=0;
+    this.state.cart.forEach(element => {
+       total+=element.subTotal
+       
+    });
+    return total
+   };
+   
+   removeOneitem= (product: Product) => {
+      let updatedCart = [...this.state.cart];
+      
+      const removeOne = updatedCart.find((item) => item.id === product.id);
+      
+      if (removeOne) {
+         //säker vädert
+         removeOne.quantity--
+         removeOne.subTotal-=removeOne.price 
+         if(removeOne.quantity <= 0){
+            this.remvoeTocart(product)
+         }else{
+            this.setState({ cart: updatedCart });
+         }
+      }
+   };
+   remvoeTocart= (product: Product) => {
+      const removeitems: CartItem[]= this.state.cart.filter((item)=> item.id !== product.id);
+      this.setState({cart: [...removeitems]});
+      //tar bort en hella produkten
 
+   };
    addProductToCart = (product: Product) => {
       let updatedCart = [...this.state.cart];
       
@@ -32,8 +73,9 @@ class CartProvider extends Component<{}, State> {
       if (itemInCart) {
          //Höja upp quantity
          itemInCart.quantity++
+         itemInCart.subTotal+=itemInCart.price
       } else {
-         updatedCart =[...updatedCart, { ...product, quantity: 1}]
+         updatedCart =[...updatedCart, { ...product, quantity: 1, subTotal: product.price}]
          //Lägg till produkt med quantity 1
       }
 
@@ -47,7 +89,9 @@ class CartProvider extends Component<{}, State> {
             value={{
                cart: this.state.cart,
                addToCart: this.addProductToCart,
-               
+               remvoecart: this.remvoeTocart,
+               removeitems: this.removeOneitem,
+               delsumman: this.delSumma,
             }}
          >
             {this.props.children}
@@ -55,5 +99,4 @@ class CartProvider extends Component<{}, State> {
       );
    }
 }
-
 export default CartProvider;
