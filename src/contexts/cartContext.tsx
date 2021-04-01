@@ -12,24 +12,40 @@ interface State {
 
 interface ContextValue extends State {
    addToCart: (product: Product) => void;
+   remvoecart: (product: Product) => void;
+   removeitems: (product: Product) => void;
 }
 
 
 export const CartContext = createContext<ContextValue>({
    cart: [],
    addToCart: () => {},
-   
+   remvoecart: () =>{},
+   removeitems: () =>{},
 });
 
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
    };
-   remvoeTocart(product: Product) {
+   removeOneitem= (product: Product) => {
+      let updatedCart = [...this.state.cart];
       
+      const removeOne = updatedCart.find((item) => item.id === product.id);
+      
+      if (removeOne) {
+         //säker vädert
+         removeOne.quantity-- ;
+         
+      }
+      this.setState({ cart: updatedCart });
+   };
+   remvoeTocart= (product: Product) => {
+      const removeitems: CartItem[]= this.state.cart.filter((item)=> item.id !== product.id);
+      this.setState({cart: [...removeitems]});
+      //deltera hella produkten
 
-      //hitt en produckt quntiny -1 
-   }
+   };
    addProductToCart = (product: Product) => {
       let updatedCart = [...this.state.cart];
       
@@ -53,7 +69,8 @@ class CartProvider extends Component<{}, State> {
             value={{
                cart: this.state.cart,
                addToCart: this.addProductToCart,
-               
+               remvoecart: this.remvoeTocart,
+               removeitems: this.removeOneitem,
             }}
          >
             {this.props.children}
