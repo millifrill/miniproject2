@@ -101,6 +101,7 @@ export default function Checkout() {
                                         size="large"
                                         onClick={handleNext}
                                         className={classes.button}
+                                        type="submit"
                                     >
                                         {activeStep === steps.length - 1
                                             ? 'Bekräfta order'

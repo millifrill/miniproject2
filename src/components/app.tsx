@@ -2,8 +2,6 @@ import { BrowserRouter } from 'react-router-dom';
 import CartProvider from '../contexts/cartContext';
 import Layout from './layout';
 import { Product } from './mockedProducts';
-
-// Types
 export interface CartItemType extends Product {
    quantity: number;
 }

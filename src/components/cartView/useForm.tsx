@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
+import Input from './input'
 
 type Props = {
     id: number;
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function Form(props) {
+export function Form(props: Props) {
     const classes = useStyles();
     const { children, ...other } = props;
     return (

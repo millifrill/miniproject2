@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Form, useForm } from './useForm';
-// import { SettingsPhone } from '@material-ui/icons';
+import Input from './input'
 
 type Props = {
     id: number;
@@ -21,7 +21,7 @@ type Props = {
     email: string;    
 }
 
-export default function AddressForm () { 
+export default function AddressForm (props: Props) { 
     
     const classes = useStyles();
    //  const { handleSubmit, errors } = useForm();
@@ -53,7 +53,7 @@ export default function AddressForm () {
             ...temp
         })
         if (fieldValues == values)
-        return Object.values(temp).every(x => == '')
+        return Object.values(temp).every(x => x == '')
     }
 
    const {
@@ -71,11 +71,11 @@ export default function AddressForm () {
     }
 
     return (
-        <React.Fragment>
+        // onSubmit={handleSubmit}
+        <React.Fragment> 
             <Typography variant="h5" gutterBottom>
                 Kunduppgifter
             </Typography>
-        <Form onSubmit={handleSubmit}>
             <Grid className={classes.form} container spacing={3}>
                 <Grid item xs={12} sm={6}>
                     <TextField
@@ -219,7 +219,6 @@ export default function AddressForm () {
                     />
                 </Grid>
             </Grid>
-        </Form>
         </React.Fragment>
     );
 }
