@@ -18,7 +18,7 @@ interface Props {}
 
 const CartView: React.FC<Props> = () => {
     const [quantity] = React.useState('');
-    const { cart, addToCart, remvoecart, removeitems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
+    const { cart, addToCart, removeCart, removeItems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
     const classes = useStyles();
     const history = useHistory();
     const goToStartPageView = () => {
@@ -62,7 +62,7 @@ const CartView: React.FC<Props> = () => {
                                             color="primary"
                                             aria-label="outlined primary button group"
                                         >
-                                            <Button onClick={()=>{removeitems(product)}} >-</Button>
+                                            <Button onClick={()=>{removeItems(product)}} >-</Button>
                                             <Input className={classes.inputstlying} id={quantity} value={product.quantity} />
                                             <Button onClick={()=>{addToCart(product)}} >+</Button>
                                         </ButtonGroup>
@@ -70,7 +70,7 @@ const CartView: React.FC<Props> = () => {
                                     <TableCell >{product.subTotal} kr </TableCell>
                                     <TableCell>
                                         <Grid item xs={8}>
-                                            <DeleteForeverIcon  onClick={()=>{remvoecart(product)}} />
+                                            <DeleteForeverIcon  onClick={()=>{removeCart(product)}} />
                                         </Grid>
                                     </TableCell>
                                 </TableRow>

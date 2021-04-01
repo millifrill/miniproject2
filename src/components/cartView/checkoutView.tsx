@@ -10,7 +10,6 @@ import ShippingView from './shippingView';
 const rootStyle: CSSProperties = {
     minHeight: '100vh',
     display: 'flex',
-    justifyContent: 'center',
     flexDirection: 'column',
     marginBlockStart: '2rem',
 };
