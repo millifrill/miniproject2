@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Input, Typography } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
@@ -67,7 +67,7 @@ const CartView: React.FC<Props> = () => {
                                             aria-label="outlined primary button group"
                                         >
                                             <Button>-</Button>
-                                            <Button>1{quantity}</Button>
+                                            <Input className={classes.inputstlying} id={quantity} value={product.quantity} />
                                             <Button>+</Button>
                                         </ButtonGroup>
                                     </TableCell>
@@ -148,5 +148,9 @@ const useStyles = makeStyles((theme: Theme) =>
         img: {
             height: '5rem',
         },
+        inputstlying:{
+            width: '2rem',
+            
+        }
     }),
 );
