@@ -18,7 +18,7 @@ interface Props {}
 
 const CartView: React.FC<Props> = () => {
     const [quantity] = React.useState('');
-    const { cart, addToCart, remvoecart, removeitems } = useContext(CartContext);
+    const { cart, addToCart, remvoecart, removeitems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
     const classes = useStyles();
     const history = useHistory();
     const goToStartPageView = () => {
