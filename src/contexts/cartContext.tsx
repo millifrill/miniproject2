@@ -2,101 +2,99 @@ import { Component, createContext } from 'react';
 import { Product } from '../components/mockedProducts';
 
 interface CartItem extends Product {
-   quantity: number
-   subTotal:number
-   
+    quantity: number;
+    subTotal: number;
 }
-
 interface State {
-   cart: CartItem[];
+    cart: CartItem[];
 }
 
 interface ContextValue extends State {
-   addToCart: (product: Product) => void;
-   remvoecart: (product: Product) => void;
-   removeitems: (product: Product) => void;
-   delsumman: (product: Product) => void;
+    addToCart: (product: Product) => void;
+    remvoecart: (product: Product) => void;
+    removeitems: (product: Product) => void;
+    delsumman: (product: Product) => void;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 361855f7ea6721b57062794de89ffcf4e0549d31
 
 export const CartContext = createContext<ContextValue>({
-   cart: [],
-   addToCart: () => {},
-   remvoecart: () =>{},
-   removeitems: () =>{},
-   delsumman: () =>{},
+    cart: [],
+    addToCart: () => {},
+    remvoecart: () => {},
+    removeitems: () => {},
+    delsumman: () => {},
 });
 
 class CartProvider extends Component<{}, State> {
-   state: State = {
-      cart: [],
-   };
-   delSumma = () => {
-     let total=0;
-    this.state.cart.forEach(element => {
-       total+=element.subTotal
-       
-    });
-    return total
-   };
-   
-   removeOneitem= (product: Product) => {
-      let updatedCart = [...this.state.cart];
-      
-      const removeOne = updatedCart.find((item) => item.id === product.id);
-      
-      if (removeOne) {
-         //säker vädert
-         removeOne.quantity--
-         removeOne.subTotal-=removeOne.price 
-         if(removeOne.quantity <= 0){
-            this.remvoeTocart(product)
-         }else{
-            this.setState({ cart: updatedCart });
-         }
-      }
-   };
-   remvoeTocart= (product: Product) => {
-      const removeitems: CartItem[]= this.state.cart.filter((item)=> item.id !== product.id);
-      this.setState({cart: [...removeitems]});
-      //tar bort en hella produkten
+    state: State = {
+        cart: [],
+    };
+    delSumma = () => {
+        let total = 0;
+        this.state.cart.forEach((element) => {
+            total += element.subTotal;
+        });
+        return total;
+    };
 
-   };
-   addProductToCart = (product: Product) => {
-      let updatedCart = [...this.state.cart];
-      
-      const itemInCart = updatedCart.find((item) => item.id === product.id);
+    removeOneitem = (product: Product) => {
+        let updatedCart = [...this.state.cart];
 
-      if (itemInCart) {
-         //Höja upp quantity
-         itemInCart.quantity++
-         itemInCart.subTotal+=itemInCart.price
-      } else {
-         updatedCart =[...updatedCart, { ...product, quantity: 1, subTotal: product.price}]
-         //Lägg till produkt med quantity 1
-      }
+        const removeOne = updatedCart.find((item) => item.id === product.id);
 
-      this.setState({ cart: updatedCart });
-   };
+        if (removeOne) {
+            //säker vädert
+            removeOne.quantity--;
+            removeOne.subTotal -= removeOne.price;
+            if (removeOne.quantity <= 0) {
+                this.remvoeTocart(product);
+            } else {
+                this.setState({ cart: updatedCart });
+            }
+        }
+    };
+    remvoeTocart = (product: Product) => {
+        const removeitems: CartItem[] = this.state.cart.filter(
+            (item) => item.id !== product.id,
+        );
+        this.setState({ cart: [...removeitems] });
+        //tar bort en hella produkten
+    };
+    addProductToCart = (product: Product) => {
+        let updatedCart = [...this.state.cart];
 
-   render() {
-      console.log('CONTEXT RENDER');
-      return (
-         <CartContext.Provider
-            value={{
-               cart: this.state.cart,
-               addToCart: this.addProductToCart,
-               remvoecart: this.remvoeTocart,
-               removeitems: this.removeOneitem,
-               delsumman: this.delSumma,
-            }}
-         >
-            {this.props.children}
-         </CartContext.Provider>
-      );
-   }
+        const itemInCart = updatedCart.find((item) => item.id === product.id);
+
+        if (itemInCart) {
+            //Höja upp quantity
+            itemInCart.quantity++;
+            itemInCart.subTotal += itemInCart.price;
+        } else {
+            updatedCart = [
+                ...updatedCart,
+                { ...product, quantity: 1, subTotal: product.price },
+            ];
+            //Lägg till produkt med quantity 1
+        }
+
+        this.setState({ cart: updatedCart });
+    };
+
+    render() {
+        console.log('CONTEXT RENDER');
+        return (
+            <CartContext.Provider
+                value={{
+                    cart: this.state.cart,
+                    addToCart: this.addProductToCart,
+                    remvoecart: this.remvoeTocart,
+                    removeitems: this.removeOneitem,
+                    delsumman: this.delSumma,
+                }}
+            >
+                {this.props.children}
+            </CartContext.Provider>
+        );
+    }
 }
+
 export default CartProvider;
