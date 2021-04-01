@@ -10,7 +10,7 @@ export default function ProductGrid() {
       <div className={classes.root}>
          <Grid container justify="center" direction="row" className={classes.grid} spacing={2} wrap="wrap">
             {products.map((product) => (
-               <Grid item justify="center" className={classes.gridItem} sm={12} md={6} lg={4}>
+               <Grid item justify="center" className={classes.gridItem} xs={12} sm={6} md={4} xl={3}>
                   <ProductCard
                      product={product}
                      handleReadMore={() => {}}
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
          display: 'flex',
          flexGrow: 1,
          flexBasis: 0,
-         maxWidth: '70rem',
+         maxWidth: '80rem',
          marginBlockStart: '3rem',
       },
       grid: {

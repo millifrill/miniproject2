@@ -61,27 +61,18 @@ const ShippingView: React.FC<Props> = () => {
                                         variant="outlined"
                                         className={classes.formControl}
                                     >
-                                        <InputLabel id="demo-simple-select-outlined-label">
+                                        <InputLabel id="select-outlined-label">
                                             Leveransdatum
                                         </InputLabel>
                                         <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
+                                            labelId="select-outlined-label"
+                                            id="select-outlined"
                                             value={DeliveryDate}
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value="1">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>
-                                                Onsdagen den 1 april, kl 17 - 22
-                                            </MenuItem>
-                                            <MenuItem value={20}>
-                                                Torsdagen den 2 april, kl 17 - 22
-                                            </MenuItem>
-                                            <MenuItem value={30}>
-                                                Fredagen den 3 april, kl 17 - 22
+                                            <MenuItem className={classes.menuItemFontSize} value={10}>
+                                                Torsdagen den 8 april
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
@@ -113,19 +104,16 @@ const ShippingView: React.FC<Props> = () => {
                                         variant="outlined"
                                         className={classes.formControl}
                                     >
-                                        <InputLabel id="demo-simple-select-outlined-label">
+                                        <InputLabel id="select-outlined-label">
                                             Leveransdatum
                                         </InputLabel>
                                         <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
+                                            labelId="select-outlined-label"
+                                            id="select-outlined"
                                             value={DeliveryDate}
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value="2">
-                                                <em>None</em>
-                                            </MenuItem>
                                             <MenuItem value={40}>
                                                 Onsdagen den 31 mars, kl 17 - 22
                                             </MenuItem>
@@ -159,19 +147,16 @@ const ShippingView: React.FC<Props> = () => {
                                         variant="outlined"
                                         className={classes.formControl}
                                     >
-                                        <InputLabel id="demo-simple-select-outlined-label">
+                                        <InputLabel id="select-outlined-label">
                                             Leveransdatum
                                         </InputLabel>
                                         <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
+                                            labelId="select-outlined-label"
+                                            id="select-outlined"
                                             value={DeliveryDate}
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value="">
-                                                <em>None</em>
-                                            </MenuItem>
                                             <MenuItem value={3}>
                                                 Onsdagen den 31 mars, från kl
                                                 03.00
@@ -204,19 +189,16 @@ const ShippingView: React.FC<Props> = () => {
                                         variant="outlined"
                                         className={classes.formControl}
                                     >
-                                        <InputLabel id="demo-simple-select-outlined-label">
+                                        <InputLabel id="select-outlined-label">
                                             Leveransdatum
                                         </InputLabel>
                                         <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
+                                            labelId="select-outlined-label"
+                                            id="select-outlined"
                                             value={DeliveryDate}
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value="4">
-                                                <em>None</em>
-                                            </MenuItem>
                                             <MenuItem value={70}>
                                                 Onsdagen den 30 mars
                                             </MenuItem>
@@ -235,7 +217,7 @@ const ShippingView: React.FC<Props> = () => {
                                         onChange={handleChange}
                                         value="c"
                                         color="default"
-                                        name="radio-button-demo"
+                                        name="radio-button"
                                         inputProps={{ 'aria-label': 'E' }}
                                         size="small"
                                     />
@@ -277,10 +259,15 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         formControl: {
             margin: theme.spacing(1),
-            minWidth: '19rem',
+            minWidth: '15rem',
+            fontSize: '0.9rem',
+
         },
         selectEmpty: {
             marginTop: theme.spacing(2),
         },
+        menuItemFontSize: {
+            fontSize: '0.9rem',
+        }
     }),
 );

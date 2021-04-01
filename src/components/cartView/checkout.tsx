@@ -15,7 +15,7 @@ import CartView from './cartView';
 import ShippingView from './shippingView';
 
 const steps = [
-    'Kundvagn',
+    'Varukorg',
     'Kunduppgifter',
     'Betalning',
     'Frakt',
@@ -50,6 +50,12 @@ export default function Checkout() {
     const handleBack = () => {
         setActiveStep(activeStep - 1);
     };
+
+    // handleSubmit = () => {
+    //     this.setState({ submitted: true }, () => {
+    //         setTimeout(() => this.setState({ submitted: false }), 5000);
+    //     });
+    // }
 
     return (
         <React.Fragment>
@@ -102,6 +108,7 @@ export default function Checkout() {
                                         onClick={handleNext}
                                         className={classes.button}
                                         type="submit"
+                                        // onSubmit={handleSubmit}
                                     >
                                         {activeStep === steps.length - 1
                                             ? 'Bekräfta order'
@@ -139,6 +146,7 @@ const useStyles = makeStyles((theme) => ({
     },
     stepper: {
         padding: theme.spacing(3, 0, 5),
+        color: '#30464d',
     },
     buttons: {
         display: 'flex',
@@ -154,3 +162,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
     },
 }));
+
+// .MuiStepIcon-root.MuiStepIcon-active {
+//     color: #3f51b5;
+// }

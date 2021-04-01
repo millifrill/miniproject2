@@ -7,13 +7,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button, Grid, Input, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, TextField, Typography } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useHistory } from 'react-router-dom';
-import { OutlinedInputProps } from '@material-ui/core/OutlinedInput';
 
 interface Props {}
 
@@ -31,7 +30,7 @@ const CartView: React.FC<Props> = () => {
     return (
         <React.Fragment>
             <Typography variant="h5" gutterBottom>
-                Kundvagn
+                Varukorg
             </Typography>
             <Grid className={classes.mainstyle}>
                 <TableContainer component={Paper}>
