@@ -15,8 +15,8 @@ interface ContextValue extends State {
    addToCart: (product: Product) => void;
    removeCart: (product: Product) => void;
    removeItems: (product: Product) => void;
-   subTotal: (product: Product) => void;
-   totalSum: (product: Product) => void;
+   subToTal: (product: Product) => void;
+   
 }
 
 
@@ -25,19 +25,18 @@ export const CartContext = createContext<ContextValue>({
    addToCart: () => {},
    removeCart: () =>{},
    removeItems: () =>{},
-   subTotal: () =>{},
-   totalSum: () =>{},
+   subToTal: () => {},
 });
 
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
    };
-   delSumma = () => {
+   subTotal = () => {
      let total=0;
     this.state.cart.forEach(element => {
+       
        total+=element.subTotal
-       total+=element.totalSum
     });
     return total
    };
@@ -92,8 +91,7 @@ class CartProvider extends Component<{}, State> {
                addToCart: this.addProductToCart,
                removeCart: this.removeTocart,
                removeItems: this.removeOneitem,
-               subTotal: this.delSumma,
-               totalSum: this.delSumma,
+               subToTal: this.subTotal
             }}
          >
             {this.props.children}
