@@ -1,8 +1,8 @@
 # Miniprojekt 2 - Dahliabanken
 An e-commerce React application.
-In the course Javascript Advanced we were given the task of creating a web shop using create-react-app and Typescript. We have also used the design system [Material UI] (https://material-ui.com/).
+In the course Javascript Advanced we were given the task of creating a web shop using create-react-app and Typescript. We have also used the design system [Material UI](https://material-ui.com/).
 
-[Demo]: https://dahliabanken.netlify.app
+[Demo]https://dahliabanken.netlify.app
 
 ## Developer Instruction
 After a fresh `git clone`, to install all node dependencies, use
