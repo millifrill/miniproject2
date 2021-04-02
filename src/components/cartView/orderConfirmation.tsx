@@ -8,17 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
 
-const products = [
-    {
-        name: 'Casy Marilyn',
-        price: '35 kr',
-    },
-    {
-        name: 'Low Sunset',
-        price: '35 kr',
-    },
-    { name: 'Frakt', desc: '', price: 'Gratis' },
-];
+
 const addresses = ['Sankt Pauligatan 31A', '41660', 'Göteborg'];
 const payments = [
     { name: 'Kort', detail: 'Visa' },
@@ -29,33 +19,49 @@ const payments = [
 
 export default function OrderConfirmation() {
     const classes = useStyles();
-    const {total} = useContext(CartContext);
+    const {total, cart} = useContext(CartContext);
+   
+    setTimeout(function() {
+
+    }, 1000);
     return (
        <div className={classes.root}>
         <React.Fragment>
             <Typography variant="h4" gutterBottom>
                 Orderöversikt
             </Typography>
-            {products.map((product) => (
+            {cart.map((product) => (
                 <List disablePadding>
-                    <ListItem className={classes.listItem} key={product.name}>
+                    <ListItem className={classes.listItem} key={product.title}>
                         <ListItemText
-                            primary={product.name}
-                            secondary={product.desc}
+                            primary={product.title} 
+                            
                         />
-                        <Typography variant="body2">{product.price}</Typography>
+                        <Typography variant="body2">{product.price}kr</Typography>
                     </ListItem>
-                    <ListItem className={classes.listItem}>
-                        <ListItemText primary="Total" />
+                  
+                </List>
+            ))}
+              <ListItem className={classes.listItem}>
+                        <ListItemText primary="Total inkl moms och frakt" />
                         <Typography
                             variant="subtitle1"
                             className={classes.total}
                         >
-                            {total} kr
+                            {total*1.25} kr
                         </Typography>
+                        
                     </ListItem>
-                </List>
-            ))}
+                    <ListItem className={classes.listItem}>
+                        <ListItemText primary="fri frakt" />
+                        <Typography
+                            variant="subtitle1"
+                            className={classes.total}
+                        >
+                            0 kr
+                        </Typography>
+                        
+                    </ListItem>
             <Grid container spacing={1}>
                 <div className={classes.topMargin}>
                     <Grid className={classes.listItem} item xs={12} sm={6}>

@@ -36,17 +36,30 @@ function getStepContent(step: number) {
 }
 
 export default function Checkout() {
+    
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
-
+   
     const handleNext = () => {
-        setActiveStep(activeStep + 1);
+        if (activeStep ===3){
+            timedelay()
+        }else{
+            setActiveStep(activeStep + 1);
+        }
+        
     };
 
     const handleBack = () => {
         setActiveStep(activeStep - 1);
     };
-
+    function getRandomNumberBetween(){
+        return Math.floor(Math.random()*(1000000));
+    }
+    function timedelay() {
+        setTimeout(function() {
+        setActiveStep(activeStep + 1);
+     }, 2000);
+    }
     return (
         <React.Fragment>
             <CssBaseline />
@@ -74,7 +87,7 @@ export default function Checkout() {
                                     Tack för din beställning.
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    Ditt order nummer är #2001539. Vi har
+                                    Ditt order nummer är #{getRandomNumberBetween()}. Vi har
                                     skickat din beställning via e-post
                                     bekräftelse och skickar en uppdatering när
                                     din beställning är färdig förlevereras.
@@ -96,6 +109,7 @@ export default function Checkout() {
                                         variant="contained"
                                         size="large"
                                         onClick={handleNext}
+                                        
                                         className={classes.button}
                                     >
                                         {activeStep === steps.length - 1
