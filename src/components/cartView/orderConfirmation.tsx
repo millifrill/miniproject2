@@ -5,6 +5,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cartContext';
 
 const products = [
     {
@@ -27,7 +29,7 @@ const payments = [
 
 export default function Review() {
     const classes = useStyles();
-
+    const {total} = useContext(CartContext);
     return (
        <div className={classes.root}>
         <React.Fragment>
@@ -49,7 +51,7 @@ export default function Review() {
                             variant="subtitle1"
                             className={classes.total}
                         >
-                            70 kr
+                            {total} kr
                         </Typography>
                     </ListItem>
                 </List>
@@ -119,3 +121,4 @@ const useStyles = makeStyles((theme) => ({
         marginRight: '1rem',
     },
 }));
+
