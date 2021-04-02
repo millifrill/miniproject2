@@ -16,7 +16,10 @@ import {
 } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 
-interface Props {}
+interface Props {
+   
+    
+}
 
 const ShippingView: React.FC<Props> = () => {
     const classes = useStyles();
@@ -43,12 +46,12 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'e'}
+                                        checked={selectedValue === 'a'}
                                         onChange={handleChange}
-                                        value="e"
+                                        value="a"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'a' }}
                                         size="small"
                                     />
                                     <span>Brev - Postnord</span>
@@ -84,12 +87,12 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'f'}
+                                        checked={selectedValue === 'b'}
                                         onChange={handleChange}
-                                        value="f"
+                                        value="b"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'b' }}
                                         size="small"
                                     />
                                     <span>Ombud express - Postnord</span>
@@ -121,18 +124,18 @@ const ShippingView: React.FC<Props> = () => {
                                     </FormControl>
                                 </TableCell>
                                 <TableCell className={classes.paddingLeft}>
-                                    49 kr
+                                    0 kr
                                 </TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'a'}
+                                        checked={selectedValue === 'c'}
                                         onChange={handleChange}
-                                        value="a"
+                                        value="c"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'c' }}
                                         size="small"
                                     />
                                     <span>Earlybird</span>
@@ -168,6 +171,7 @@ const ShippingView: React.FC<Props> = () => {
                                     0 kr
                                 </TableCell>
                             </TableRow>
+                           
                             <TableRow>
                                 <TableCell>
                                     <Radio
@@ -213,12 +217,12 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'c'}
+                                        checked={selectedValue === 'f'}
                                         onChange={handleChange}
-                                        value="c"
+                                        value="f"
                                         color="default"
-                                        name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        name="radio-button"                                
+                                        inputProps={{ 'aria-label': 'f' }}
                                         size="small"
                                     />
                                     <span>Upphämtning i butik</span>
