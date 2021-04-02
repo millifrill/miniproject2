@@ -4,13 +4,12 @@ import CartView from './cartView';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
 import Checkout from './checkout';
-import Review from './review';
+import Review from './orderConfirmation';
 import ShippingView from './shippingView';
 
 const rootStyle: CSSProperties = {
     minHeight: '100vh',
     display: 'flex',
-    justifyContent: 'center',
     flexDirection: 'column',
     marginBlockStart: '2rem',
 };

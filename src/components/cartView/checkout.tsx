@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
-import Review from './review';
+import Review from './orderConfirmation';
 import CartView from './cartView';
 import ShippingView from './shippingView';
 
