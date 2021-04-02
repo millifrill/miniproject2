@@ -28,7 +28,9 @@ type Anchor = 'right';
 export default function Header() {
    //om produkt redan finns i varukorgen så öka antal
    const [quantity] = React.useState('');
-   const { cart, addToCart, removeCart, removeItems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
+   const { cart, addToCart, removeCart, removeItems, total } = useContext(
+      CartContext,
+   ); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
 
    const classes = useStyles();
 
@@ -70,7 +72,7 @@ export default function Header() {
             [classes.fullList]: anchor === 'right',
          })}
          role="presentation"
-         onClick={toggleDrawer(anchor, false)}
+         onClick={toggleDrawer(anchor, true)}
          onKeyDown={toggleDrawer(anchor, false)}
       >
          <List>
@@ -146,6 +148,10 @@ export default function Header() {
                                  </TableCell>
                               </TableRow>
                            ))}
+                           <TableRow>
+                           <TableCell>Total summa:</TableCell>
+                           <TableCell>{total}kr</TableCell>
+                           </TableRow>
                         </TableBody>
                      </Table>
                   </TableContainer>
@@ -187,7 +193,7 @@ export default function Header() {
                      DAHLIABANKEN
                   </Link>
                </Typography>
-               
+
                <div>
                   {(['right'] as Anchor[]).map((anchor) => (
                      <React.Fragment key={anchor}>
@@ -360,7 +366,7 @@ const useStyles = makeStyles((theme: Theme) =>
          height: '5rem',
       },
       quantityButton: {
-         height: '3.1rem',
+         height: '3rem',
       },
       inputstyling: {
          width: '2.5rem',
