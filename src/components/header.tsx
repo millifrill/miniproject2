@@ -26,11 +26,10 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 type Anchor = 'right';
 
 export default function Header() {
-   //om produkt redan finns i varukorgen så öka antal
    const [quantity] = React.useState('');
    const { cart, addToCart, removeCart, removeItems, total } = useContext(
       CartContext,
-   ); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
+   ); 
 
    const classes = useStyles();
 
@@ -77,13 +76,18 @@ export default function Header() {
       >
          <List>
             <React.Fragment>
-               <Typography variant="h5" gutterBottom>
-                  Varukorg
-               </Typography>
                <Grid className={classes.mainstyle}>
                   <TableContainer component={Paper}>
                      <Table className={classes.table} aria-label="simple table">
-                        <TableHead>
+                        <TableHead className={classes.center}>
+                           <TableRow>
+                              <Typography
+                                 variant="h5"
+                                 gutterBottom
+                              >
+                                 Varukorg
+                              </Typography>
+                           </TableRow>
                            <TableRow>
                               <TableCell></TableCell>
                               <TableCell>Produkt</TableCell>
@@ -149,8 +153,12 @@ export default function Header() {
                               </TableRow>
                            ))}
                            <TableRow>
-                           <TableCell>Total summa:</TableCell>
-                           <TableCell>{total}kr</TableCell>
+                              <TableCell>Totalsumma:</TableCell>
+                              <TableCell></TableCell>
+                              <TableCell></TableCell>
+                              <TableCell></TableCell>
+                              <TableCell></TableCell>
+                              <TableCell>{total}kr</TableCell>
                            </TableRow>
                         </TableBody>
                      </Table>
@@ -345,6 +353,9 @@ const useStyles = makeStyles((theme: Theme) =>
          height: '2.5rem',
          width: 'auto',
          textDecoration: 'none',
+      },
+      center: {
+         justifyContent: 'center',
       },
       flexEnd: {
          display: 'flex',

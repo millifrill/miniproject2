@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from 'react-router-dom';
 
-
 export default function AddressForm() {
    const classes = useStyles();
    const history = useHistory();
@@ -99,7 +98,6 @@ export default function AddressForm() {
                      id="phoneNumber"
                      name="phoneNumber"
                      label="Telefon nummer"
-                     value={13}
                      fullWidth
                      autoComplete="tel"
                   />
