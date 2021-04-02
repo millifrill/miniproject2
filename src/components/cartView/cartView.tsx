@@ -14,11 +14,15 @@ import { CartContext } from '../../contexts/cartContext';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useHistory } from 'react-router-dom';
 
-interface Props {}
+
+interface Props {
+    
+}
 
 const CartView: React.FC<Props> = () => {
+    
    const [quantity] = React.useState('');
-   const { cart, addToCart, removeCart, removeItems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
+   const { cart, addToCart, removeCart, removeItems, total} = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
    const classes = useStyles();
    const history = useHistory();
    const goToStartPageView = () => {
@@ -63,42 +67,34 @@ const CartView: React.FC<Props> = () => {
                                  aria-label="outlined primary button group"
                               >
                                  <Button
-                                    onClick={() => {
-                                       removeItems(product);
-                                    }}
-                                 >
+                                    onClick={() => {removeItems(product);}}> 
                                     -
                                  </Button>
-                                 <Input
-                                    className={classes.inputstlying}
-                                    id={quantity}
-                                    value={product.quantity}
-                                 />
+                                 <Input className={classes.inputstlying}id={quantity}value={product.quantity}/>
                                  <Button
-                                    onClick={() => {
-                                       addToCart(product);
-                                    }}
-                                 >
+                                    onClick={() => {addToCart(product)}}>
                                     +
                                  </Button>
                               </ButtonGroup>
                            </TableCell>
                            <TableCell>{product.subTotal} kr </TableCell>
                            <TableCell>
+                             
                               <Grid item xs={8}>
                                  <DeleteForeverIcon
-                                    onClick={() => {
-                                       removeCart(product);
-                                    }}
+                                    onClick={() => {removeCart(product);}}
                                  />
+                                
                               </Grid>
+                                
                            </TableCell>
                         </TableRow>
-                        
                      ))}
+                    <TableCell>{total}kr</TableCell>  
                   </TableBody>
                </Table>
-            </TableContainer>
+            </TableContainer> 
+             
             <div className={classes.flexEnd}>
                <Button
                   className={classes.button}

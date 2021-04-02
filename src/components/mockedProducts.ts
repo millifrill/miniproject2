@@ -57,7 +57,7 @@ export const products: Product[] = [
         description:
             'Blommar rikligt och är en vacker och lättplacerad dahlia. Plocka bort färdigblommade blommor så stimuleras fortsatt blomning. Utmärkt som snittblomma!',
         color: 'string',
-        price: 35,
+        price: 36,
     },
     {
         id: 2,
@@ -67,7 +67,7 @@ export const products: Product[] = [
         description:
             'Blommar rikligt och är en vacker och lättplacerad dahlia. Mycket hållbar och mycket lämplig snittblomma. Plocka bort färdigblommade blommor så stimuleras fortsatt blomning.',
         color: 'string',
-        price: 35,
+        price: 37,
     },
     {
         id: 3,
