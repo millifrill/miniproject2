@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button, Grid, Input, Typography } from '@material-ui/core';
+import { Button, Grid, TextField, Typography } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
@@ -32,7 +32,7 @@ const CartView: React.FC<Props> = () => {
    return (
       <React.Fragment>
          <Typography variant="h5" gutterBottom>
-            Kundvagn
+            Varukorg
          </Typography>
          <Grid className={classes.mainstyle}>
             <TableContainer component={Paper}>
@@ -67,34 +67,43 @@ const CartView: React.FC<Props> = () => {
                                  aria-label="outlined primary button group"
                               >
                                  <Button
-                                    onClick={() => {removeItems(product);}}> 
+                                    className={classes.quantityButton}
+                                    onClick={() => {
+                                       removeItems(product);
+                                    }}
+                                 >
                                     -
                                  </Button>
-                                 <Input className={classes.inputstlying}id={quantity}value={product.quantity}/>
+                                 <TextField
+                                    variant="outlined"
+                                    className={classes.inputstyling}
+                                    id={quantity}
+                                    value={product.quantity}
+                                 />
                                  <Button
-                                    onClick={() => {addToCart(product)}}>
+                                    className={classes.quantityButton}
+                                    onClick={() => {
+                                       addToCart(product);
+                                    }}
+                                 >
                                     +
                                  </Button>
                               </ButtonGroup>
                            </TableCell>
                            <TableCell>{product.subTotal} kr </TableCell>
-                           <TableCell>
-                             
+                           <TableCell>           
                               <Grid item xs={8}>
                                  <DeleteForeverIcon
                                     onClick={() => {removeCart(product);}}
-                                 />
-                                
-                              </Grid>
-                                
+                                 />                                
+                              </Grid>                             
                            </TableCell>
                         </TableRow>
                      ))}
                     <TableCell>{total}kr</TableCell>  
                   </TableBody>
                </Table>
-            </TableContainer> 
-             
+            </TableContainer>              
             <div className={classes.flexEnd}>
                <Button
                   className={classes.button}
@@ -161,8 +170,11 @@ const useStyles = makeStyles((theme: Theme) =>
       img: {
          height: '5rem',
       },
-      inputstlying: {
-         width: '2rem',
+      quantityButton: {
+         height: '3.1rem',
+      },
+      inputstyling: {
+         width: '2.5rem',
       },
    }),
 );
