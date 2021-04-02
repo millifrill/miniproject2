@@ -14,7 +14,6 @@ import { CartContext } from '../../contexts/cartContext';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useHistory } from 'react-router-dom';
 
-
 interface Props {
     
 }
