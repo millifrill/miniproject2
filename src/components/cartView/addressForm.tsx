@@ -1,14 +1,20 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { useHistory } from 'react-router-dom';
+
 
 export default function AddressForm() {
    const classes = useStyles();
-   // let telfone= 13;
+   const history = useHistory();
+   const goToStartPageView = () => {
+      history.push('/');
+   };
+
    return (
          <React.Fragment>
             <Typography variant="h5" gutterBottom>
@@ -121,6 +127,15 @@ export default function AddressForm() {
                   />
                </Grid>
             </Grid>
+            <div className={classes.flexEnd}>
+               <Button
+                  className={classes.button}
+                  variant="contained"
+                  onClick={goToStartPageView}
+               >
+                  Fortsätt handla
+               </Button>
+            </div>
          </React.Fragment>
    );
 }
@@ -129,6 +144,23 @@ const useStyles = makeStyles((theme: Theme) =>
    createStyles({
       form: {
          marginBlockStart: '0.5rem',
+      },
+      button: {
+         marginTop: theme.spacing(3),
+         marginLeft: theme.spacing(1),
+         backgroundColor: '#30464d',
+         '&:hover': {
+            backgroundColor: '#30464d',
+         },
+         color: 'white',
+         height: '2.5rem',
+         width: 'auto',
+         textDecoration: 'none',
+      },
+      flexEnd: {
+         display: 'flex',
+         alignItems: 'flex-end',
+         justifyContent: 'flex-start',
       },
    }),
 );

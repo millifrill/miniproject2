@@ -10,12 +10,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
-import Review from './orderConfirmation';
-import CartView from './cartView';
+import OrderConfirmation from './orderConfirmation';
 import ShippingView from './shippingView';
 
 const steps = [
-    'Kundvagn',
     'Kunduppgifter',
     'Betalning',
     'Frakt',
@@ -25,15 +23,13 @@ const steps = [
 function getStepContent(step: number) {
     switch (step) {
         case 0:
-            return <CartView />;
-        case 1:
             return <AddressForm />;
-        case 2:
+        case 1:
             return <PaymentForm />;
-        case 3:
+        case 2:
             return <ShippingView />;
-        case 4:
-            return <Review />;
+        case 3:
+            return <OrderConfirmation />;
         default:
             throw new Error('Unknown step');
     }

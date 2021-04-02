@@ -27,7 +27,7 @@ const payments = [
     { name: 'Utgångsdatum', detail: '04/2024' },
 ];
 
-export default function Review() {
+export default function OrderConfirmation() {
     const classes = useStyles();
     const {total} = useContext(CartContext);
     return (
