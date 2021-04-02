@@ -8,7 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 export default function AddressForm() {
    const classes = useStyles();
-
+   let telfone= 13;
    return (
          <React.Fragment>
             <Typography variant="h5" gutterBottom>
@@ -93,6 +93,7 @@ export default function AddressForm() {
                      id="phoneNumber"
                      name="phoneNumber"
                      label="Telefon nummer"
+                     value={13}
                      fullWidth
                      autoComplete="tel"
                   />

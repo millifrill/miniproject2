@@ -14,17 +14,21 @@ import { CartContext } from '../../contexts/cartContext';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useHistory } from 'react-router-dom';
 
-interface Props {}
+
+interface Props {
+    
+}
 
 const CartView: React.FC<Props> = () => {
     const [quantity] = React.useState('');
-    const { cart, addToCart, remvoecart, removeitems } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
+      
+    const { cart, addToCart, remvoecart, removeitems, totalSum } = useContext(CartContext); // lägg till här gemom  ,delsumman och sen få in den i lägre ner vet ej nu
     const classes = useStyles();
     const history = useHistory();
     const goToStartPageView = () => {
         history.push('/');
     };
-   
+  
     return (
         <React.Fragment>
             <Typography variant="h5" gutterBottom>
@@ -33,16 +37,16 @@ const CartView: React.FC<Props> = () => {
             <Grid className={classes.mainstyle}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
-                        <TableHead>
+                         <TableHead>
                             <TableRow>
                                 <TableCell></TableCell>
                                 <TableCell>Produkt</TableCell>
                                 <TableCell>Pris</TableCell>
                                 <TableCell>Antal</TableCell>
                                 <TableCell>Delsumma</TableCell>
-                                <TableCell></TableCell>
+                                <TableCell>kr</TableCell>
                             </TableRow>
-                        </TableHead>
+                        </TableHead> 
                         <TableBody>
                             {cart.map((product) => (
                                 <TableRow key={product.title}>
@@ -56,7 +60,9 @@ const CartView: React.FC<Props> = () => {
                                     </TableCell>
                                     <TableCell>{product.title}</TableCell>
                                     <TableCell>{product.price} kr</TableCell>
+                                    
                                     <TableCell>
+                                        
                                         <ButtonGroup
                                             className={classes.buttonGroup}
                                             color="primary"
@@ -69,15 +75,18 @@ const CartView: React.FC<Props> = () => {
                                     </TableCell>
                                     <TableCell >{product.subTotal} kr </TableCell>
                                     <TableCell>
+                                        <TableCell>{product.totalSum()}kr</TableCell>
                                         <Grid item xs={8}>
                                             <DeleteForeverIcon  onClick={()=>{remvoecart(product)}} />
                                         </Grid>
                                     </TableCell>
+                                   
                                 </TableRow>
+                                
                             ))}
                         </TableBody>
                     </Table>
-                   
+                    
                 </TableContainer>
                 <div className={classes.flexEnd}>
                     <Button
@@ -88,7 +97,7 @@ const CartView: React.FC<Props> = () => {
                         Fortsätt handla
                     </Button>
                 </div>
-               
+              
                 
             </Grid>
         </React.Fragment>

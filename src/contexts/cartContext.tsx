@@ -15,7 +15,7 @@ interface ContextValue extends State {
    addToCart: (product: Product) => void;
    remvoecart: (product: Product) => void;
    removeitems: (product: Product) => void;
-   delsumman: (product: Product) => void;
+   totalSum: (product: Product) => void;
 }
 
 
@@ -24,7 +24,7 @@ export const CartContext = createContext<ContextValue>({
    addToCart: () => {},
    remvoecart: () =>{},
    removeitems: () =>{},
-   delsumman: () =>{},
+   totalSum: () =>{},
 });
 
 class CartProvider extends Component<{}, State> {
@@ -88,7 +88,7 @@ class CartProvider extends Component<{}, State> {
                addToCart: this.addProductToCart,
                remvoecart: this.remvoeTocart,
                removeitems: this.removeOneitem,
-               delsumman: this.delSumma,
+               totalSum: this.delSumma,
             }}
          >
             {this.props.children}
