@@ -171,49 +171,6 @@ const ShippingView: React.FC<Props> = () => {
                                     0 kr
                                 </TableCell>
                             </TableRow>
-                           
-                            <TableRow>
-                                <TableCell>
-                                    <Radio
-                                        checked={selectedValue === 'b'}
-                                        onChange={handleChange}
-                                        value="b"
-                                        color="default"
-                                        name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
-                                        size="small"
-                                    />
-                                    <span>DHL express </span>
-                                    <div className={classes.leftMargin}>
-                                        2 vardagar
-                                    </div>
-                                </TableCell>
-                                <TableCell className={classes.paddingLeft}>
-                                    <FormControl
-                                        variant="outlined"
-                                        className={classes.formControl}
-                                    >
-                                        <InputLabel id="select-outlined-label">
-                                            Leveransdatum
-                                        </InputLabel>
-                                        <Select
-                                            labelId="select-outlined-label"
-                                            id="select-outlined"
-                                            value={DeliveryDate}
-                                            onChange={handleChanged}
-                                            label="Leveransdatum"
-                                        >
-                                            <MenuItem className={classes.menuItemFontSize} value={70}>
-                                            Onsdagen den 7 april
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </TableCell>
-                                <TableCell className={classes.paddingLeft}>
-                                    48 kr
-                                </TableCell>
-                                <TableCell></TableCell>
-                            </TableRow>
                             <TableRow>
                                 <TableCell>
                                     <Radio
