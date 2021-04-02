@@ -9,18 +9,20 @@ interface CartItem extends Product {
 
 interface State {
    cart: CartItem[];
+   total: number;
 }
 
 interface ContextValue extends State {
    addToCart: (product: Product) => void;
    removeCart: (product: Product) => void;
    removeItems: (product: Product) => void;
-   subToTal: (product: Product) => void;
+   subToTal: (  cart: CartItem[]) => void;
    
 }
 
 
 export const CartContext = createContext<ContextValue>({
+   total: 0,
    cart: [],
    addToCart: () => {},
    removeCart: () =>{},
@@ -31,14 +33,16 @@ export const CartContext = createContext<ContextValue>({
 class CartProvider extends Component<{}, State> {
    state: State = {
       cart: [],
+      total:0,
    };
-   subTotal = () => {
-     let total=0;
-    this.state.cart.forEach(element => {
+   subTotal = ( cart: CartItem[]) => {
+     let totalup=0;
+    cart.forEach(element => {
        
-       total+=element.subTotal
+       totalup+=element.subTotal
     });
-    return total
+    this.setState({ total: totalup });
+    
    };
    
    removeOneitem= (product: Product) => {
@@ -48,23 +52,32 @@ class CartProvider extends Component<{}, State> {
       
       if (removeOne) {
          //säker vädert
+       
          removeOne.quantity--
          removeOne.subTotal-=removeOne.price 
          removeOne.totalSum-=removeOne.price 
          if(removeOne.quantity <= 0){
             this.removeTocart(product)
-         }else{
+         }else{ 
+            
             this.setState({ cart: updatedCart });
+             this.subTotal(updatedCart)
          }
+         
       }
+
    };
    removeTocart= (product: Product) => {
+     
       const removeItems: CartItem[]= this.state.cart.filter((item)=> item.id !== product.id);
+     
       this.setState({cart: [...removeItems]});
+       this.subTotal(removeItems)
       //tar bort en hella produkten
 
    };
    addProductToCart = (product: Product) => {
+      
       let updatedCart = [...this.state.cart];
       
       const itemInCart = updatedCart.find((item) => item.id === product.id);
@@ -78,8 +91,10 @@ class CartProvider extends Component<{}, State> {
          updatedCart =[...updatedCart, { ...product, quantity: 1, subTotal: product.price, totalSum: product.price}]
          //Lägg till produkt med quantity 1
       }
-
+      
       this.setState({ cart: updatedCart });
+     this.subTotal(updatedCart)
+      
    };
 
    render() {
@@ -87,6 +102,7 @@ class CartProvider extends Component<{}, State> {
       return (
          <CartContext.Provider
             value={{
+               total:this.state.total,
                cart: this.state.cart,
                addToCart: this.addProductToCart,
                removeCart: this.removeTocart,
