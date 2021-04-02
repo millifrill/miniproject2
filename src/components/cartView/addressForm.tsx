@@ -99,6 +99,7 @@ export default function AddressForm() {
                      id="phoneNumber"
                      name="phoneNumber"
                      label="Telefon nummer"
+                     value={13}
                      fullWidth
                      autoComplete="tel"
                   />
