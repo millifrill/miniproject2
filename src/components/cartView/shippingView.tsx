@@ -16,11 +16,17 @@ import {
 } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 
-interface Props {}
+interface Props {
+   
+    
+}
 
 const ShippingView: React.FC<Props> = () => {
+    
     const classes = useStyles();
+
     const [DeliveryDate, setDeliveryDate] = React.useState('');
+
     const [selectedValue, setSelectedValue] = React.useState('a');
 
     const handleChanged = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -43,12 +49,12 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'e'}
+                                        checked={selectedValue === 'a'}
                                         onChange={handleChange}
-                                        value="e"
+                                        value="a"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'a' }}
                                         size="small"
                                     />
                                     <span>Brev - Postnord</span>
@@ -84,18 +90,18 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'f'}
+                                        checked={selectedValue === 'b'}
                                         onChange={handleChange}
-                                        value="f"
+                                        value="b"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'b' }}
                                         size="small"
                                     />
                                     <span>Ombud express - Postnord</span>
                                     <div className={classes.leftMargin}>
                                         Order lagt innan kl. 22.00 skickas med
-                                        bud söndag-torsdag kväll. Preliminär
+                                        bud söndag-torsdag kväll kl 17 - 22. Preliminär
                                         leverans imorgon.
                                     </div>
                                 </TableCell>
@@ -114,52 +120,8 @@ const ShippingView: React.FC<Props> = () => {
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value={40}>
-                                                Onsdagen den 31 mars, kl 17 - 22
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </TableCell>
-                                <TableCell className={classes.paddingLeft}>
-                                    49 kr
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell>
-                                    <Radio
-                                        checked={selectedValue === 'a'}
-                                        onChange={handleChange}
-                                        value="a"
-                                        color="default"
-                                        name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
-                                        size="small"
-                                    />
-                                    <span>Earlybird</span>
-                                    <div className={classes.leftMargin}>
-                                        Levereras innan 07:00 till din brevlåda,
-                                        större försändelser lämnas vid dörren
-                                        eller brevlådan
-                                    </div>
-                                </TableCell>
-                                <TableCell className={classes.paddingLeft}>
-                                    <FormControl
-                                        variant="outlined"
-                                        className={classes.formControl}
-                                    >
-                                        <InputLabel id="select-outlined-label">
-                                            Leveransdatum
-                                        </InputLabel>
-                                        <Select
-                                            labelId="select-outlined-label"
-                                            id="select-outlined"
-                                            value={DeliveryDate}
-                                            onChange={handleChanged}
-                                            label="Leveransdatum"
-                                        >
-                                            <MenuItem value={3}>
-                                                Onsdagen den 31 mars, från kl
-                                                03.00
+                                            <MenuItem className={classes.menuItemFontSize} value={40}>
+                                            Tisdagen den 6 april
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
@@ -171,17 +133,20 @@ const ShippingView: React.FC<Props> = () => {
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'b'}
+                                        checked={selectedValue === 'c'}
                                         onChange={handleChange}
-                                        value="b"
+                                        value="c"
                                         color="default"
                                         name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        inputProps={{ 'aria-label': 'c' }}
                                         size="small"
                                     />
-                                    <span>DHL express </span>
+                                    <span>Earlybird</span>
                                     <div className={classes.leftMargin}>
-                                        2 vardagar
+                                        <div>2 vardagar</div>
+                                        <div>Levereras innan 07:00 till din brevlåda,
+                                        större försändelser lämnas vid dörren
+                                        eller brevlådan</div>
                                     </div>
                                 </TableCell>
                                 <TableCell className={classes.paddingLeft}>
@@ -199,26 +164,25 @@ const ShippingView: React.FC<Props> = () => {
                                             onChange={handleChanged}
                                             label="Leveransdatum"
                                         >
-                                            <MenuItem value={70}>
-                                                Onsdagen den 30 mars
+                                            <MenuItem className={classes.menuItemFontSize} value={3}>
+                                            Onsdagen den 7 april
                                             </MenuItem>
                                         </Select>
                                     </FormControl>
                                 </TableCell>
                                 <TableCell className={classes.paddingLeft}>
-                                    48 kr
+                                    0 kr
                                 </TableCell>
-                                <TableCell></TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>
                                     <Radio
-                                        checked={selectedValue === 'c'}
+                                        checked={selectedValue === 'f'}
                                         onChange={handleChange}
-                                        value="c"
+                                        value="f"
                                         color="default"
-                                        name="radio-button"
-                                        inputProps={{ 'aria-label': 'E' }}
+                                        name="radio-button"                                
+                                        inputProps={{ 'aria-label': 'f' }}
                                         size="small"
                                     />
                                     <span>Upphämtning i butik</span>

@@ -10,12 +10,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './addressForm';
 import PaymentForm from './paymentForm';
-import Review from './review';
-import CartView from './cartView';
+import OrderConfirmation from './orderConfirmation';
 import ShippingView from './shippingView';
 
 const steps = [
-    'Varukorg',
     'Kunduppgifter',
     'Betalning',
     'Frakt',
@@ -25,37 +23,46 @@ const steps = [
 function getStepContent(step: number) {
     switch (step) {
         case 0:
-            return <CartView />;
-        case 1:
             return <AddressForm />;
-        case 2:
+        case 1:
             return <PaymentForm />;
-        case 3:
+        case 2:
             return <ShippingView />;
-        case 4:
-            return <Review />;
+        case 3:
+            return <OrderConfirmation />;
         default:
             throw new Error('Unknown step');
     }
 }
 
 export default function Checkout() {
+    
     const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(0);
 
+    const [activeStep, setActiveStep] = React.useState(0);
+   
     const handleNext = () => {
-        setActiveStep(activeStep + 1);
+        if (activeStep ===3){
+            timedelay()
+        }else{
+            setActiveStep(activeStep + 1);
+        }
+        
     };
 
     const handleBack = () => {
         setActiveStep(activeStep - 1);
     };
 
-    // handleSubmit = () => {
-    //     this.setState({ submitted: true }, () => {
-    //         setTimeout(() => this.setState({ submitted: false }), 5000);
-    //     });
-    // }
+    function getRandomNumberBetween(){
+        return Math.floor(Math.random()*(1000000));
+    }
+    
+    function timedelay() {
+        setTimeout(function() {
+        setActiveStep(activeStep + 1);
+     }, 2000);
+    }
 
     return (
         <React.Fragment>
@@ -84,7 +91,7 @@ export default function Checkout() {
                                     Tack för din beställning.
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    Ditt order nummer är #2001539. Vi har
+                                    Ditt order nummer är #{getRandomNumberBetween()}. Vi har
                                     skickat din beställning via e-post
                                     bekräftelse och skickar en uppdatering när
                                     din beställning är färdig förlevereras.
@@ -106,6 +113,7 @@ export default function Checkout() {
                                         variant="contained"
                                         size="large"
                                         onClick={handleNext}
+                                        
                                         className={classes.button}
                                         type="submit"
                                         // onSubmit={handleSubmit}
